@@ -45,7 +45,7 @@ const AnimatedText: React.FC = () => {
   }, []);
 
   return (
-    <div ref={textRef} className='text-6xl font-bold whitespace-pre'>
+    <div ref={textRef} className='text-6xl font-bold whitespace-pre text-white'>
       Hi I'm Byron
     </div>
   );

@@ -1,11 +1,13 @@
 // app/page.tsx
 import AnimatedText from '@/components/animatedText';
 import { BackgroundBeamsWithCollision } from '@/components/backgroundBeams';
+import ProjectCards from '@/components/projectCards';
 
 export default function Home() {
   return (
-    <BackgroundBeamsWithCollision>
-      <div className='h-full w-full p-8'>
+    <main className="relative min-h-screen bg-black">
+      <BackgroundBeamsWithCollision />
+      <div className='relative min-h-screen w-full p-8'>
         {/* Top section */}
         <div className='flex justify-center items-center mt-40'>
           <AnimatedText />
@@ -13,63 +15,57 @@ export default function Home() {
 
         {/* Middle section */}
         <div className='flex justify-center items-center mt-24'>
-          <h1 className='text-2xl font-bold'>
+          <h1 className='text-2xl font-bold text-white'>
             I'm a fullstack web developer. I am passionate about creating <br />
             innovative solutions that can help people in the real world. <br />
             Check out some of the projects I've built.
           </h1>
         </div>
 
-        <a
-          href='https://www.linkedin.com/in/byron-dray'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='absolute right-20 top-12 -translate-y-1/2 group'
-        >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 24 24'
-            width='48'
-            height='48'
-            className='transition-transform duration-300 ease-in-out group-hover:scale-110'
+        <ProjectCards />
+
+        <div className="fixed right-20 top-12 flex gap-8">
+          <a
+            href='https://github.com/byrondray'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='group'
           >
-            <path
-              className='fill-[#0077B5] transition-colors duration-300 ease-in-out group-hover:fill-[#005582]'
-              d='M22.23 0H1.77C.792 0 0 .774 0 1.727v20.546C0 23.227.792 24 1.77 24h20.46c.978 0 1.77-.773 1.77-1.727V1.727C24 .774 23.208 0 22.23 0zM7.09 20.452H3.544V9.087H7.09v11.365zm-1.773-12.99c-1.12 0-1.98-.875-1.98-1.958C3.337 5.418 4.197 4.543 5.317 4.543c1.118 0 1.98.875 1.98 1.96 0 1.083-.862 1.958-1.98 1.958zM20.452 20.452h-3.544v-5.7c0-1.36-.027-3.107-1.894-3.107-1.897 0-2.187 1.48-2.187 3.007v5.8h-3.543V9.087h3.404v1.555h.05c.474-.9 1.634-1.85 3.366-1.85 3.596 0 4.26 2.367 4.26 5.45v6.21z'
-            />
-          </svg>
-        </a>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+              width='48'
+              height='48'
+              className='transition-transform duration-300 ease-in-out group-hover:scale-110'
+            >
+              <path
+                className='fill-white transition-colors duration-300 ease-in-out group-hover:fill-gray-400'
+                d='M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.17c-3.338.724-4.043-1.61-4.043-1.61-.547-1.387-1.335-1.756-1.335-1.756-1.092-.747.082-.732.082-.732 1.205.084 1.84 1.237 1.84 1.237 1.072 1.836 2.81 1.306 3.495.998.108-.776.42-1.305.763-1.605-2.665-.3-5.467-1.333-5.467-5.933 0-1.31.468-2.383 1.236-3.224-.124-.303-.535-1.523.117-3.176 0 0 1.007-.322 3.3 1.23a11.51 11.51 0 0 1 3.003-.403c1.02.005 2.045.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.654 1.653.243 2.873.12 3.176.77.84 1.233 1.914 1.233 3.224 0 4.61-2.805 5.63-5.477 5.924.43.37.824 1.102.824 2.222v3.293c0 .32.19.694.8.575C20.565 21.8 24 17.3 24 12c0-6.63-5.373-12-12-12z'
+              />
+            </svg>
+          </a>
 
-        <a
-          href='https://github.com/byrondray'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='absolute right-40 top-12 -translate-y-1/2 group'
-        >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 24 24'
-            width='48'
-            height='48'
-            className='transition-transform duration-300 ease-in-out group-hover:scale-110'
+          <a
+            href='https://www.linkedin.com/in/byron-dray'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='group'
           >
-            <path
-              className='fill-white transition-colors duration-300 ease-in-out group-hover:fill-gray-400'
-              d='M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.17c-3.338.724-4.043-1.61-4.043-1.61-.547-1.387-1.335-1.756-1.335-1.756-1.092-.747.082-.732.082-.732 1.205.084 1.84 1.237 1.84 1.237 1.072 1.836 2.81 1.306 3.495.998.108-.776.42-1.305.763-1.605-2.665-.3-5.467-1.333-5.467-5.933 0-1.31.468-2.383 1.236-3.224-.124-.303-.535-1.523.117-3.176 0 0 1.007-.322 3.3 1.23a11.51 11.51 0 0 1 3.003-.403c1.02.005 2.045.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.654 1.653.243 2.873.12 3.176.77.84 1.233 1.914 1.233 3.224 0 4.61-2.805 5.63-5.477 5.924.43.37.824 1.102.824 2.222v3.293c0 .32.19.694.8.575C20.565 21.8 24 17.3 24 12c0-6.63-5.373-12-12-12z'
-            />
-          </svg>
-        </a>
-
-        {/* Bottom section */}
-        {/* <div className='absolute bottom-8 left-8'>
-          <p className='text-lg'>Bottom left content</p>
-        </div> */}
-
-        {/* Right side */}
-        {/* <div className='absolute right-8 top-1/2 -translate-y-1/2'>
-          <p className='text-lg'>Right side content</p>
-        </div> */}
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+              width='48'
+              height='48'
+              className='transition-transform duration-300 ease-in-out group-hover:scale-110'
+            >
+              <path
+                className='fill-[#0077B5] transition-colors duration-300 ease-in-out group-hover:fill-[#005582]'
+                d='M22.23 0H1.77C.792 0 0 .774 0 1.727v20.546C0 23.227.792 24 1.77 24h20.46c.978 0 1.77-.773 1.77-1.727V1.727C24 .774 23.208 0 22.23 0zM7.09 20.452H3.544V9.087H7.09v11.365zm-1.773-12.99c-1.12 0-1.98-.875-1.98-1.958C3.337 5.418 4.197 4.543 5.317 4.543c1.118 0 1.98.875 1.98 1.96 0 1.083-.862 1.958-1.98 1.958zM20.452 20.452h-3.544v-5.7c0-1.36-.027-3.107-1.894-3.107-1.897 0-2.187 1.48-2.187 3.007v5.8h-3.543V9.087h3.404v1.555h.05c.474-.9 1.634-1.85 3.366-1.85 3.596 0 4.26 2.367 4.26 5.45v6.21z'
+              />
+            </svg>
+          </a>
+        </div>
       </div>
-    </BackgroundBeamsWithCollision>
+    </main>
   );
 }

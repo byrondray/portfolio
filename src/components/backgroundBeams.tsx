@@ -65,28 +65,19 @@ export const BackgroundBeamsWithCollision = ({
     },
   ];
 
+  // BackgroundBeamsWithCollision component
   return (
     <div
       ref={parentRef}
       className={`
-        min-h-[100vh] 
-        h-[100dvh] 
-        bg-gradient-to-b 
-        from-white 
-        to-neutral-100 
-        dark:from-neutral-950 
-        dark:to-neutral-800 
-        relative 
-        flex 
-        items-center 
-        w-full 
-        justify-center 
-        overflow-hidden
-      `}
-      style={{
-        minHeight: '100vh',
-        height: '100vh',
-      }}
+      fixed 
+      inset-0 
+      w-full 
+      bg-gradient-to-b 
+      from-neutral-950 
+      to-neutral-800 
+      z-0
+    `}
     >
       {beams.map((beam) => (
         <CollisionMechanism
@@ -97,15 +88,15 @@ export const BackgroundBeamsWithCollision = ({
         />
       ))}
 
-      {children ? children : null}
       <div
         ref={containerRef}
-        className='absolute bottom-0 bg-neutral-100 w-full inset-x-0 pointer-events-none'
+        className='absolute bottom-0 bg-neutral-800 w-full inset-x-0 pointer-events-none'
         style={{
           boxShadow:
-            '0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset',
+            '0 0 24px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 4px rgba(0, 0, 0, 0.1), 0 16px 68px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.05) inset',
         }}
       ></div>
+      {children}
     </div>
   );
 };
@@ -213,7 +204,7 @@ const CollisionMechanism = React.forwardRef<
           repeatDelay: beamOptions.repeatDelay || 0,
         }}
         className={
-          'absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent'
+          'absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent z-10'
         }
       />
       <AnimatePresence>
