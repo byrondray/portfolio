@@ -10,43 +10,44 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Brain, ChefHat } from 'lucide-react';
 
 const projects = [
   {
     title: 'Relay Rideshare',
     description:
       'Description of your first project. What problem did it solve? What technologies did you use?',
-    technologies: ['React', 'Next.js', 'Tailwind CSS'],
-    liveLink: 'https://project1.com',
-    githubLink: 'https://github.com/username/project1',
-    image: '/api/placeholder/600/400',
+    technologies: ['React Native', 'Expo', 'GraphQL'],
+    liveLink: 'https://relay.arspera.com/',
+    githubLink: 'https://github.com/byrondray/relay',
+    image: '/images/relay_logo.png',
   },
   {
     title: 'Fairshare',
     description:
       'Description of your second project. Highlight the key features and your role in development.',
-    technologies: ['TypeScript', 'Node.js', 'MongoDB'],
-    liveLink: 'https://project2.com',
-    githubLink: 'https://github.com/username/project2',
-    image: '/api/placeholder/600/400',
+    technologies: ['TypeScript', 'Bun', 'HTMX', 'Drizzle ORM'],
+    liveLink: 'https://idsp.onrender.com/',
+    githubLink: 'https://github.com/JustArmaan/FairShare',
+    image: '/images/fs_logo.png',
   },
   {
     title: 'Flash Learn',
     description:
       'Description of your third project. What makes this project unique? What did you learn?',
-    technologies: ['Python', 'Django', 'PostgreSQL'],
-    liveLink: 'https://project3.com',
-    githubLink: 'https://github.com/username/project3',
-    image: '/api/placeholder/600/400',
+    technologies: ['Next.js', 'Tailwind CSS', 'OpenAI API', 'Sqlite'],
+    liveLink: 'https://flash-learn-seven.vercel.app/',
+    githubLink: 'https://github.com/byrondray/flash-learn',
+    image: '',
   },
   {
     title: 'Recipe App',
     description:
       'Description of your third project. What makes this project unique? What did you learn?',
-    technologies: ['Python', 'Django', 'PostgreSQL'],
-    liveLink: 'https://project3.com',
-    githubLink: 'https://github.com/username/project3',
-    image: '/api/placeholder/600/400',
+    technologies: ['Next.js', 'Tailwind CSS', 'Amazon S3'],
+    liveLink: 'https://recipe-tracker-mauve.vercel.app/',
+    githubLink: 'https://github.com/byrondray/recipe-tracker',
+    image: '',
   },
 ];
 
@@ -63,11 +64,19 @@ const ProjectCards = () => {
             className='flex flex-col bg-black/40 backdrop-blur-md border-gray-800 hover:border-gray-700 transition-all duration-300'
           >
             <CardHeader>
-              <img
-                src={project.image}
-                alt={project.title}
-                className='w-full h-48 object-cover rounded-t-lg mb-4'
-              />
+              <div className='flex justify-center align-center'>
+                {project.title === 'Flash Learn' ? (
+                  <Brain size={240} color='#818CF8' className='text-white' />
+                ) : project.title === 'Recipe App' ? (
+                  <ChefHat size={240} className='text-white' color='#F87171' />
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className='w-48 h-fit object-cover rounded-t-lg mb-4'
+                  />
+                )}
+              </div>
               <CardTitle className='text-xl font-bold text-white'>
                 {project.title}
               </CardTitle>

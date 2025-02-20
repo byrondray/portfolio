@@ -1,4 +1,5 @@
 'use client';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import React, { useRef, useState, useEffect } from 'react';
 
@@ -65,7 +66,6 @@ export const BackgroundBeamsWithCollision = ({
     },
   ];
 
-  // BackgroundBeamsWithCollision component
   return (
     <div
       ref={parentRef}
