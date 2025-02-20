@@ -17,7 +17,7 @@ const projects = [
   {
     title: 'Relay Rideshare',
     description:
-      'Description of your first project. What problem did it solve? What technologies did you use?',
+      'This project is a ridesharing app designed specifically for busy parents to schedule rides for their children who are traveling to the same destination at the same time. The app streamlines the process of organizing carpools, providing convenience, security, and efficiency. My role in the development of this project was to design and implement the front-end user interface using React Native and Expo, and to integrate the GraphQL API for data retrieval and storage.',
     technologies: ['React Native', 'Expo', 'GraphQL'],
     liveLink: 'https://relay.arspera.com/',
     githubLink: 'https://github.com/byrondray/relay',
@@ -26,7 +26,7 @@ const projects = [
   {
     title: 'Fairshare',
     description:
-      'Description of your second project. Highlight the key features and your role in development.',
+      'FairShare is an innovative app designed to simplify group expense management and ensure financial fairness. It’s the ultimate tool for splitting costs and keeping track of shared expenses among friends, families, or coworkers.',
     technologies: ['TypeScript', 'Bun', 'HTMX', 'Drizzle ORM'],
     liveLink: 'https://idsp.onrender.com/',
     githubLink: 'https://github.com/JustArmaan/FairShare',
@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'Flash Learn',
     description:
-      'Description of your third project. What makes this project unique? What did you learn?',
+      'Flash Learn is a productivity-focused app designed to transform how users study and retain information. It bridges the gap between note-taking and active learning by converting user input into interactive study tools. ',
     technologies: ['Next.js', 'Tailwind CSS', 'OpenAI API', 'Sqlite'],
     liveLink: 'https://flash-learn-seven.vercel.app/',
     githubLink: 'https://github.com/byrondray/flash-learn',
@@ -44,7 +44,7 @@ const projects = [
   {
     title: 'Recipe App',
     description:
-      'Description of your third project. What makes this project unique? What did you learn?',
+      'This app allows users to post their favorite recipes and browse recipes shared by others. It is designed to be a community-driven space where food lovers can share their creations and discover new dishes.',
     technologies: ['Next.js', 'Tailwind CSS', 'Amazon S3'],
     liveLink: 'https://recipe-tracker-mauve.vercel.app/',
     githubLink: 'https://github.com/byrondray/recipe-tracker',
