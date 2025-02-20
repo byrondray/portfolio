@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Brain, ChefHat } from 'lucide-react';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -70,10 +71,12 @@ const ProjectCards = () => {
                 ) : project.title === 'Recipe App' ? (
                   <ChefHat size={240} className='text-white' color='#F87171' />
                 ) : (
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className='w-48 h-fit object-cover rounded-t-lg mb-4'
+                    width={192}
+                    height={192}
+                    className='h-fit object-cover rounded-t-lg mb-4'
                   />
                 )}
               </div>

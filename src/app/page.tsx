@@ -5,7 +5,7 @@ import ProjectCards from '@/components/projectCards';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-black">
+    <main className='relative min-h-screen bg-black'>
       <BackgroundBeamsWithCollision />
       <div className='relative min-h-screen w-full p-8'>
         {/* Top section */}
@@ -16,15 +16,16 @@ export default function Home() {
         {/* Middle section */}
         <div className='flex justify-center items-center mt-24'>
           <h1 className='text-2xl font-bold text-white'>
-            I'm a fullstack web developer. I am passionate about creating <br />
+            I&apos;m a fullstack web developer. I am passionate about creating{' '}
+            <br />
             innovative solutions that can help people in the real world. <br />
-            Check out some of the projects I've built.
+            Check out some of the projects I&apos;ve built.
           </h1>
         </div>
 
         <ProjectCards />
 
-        <div className="fixed right-20 top-12 flex gap-8">
+        <div className='fixed right-20 top-12 flex gap-8'>
           <a
             href='https://github.com/byrondray'
             target='_blank'
