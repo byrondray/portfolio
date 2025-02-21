@@ -37,7 +37,7 @@ const projects = [
     description:
       'Flash Learn is a productivity-focused app designed to transform how users study and retain information. It bridges the gap between note-taking and active learning by converting user input into interactive study tools. ',
     technologies: ['Next.js', 'Tailwind CSS', 'OpenAI API', 'Sqlite'],
-    liveLink: 'https://flash-learn-seven.vercel.app/',
+    liveLink: 'https://flash-learn-f9pl.onrender.com/',
     githubLink: 'https://github.com/byrondray/flash-learn',
     image: '',
   },
