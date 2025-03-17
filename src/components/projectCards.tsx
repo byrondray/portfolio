@@ -46,7 +46,7 @@ const projects = [
     description:
       'This app allows users to post their favorite recipes and browse recipes shared by others. It is designed to be a community-driven space where food lovers can share their creations and discover new dishes.',
     technologies: ['Next.js', 'Tailwind CSS', 'Amazon S3'],
-    liveLink: 'https://recipe-tracker-mauve.vercel.app/',
+    liveLink: 'https://recipe-tracker-pcw2.vercel.app/',
     githubLink: 'https://github.com/byrondray/recipe-tracker',
     image: '',
   },
