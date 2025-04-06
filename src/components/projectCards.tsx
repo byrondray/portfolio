@@ -17,7 +17,7 @@ const projects = [
   {
     title: 'Relay Rideshare',
     description:
-      'This project is a ridesharing app designed specifically for busy parents to schedule rides for their children who are traveling to the same destination at the same time. The app streamlines the process of organizing carpools, providing convenience, security, and efficiency. My role in the development of this project was to design and implement the front-end user interface using React Native and Expo, and to integrate the GraphQL API for data retrieval and storage.',
+      'Relay rideshare app designed is for busy parents to schedule rides for their children who are traveling to the same destination at the same time.',
     technologies: ['React Native', 'Expo', 'GraphQL'],
     liveLink: 'https://relay.arspera.com/',
     githubLink: 'https://github.com/byrondray/relay',
@@ -26,7 +26,7 @@ const projects = [
   {
     title: 'Fairshare',
     description:
-      'FairShare is an innovative app designed to simplify group expense management and ensure financial fairness. It’s the ultimate tool for splitting costs and keeping track of shared expenses among friends, families, or coworkers.',
+      'FairShare is an innovative app designed to simplify group expense management and ensure financial fairness.',
     technologies: ['TypeScript', 'Bun', 'HTMX', 'Drizzle ORM'],
     liveLink: 'https://idsp.onrender.com/',
     githubLink: 'https://github.com/JustArmaan/FairShare',
@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'Flash Learn',
     description:
-      'Flash Learn is a productivity-focused app designed to transform how users study and retain information. It bridges the gap between note-taking and active learning by converting user input into interactive study tools. ',
+      'Flash Learn is a productivity-focused app designed to transform how users study and retain information.',
     technologies: ['Next.js', 'Tailwind CSS', 'OpenAI API', 'Sqlite'],
     liveLink: 'https://flash-learn-f9pl.onrender.com/',
     githubLink: 'https://github.com/byrondray/flash-learn',
@@ -44,7 +44,7 @@ const projects = [
   {
     title: 'Recipe App',
     description:
-      'This app allows users to post their favorite recipes and browse recipes shared by others. It is designed to be a community-driven space where food lovers can share their creations and discover new dishes.',
+      'This app allows users to post their favorite recipes and browse recipes shared by others.',
     technologies: ['Next.js', 'Tailwind CSS', 'Amazon S3'],
     liveLink: 'https://recipe-tracker-pcw2.vercel.app/',
     githubLink: 'https://github.com/byrondray/recipe-tracker',
@@ -62,37 +62,39 @@ const ProjectCards = () => {
         {projects.map((project, index) => (
           <Card
             key={index}
-            className='flex flex-col bg-black/40 backdrop-blur-md border-gray-800 hover:border-gray-700 transition-all duration-300'
+            className='flex flex-col bg-black/40 backdrop-blur-md border-gray-800 hover:border-gray-700 transition-all duration-300 h-full'
           >
             <CardHeader>
-              <div className='flex justify-center align-center'>
+              <div className='flex justify-center items-center h-48 w-full mb-2'>
                 {project.title === 'Flash Learn' ? (
-                  <Brain size={240} color='#818CF8' className='text-white' />
+                  <Brain size={140} color='#818CF8' className='text-white' />
                 ) : project.title === 'Recipe App' ? (
-                  <ChefHat size={240} className='text-white' color='#F87171' />
+                  <ChefHat size={140} className='text-white' color='#F87171' />
                 ) : (
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={192}
-                    height={192}
-                    className='h-fit object-cover rounded-t-lg mb-4'
+                    width={140}
+                    height={140}
+                    className='object-contain'
                   />
                 )}
               </div>
-              <CardTitle className='text-xl font-bold text-white'>
-                {project.title}
-              </CardTitle>
-              <CardDescription className='text-gray-400'>
-                {project.description}
-              </CardDescription>
+              <div className='w-full'>
+                <CardTitle className='text-xl font-bold text-white'>
+                  {project.title}
+                </CardTitle>
+                <CardDescription className='text-gray-400 h-16 line-clamp-3 mt-2'>
+                  {project.description}
+                </CardDescription>
+              </div>
             </CardHeader>
             <CardContent>
-              <div className='flex flex-wrap gap-2'>
+              <div className='flex flex-wrap gap-2 mb-4'>
                 {project.technologies.map((tech, idx) => (
                   <span
                     key={idx}
-                    className='px-2 py-1 bg-gray-800 rounded-full text-sm text-gray-300'
+                    className='px-3 py-1 bg-gray-800/80 rounded-full text-sm text-gray-300'
                   >
                     {tech}
                   </span>
