@@ -12,45 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Brain, ChefHat } from 'lucide-react';
 import Image from 'next/image';
-
-const projects = [
-  {
-    title: 'Relay Rideshare',
-    description:
-      'Relay rideshare app designed is for busy parents to schedule rides for their children who are traveling to the same destination at the same time.',
-    technologies: ['React Native', 'Expo', 'GraphQL'],
-    liveLink: 'https://relay.arspera.com/',
-    githubLink: 'https://github.com/byrondray/relay',
-    image: '/images/relay_logo.png',
-  },
-  {
-    title: 'Fairshare',
-    description:
-      'FairShare is an innovative app designed to simplify group expense management and ensure financial fairness.',
-    technologies: ['TypeScript', 'Bun', 'HTMX', 'Drizzle ORM'],
-    liveLink: 'https://idsp.onrender.com/',
-    githubLink: 'https://github.com/JustArmaan/FairShare',
-    image: '/images/fs_logo.png',
-  },
-  {
-    title: 'Flash Learn',
-    description:
-      'Flash Learn is a productivity-focused app designed to transform how users study and retain information.',
-    technologies: ['Next.js', 'Tailwind CSS', 'OpenAI API', 'Sqlite'],
-    liveLink: 'https://flash-learn-f9pl.onrender.com/',
-    githubLink: 'https://github.com/byrondray/flash-learn',
-    image: '',
-  },
-  {
-    title: 'Recipe App',
-    description:
-      'This app allows users to post their favorite recipes and browse recipes shared by others.',
-    technologies: ['Next.js', 'Tailwind CSS', 'Amazon S3'],
-    liveLink: 'https://recipe-tracker-pcw2.vercel.app/',
-    githubLink: 'https://github.com/byrondray/recipe-tracker',
-    image: '',
-  },
-];
+import { projects } from '@/data/projectData';
 
 const ProjectCards = () => {
   return (
