@@ -10,9 +10,29 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Brain, ChefHat } from 'lucide-react';
+import { Brain, ChefHat, Database } from 'lucide-react';
 import Image from 'next/image';
 import { projects } from '@/data/projectData';
+import Link from 'next/link';
+
+const ForkliftIcon = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='140'
+    height='140'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='#6366F1'
+    strokeWidth='1.5'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+  >
+    <path d='M12 12H5a2 2 0 0 0-2 2v5' />
+    <circle cx='13' cy='19' r='2' />
+    <circle cx='5' cy='19' r='2' />
+    <path d='M8 19h3m5-17v17h6M6 12V7c0-1.1.9-2 2-2h3l5 5' />
+  </svg>
+);
 
 const ProjectCards = () => {
   return (
@@ -32,7 +52,9 @@ const ProjectCards = () => {
                   <Brain size={140} color='#818CF8' className='text-white' />
                 ) : project.title === 'Recipe App' ? (
                   <ChefHat size={140} className='text-white' color='#F87171' />
-                ) : (
+                ) : project.title === 'Warehouse CMS' ? (
+                  <ForkliftIcon />
+                ) : project.image ? (
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -40,6 +62,8 @@ const ProjectCards = () => {
                     height={140}
                     className='object-contain'
                   />
+                ) : (
+                  <Database size={140} color='#10B981' className='text-white' />
                 )}
               </div>
               <div className='w-full'>
@@ -63,23 +87,12 @@ const ProjectCards = () => {
                 ))}
               </div>
             </CardContent>
-            <CardFooter className='flex gap-4 mt-auto'>
-              <Button
-                variant='outline'
-                className='flex-1 hover:bg-gray-300'
-                onClick={() => window.open(project.liveLink, '_blank')}
-              >
-                {project.title === 'Relay Rideshare'
-                  ? 'Learn More'
-                  : 'Live Demo'}
-              </Button>
-              <Button
-                variant='outline'
-                className='flex-1 hover:bg-gray-300'
-                onClick={() => window.open(project.githubLink, '_blank')}
-              >
-                GitHub
-              </Button>
+            <CardFooter className='flex justify-center mt-auto'>
+              <Link href={`/projects/${project.id}`} className='w-full'>
+                <Button variant='outline' className='w-full hover:bg-gray-300'>
+                  Learn More
+                </Button>
+              </Link>
             </CardFooter>
           </Card>
         ))}

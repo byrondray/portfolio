@@ -21,6 +21,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   const details = project.details || {};
 
+  // Check if videoUrl is a direct MP4 file or an embed URL
+  const isDirectVideo = details.videoUrl?.endsWith('.mp4');
+
   return (
     <ProjectLayout title={project.title}>
       <div className='mb-12 flex items-center'>
@@ -100,13 +103,22 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               <h2 className='text-2xl font-semibold text-white mb-6'>
                 Project Demo
               </h2>
-              <div className='aspect-video w-full'>
-                <iframe
-                  src={details.videoUrl}
-                  className='w-full h-full rounded-lg'
-                  title={`${project.title} demo video`}
-                  allowFullScreen
-                ></iframe>
+              <div className='aspect-video w-full rounded-lg overflow-hidden'>
+                {isDirectVideo ? (
+                  <video
+                    src={details.videoUrl}
+                    className='w-full h-full object-cover'
+                    controls
+                    poster={details.screenshots?.[0] || ''}
+                  />
+                ) : (
+                  <iframe
+                    src={details.videoUrl}
+                    className='w-full h-full'
+                    title={`${project.title} demo video`}
+                    allowFullScreen
+                  ></iframe>
+                )}
               </div>
             </div>
           )}
@@ -201,13 +213,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             {details.screenshots.map((screenshot, idx) => (
               <div
                 key={idx}
-                className='relative aspect-video overflow-hidden rounded-lg bg-gray-800/50'
+                className='relative h-80 overflow-hidden rounded-lg bg-gray-800/50'
               >
                 <Image
                   src={screenshot}
                   alt={`${project.title} screenshot ${idx + 1}`}
                   fill
-                  className='object-cover'
+                  className='object-contain'
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 />
               </div>
             ))}
