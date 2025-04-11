@@ -15,11 +15,15 @@ export default function Home() {
 
         {/* Middle section */}
         <div className='flex justify-center items-center mt-24'>
-          <h1 className='text-2xl font-bold text-white'>
-            I&apos;m a fullstack web developer. I am passionate about creating{' '}
-            <br />
-            innovative solutions that can help people in the real world. <br />
-            Check out some of the projects I&apos;ve built.
+          <h1 className='text-2xl font-bold text-white text-center'>
+            I&apos;m a fullstack web developer specializing in React, Next.js,
+            ASP.NET, and Node.js. <br />
+            I am passionate about creating innovative solutions that can help
+            people in the real world, <br />
+            with a focus on clean code, responsive design, and intuitive user
+            experiences. <br />
+            Check out some of the projects I&apos;ve built using modern
+            frameworks and cloud technologies.
           </h1>
         </div>
 
