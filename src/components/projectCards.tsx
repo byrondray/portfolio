@@ -88,7 +88,7 @@ const ProjectCards = () => {
               </div>
             </CardContent>
             <CardFooter className='flex justify-center mt-auto'>
-              <Link href={`/projects/${project.id}`} className='w-full'>
+              <Link href={`/details/${project.id}`} className='w-full'>
                 <Button variant='outline' className='w-full hover:bg-gray-300'>
                   Learn More
                 </Button>
