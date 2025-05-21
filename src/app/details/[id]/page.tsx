@@ -71,7 +71,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             <motion.h1
               className={`text-4xl font-bold ${
                 isDark ? 'text-white' : 'text-gray-900'
-              }`}
+              } font-inter tracking-tight`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}

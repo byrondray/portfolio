@@ -30,13 +30,14 @@ const ProjectLayout = ({ children, title }: ProjectLayoutProps) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
+            {' '}
             <Link
               href='/'
               className={`flex items-center ${
                 isDark
                   ? 'text-white hover:text-gray-300'
                   : 'text-gray-900 hover:text-gray-600'
-              } transition-colors group w-fit`}
+              } transition-colors group w-fit font-inter font-medium`}
             >
               <ArrowLeft className='mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform' />
               Back to Projects

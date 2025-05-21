@@ -17,7 +17,7 @@ export default function Home() {
         <div className='relative min-h-screen w-full p-8'>
           {/* Top section */}
           <motion.div
-            className='flex justify-center items-center mt-28'
+            className='flex justify-center items-center mt-28 min-h-[5rem] py-4'
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -31,7 +31,7 @@ export default function Home() {
             delay={0.5}
             className='flex justify-center items-center mt-16'
           >
-            <h1 className='text-2xl font-bold text-center transition-colors duration-300 dark:text-white text-gray-900'>
+            <h1 className='text-2xl font-medium text-center transition-colors duration-300 dark:text-white text-gray-900 font-inter leading-relaxed'>
               I&apos;m a fullstack web developer specializing in React, Next.js,
               ASP.NET, and Node.js. <br />
               I am passionate about creating innovative solutions that can help

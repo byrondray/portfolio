@@ -54,7 +54,7 @@ const ProjectCards = () => {
       <motion.h2
         className={`text-3xl font-bold mb-8 text-center ${
           isDarkTheme ? 'text-white' : 'text-gray-900'
-        } transition-colors duration-300`}
+        } transition-colors duration-300 font-inter tracking-tight`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.9 }}

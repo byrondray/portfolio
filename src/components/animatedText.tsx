@@ -21,7 +21,6 @@ const AnimatedText: React.FC = () => {
       transition: { staggerChildren: 0.1, delayChildren: 0.3 * i },
     }),
   };
-
   const child = {
     visible: {
       opacity: 1,
@@ -34,7 +33,7 @@ const AnimatedText: React.FC = () => {
     },
     hidden: {
       opacity: 0,
-      y: 20,
+      y: 15,
       transition: {
         type: 'spring',
         damping: 12,
@@ -47,9 +46,9 @@ const AnimatedText: React.FC = () => {
       variants={container}
       initial='hidden'
       animate='visible'
-      className={`text-6xl font-bold whitespace-pre ${
+      className={`text-6xl font-extrabold whitespace-pre ${
         isDarkTheme ? 'text-white' : 'text-gray-900'
-      } overflow-hidden transition-colors duration-300`}
+      } pb-2 transition-colors duration-300 font-inter inline-block`}
     >
       {text.split('').map((char, index) => (
         <motion.span key={index} variants={child} className='inline-block'>

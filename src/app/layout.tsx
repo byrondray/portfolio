@@ -1,7 +1,15 @@
 import './globals.css';
+import { Inter } from 'next/font/google';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Metadata } from 'next';
 import { ThemeProvider } from '@/components/theme-provider';
+
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700', '800'],
+});
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-inter antialiased`}
       >
         <ThemeProvider defaultTheme='dark' storageKey='portfolio-theme'>
           {children}
