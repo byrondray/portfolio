@@ -42,7 +42,11 @@ export const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
 }) => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const inView = useInView(ref, { once, amount: 0.2 });
+  const inView = useInView(ref, {
+    once,
+    amount: 0.01,
+    margin: '0px 0px -150px 0px',
+  });
 
   useEffect(() => {
     if (inView) {
