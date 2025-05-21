@@ -9,6 +9,7 @@ import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ScrollAnimation } from '@/components/scrollAnimation';
 import { PageWrapper } from '@/components/pageWrapper';
+import { useTheme } from '@/components/theme-provider';
 import React from 'react';
 
 interface PageParams {
@@ -23,6 +24,12 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   const unwrappedParams =
     params instanceof Promise ? React.use(params) : params;
   const id = unwrappedParams.id;
+  const { theme } = useTheme();
+  const isDark =
+    theme === 'dark' ||
+    (theme === 'system' &&
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   const project = getProjectById(id);
 
@@ -62,7 +69,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           )}
           <div>
             <motion.h1
-              className='text-4xl font-bold text-white'
+              className={`text-4xl font-bold ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -75,10 +84,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
+              {' '}
               {project.technologies.map((tech, idx) => (
                 <motion.span
                   key={idx}
-                  className='px-3 py-1 bg-gray-800/80 rounded-full text-sm text-gray-300'
+                  className='px-3 py-1 bg-gray-800/80 rounded-full text-sm text-gray-100 font-medium'
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.4 + idx * 0.05 }}
@@ -93,7 +103,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
           <div className='lg:col-span-2'>
             <ScrollAnimation direction='up' delay={0.5}>
-              <div className='bg-black/40 backdrop-blur-sm rounded-lg p-8 mb-8'>
+              {' '}
+              <div className='bg-black/60 backdrop-blur-sm rounded-lg p-8 mb-8 border border-gray-600'>
                 <motion.h2
                   className='text-2xl font-semibold text-white mb-6'
                   initial={{ opacity: 0, x: -20 }}
@@ -103,7 +114,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   Project Overview
                 </motion.h2>
                 <motion.p
-                  className='text-gray-300 text-lg leading-relaxed mb-8'
+                  className='text-gray-200 text-lg leading-relaxed mb-8 font-medium'
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
@@ -127,8 +138,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                           transition={{ duration: 0.5, delay: 0.9 }}
                         >
                           Key Features
-                        </motion.h3>
-                        <ul className='list-disc list-outside ml-6 text-gray-300 space-y-3'>
+                        </motion.h3>{' '}
+                        <ul className='list-disc list-outside ml-6 text-gray-200 space-y-3 font-medium'>
                           {details.features.map((feature, idx) => (
                             <motion.li
                               key={idx}
@@ -156,8 +167,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                           transition={{ duration: 0.5, delay: 0.9 }}
                         >
                           Technical Challenges
-                        </motion.h3>
-                        <ul className='list-disc list-outside ml-6 text-gray-300 space-y-3'>
+                        </motion.h3>{' '}
+                        <ul className='list-disc list-outside ml-6 text-gray-200 space-y-3 font-medium'>
                           {details.challenges.map((challenge, idx) => (
                             <motion.li
                               key={idx}
@@ -182,7 +193,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
             {details.videoUrl && (
               <ScrollAnimation direction='up' delay={0.3}>
-                <div className='bg-black/40 backdrop-blur-sm rounded-lg p-8 mb-8'>
+                <div className='bg-black/60 backdrop-blur-sm rounded-lg p-8 mb-8 border border-gray-600'>
                   <motion.h2
                     className='text-2xl font-semibold text-white mb-6'
                     initial={{ opacity: 0, y: 10 }}
@@ -219,7 +230,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
             {details.techDetails && (
               <ScrollAnimation direction='up' delay={0.4}>
-                <div className='bg-black/40 backdrop-blur-sm rounded-lg p-8 mb-8'>
+                <div className='bg-black/60 backdrop-blur-sm rounded-lg p-8 mb-8 border border-gray-600'>
                   <motion.h2
                     className='text-2xl font-semibold text-white mb-6'
                     initial={{ opacity: 0, y: 10 }}
@@ -236,14 +247,17 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.5 + idx * 0.1 }}
                       >
-                        <Card className='bg-black/20 border-gray-800'>
+                        {' '}
+                        <Card className='bg-black/40 border-gray-600 hover:border-gray-500 transition-colors duration-300'>
                           <CardHeader>
                             <CardTitle className='text-lg text-white'>
                               {tech.name}
                             </CardTitle>
                           </CardHeader>
                           <CardContent>
-                            <p className='text-gray-300'>{tech.description}</p>
+                            <p className='text-gray-200 font-medium'>
+                              {tech.description}
+                            </p>
                           </CardContent>
                         </Card>
                       </motion.div>
@@ -255,7 +269,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
             {details.processSteps && (
               <ScrollAnimation direction='up' delay={0.5}>
-                <div className='bg-black/40 backdrop-blur-sm rounded-lg p-8 mb-8'>
+                <div className='bg-black/60 backdrop-blur-sm rounded-lg p-8 mb-8 border border-gray-600'>
                   <motion.h2
                     className='text-2xl font-semibold text-white mb-6'
                     initial={{ opacity: 0, y: 10 }}
@@ -316,8 +330,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
 
           <div className='lg:col-span-1'>
+            {' '}
             <motion.div
-              className='bg-black/40 backdrop-blur-sm rounded-lg p-6 mb-8 sticky top-8'
+              className='bg-black/60 backdrop-blur-sm rounded-lg p-6 mb-8 sticky top-8 border border-gray-600'
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}

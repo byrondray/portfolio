@@ -16,6 +16,7 @@ import { projects } from '@/data/projectData';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ScrollAnimation } from './scrollAnimation';
+import { useTheme } from '@/components/theme-provider';
 
 const ForkliftIcon = () => (
   <svg
@@ -37,6 +38,13 @@ const ForkliftIcon = () => (
 );
 
 const ProjectCards = () => {
+  const { theme } = useTheme();
+  const isDarkTheme =
+    theme === 'dark' ||
+    (theme === 'system' &&
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches);
+
   return (
     <ScrollAnimation
       direction='up'
@@ -44,7 +52,9 @@ const ProjectCards = () => {
       className='w-full sm:px-8 py-16 px-1'
     >
       <motion.h2
-        className='text-3xl font-bold mb-8 text-center text-white'
+        className={`text-3xl font-bold mb-8 text-center ${
+          isDarkTheme ? 'text-white' : 'text-gray-900'
+        } transition-colors duration-300`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.9 }}
@@ -63,7 +73,7 @@ const ProjectCards = () => {
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
               whileTap={{ scale: 0.97 }}
             >
-              <Card className='flex flex-col bg-black/40 backdrop-blur-md border-gray-800 hover:border-gray-700 transition-all duration-300 h-full'>
+              <Card className='flex flex-col bg-black/60 backdrop-blur-md border-gray-600 hover:border-gray-500 transition-all duration-300 h-full'>
                 <CardHeader>
                   <div className='flex justify-center items-center h-48 w-full mb-2'>
                     {project.title === 'Flash Learn' ? (
@@ -95,22 +105,24 @@ const ProjectCards = () => {
                         className='text-white'
                       />
                     )}
-                  </div>
+                  </div>{' '}
                   <div className='w-full'>
+                    {' '}
                     <CardTitle className='text-xl font-bold text-white'>
                       {project.title}
                     </CardTitle>
-                    <CardDescription className='text-gray-400 h-16 line-clamp-3 mt-2'>
+                    <CardDescription className='text-gray-200 h-16 line-clamp-3 mt-2 font-medium'>
                       {project.description}
                     </CardDescription>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className='flex flex-wrap gap-2 mb-4'>
+                    {' '}
                     {project.technologies.map((tech, idx) => (
                       <span
                         key={idx}
-                        className='px-3 py-1 bg-gray-800/80 rounded-full text-sm text-gray-300'
+                        className='px-3 py-1 bg-gray-800/80 rounded-full text-sm text-gray-100 font-medium'
                       >
                         {tech}
                       </span>
@@ -119,9 +131,12 @@ const ProjectCards = () => {
                 </CardContent>
                 <CardFooter className='flex justify-center mt-auto'>
                   <Link href={`/details/${project.id}`} className='w-full'>
+                    {' '}
                     <Button
                       variant='outline'
-                      className='w-full hover:bg-gray-300'
+                      className={`w-full border-gray-500 ${
+                        isDarkTheme ? 'text-white' : 'text-black'
+                      } hover:bg-gray-700 hover:text-white font-medium`}
                     >
                       Learn More
                     </Button>
