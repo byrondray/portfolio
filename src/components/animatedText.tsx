@@ -1,53 +1,53 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import anime from 'animejs';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const AnimatedText: React.FC = () => {
-  const textRef = useRef<HTMLDivElement>(null);
+  const text = "Hi I'm Byron";
 
-  useEffect(() => {
-    if (!textRef.current) return;
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.3 * i },
+    }),
+  };
 
-    const text = textRef.current.textContent || '';
-    textRef.current.textContent = '';
-
-    const letters = text.split('').map((char) => {
-      const span = document.createElement('span');
-      span.textContent = char;
-      span.style.display = 'inline-block';
-      return span;
-    });
-
-    letters.forEach((span) => textRef.current?.appendChild(span));
-
-    const animation = anime.timeline({
-      targets: letters,
-      delay: anime.stagger(50),
-      loop: true,
-      easing: 'easeInOutQuad',
-    });
-
-    animation
-      .add({
-        translateY: -40,
-        duration: 500,
-      })
-      .add({
-        translateY: 0,
-        duration: 500,
-      });
-
-    return () => {
-      animation.pause();
-      anime.remove(letters);
-    };
-  }, []);
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: 'spring',
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
 
   return (
-    <div ref={textRef} className='text-6xl font-bold whitespace-pre text-white'>
-      Hi I&apos;m Byron
-    </div>
+    <motion.div
+      variants={container}
+      initial='hidden'
+      animate='visible'
+      className='text-6xl font-bold whitespace-pre text-white overflow-hidden'
+    >
+      {text.split('').map((char, index) => (
+        <motion.span key={index} variants={child} className='inline-block'>
+          {char === ' ' ? '\u00A0' : char}
+        </motion.span>
+      ))}
+    </motion.div>
   );
 };
 

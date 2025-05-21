@@ -14,6 +14,8 @@ import { Brain, ChefHat, Database } from 'lucide-react';
 import Image from 'next/image';
 import { projects } from '@/data/projectData';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ScrollAnimation } from './scrollAnimation';
 
 const ForkliftIcon = () => (
   <svg
@@ -36,68 +38,101 @@ const ForkliftIcon = () => (
 
 const ProjectCards = () => {
   return (
-    <div className='w-full sm:px-8 py-16 px-1'>
-      <h2 className='text-3xl font-bold mb-8 text-center text-white'>
+    <ScrollAnimation
+      direction='up'
+      delay={0.7}
+      className='w-full sm:px-8 py-16 px-1'
+    >
+      <motion.h2
+        className='text-3xl font-bold mb-8 text-center text-white'
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.9 }}
+      >
         My Projects
-      </h2>
+      </motion.h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6'>
         {projects.map((project, index) => (
-          <Card
+          <ScrollAnimation
             key={index}
-            className='flex flex-col bg-black/40 backdrop-blur-md border-gray-800 hover:border-gray-700 transition-all duration-300 h-full'
+            direction='up'
+            delay={0.3 + index * 0.1}
+            className='h-full'
           >
-            <CardHeader>
-              <div className='flex justify-center items-center h-48 w-full mb-2'>
-                {project.title === 'Flash Learn' ? (
-                  <Brain size={140} color='#818CF8' className='text-white' />
-                ) : project.title === 'Recipe App' ? (
-                  <ChefHat size={140} className='text-white' color='#F87171' />
-                ) : project.title === 'Warehouse CMS' ? (
-                  <ForkliftIcon />
-                ) : project.image ? (
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={140}
-                    height={140}
-                    className='object-contain'
-                  />
-                ) : (
-                  <Database size={140} color='#10B981' className='text-white' />
-                )}
-              </div>
-              <div className='w-full'>
-                <CardTitle className='text-xl font-bold text-white'>
-                  {project.title}
-                </CardTitle>
-                <CardDescription className='text-gray-400 h-16 line-clamp-3 mt-2'>
-                  {project.description}
-                </CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className='flex flex-wrap gap-2 mb-4'>
-                {project.technologies.map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className='px-3 py-1 bg-gray-800/80 rounded-full text-sm text-gray-300'
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </CardContent>
-            <CardFooter className='flex justify-center mt-auto'>
-              <Link href={`/details/${project.id}`} className='w-full'>
-                <Button variant='outline' className='w-full hover:bg-gray-300'>
-                  Learn More
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
+            <motion.div
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <Card className='flex flex-col bg-black/40 backdrop-blur-md border-gray-800 hover:border-gray-700 transition-all duration-300 h-full'>
+                <CardHeader>
+                  <div className='flex justify-center items-center h-48 w-full mb-2'>
+                    {project.title === 'Flash Learn' ? (
+                      <Brain
+                        size={140}
+                        color='#818CF8'
+                        className='text-white'
+                      />
+                    ) : project.title === 'Recipe App' ? (
+                      <ChefHat
+                        size={140}
+                        className='text-white'
+                        color='#F87171'
+                      />
+                    ) : project.title === 'Warehouse CMS' ? (
+                      <ForkliftIcon />
+                    ) : project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={140}
+                        height={140}
+                        className='object-contain'
+                      />
+                    ) : (
+                      <Database
+                        size={140}
+                        color='#10B981'
+                        className='text-white'
+                      />
+                    )}
+                  </div>
+                  <div className='w-full'>
+                    <CardTitle className='text-xl font-bold text-white'>
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className='text-gray-400 h-16 line-clamp-3 mt-2'>
+                      {project.description}
+                    </CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className='flex flex-wrap gap-2 mb-4'>
+                    {project.technologies.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className='px-3 py-1 bg-gray-800/80 rounded-full text-sm text-gray-300'
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+                <CardFooter className='flex justify-center mt-auto'>
+                  <Link href={`/details/${project.id}`} className='w-full'>
+                    <Button
+                      variant='outline'
+                      className='w-full hover:bg-gray-300'
+                    >
+                      Learn More
+                    </Button>
+                  </Link>
+                </CardFooter>
+              </Card>
+            </motion.div>
+          </ScrollAnimation>
         ))}
       </div>
-    </div>
+    </ScrollAnimation>
   );
 };
 

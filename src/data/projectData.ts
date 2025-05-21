@@ -29,7 +29,7 @@ export const projects: Project[] = [
     title: 'Relay Rideshare',
     description:
       'A collaborative ridesharing platform that connects parents to coordinate safe, reliable transportation for their children to schools, activities, and events.',
-    technologies: ['React Native', 'Expo', 'GraphQL', 'Firebase'],
+    technologies: ['React Native', 'Expo', 'GraphQL', 'Firebase', 'OpenAI API'],
     liveLink: 'https://relay.arspera.com/',
     githubLink: 'https://github.com/byrondray/relay',
     image: '/images/relay_logo.png',
@@ -118,13 +118,7 @@ export const projects: Project[] = [
     title: 'Fairshare',
     description:
       "A modern expense tracking and bill-splitting platform that integrates with users' bank accounts to automatically categorize and divide shared expenses.",
-    technologies: [
-      'TypeScript',
-      'Bun',
-      'HTMX',
-      'Drizzle ORM',
-      'Plaid API',
-    ],
+    technologies: ['TypeScript', 'Bun', 'HTMX', 'Drizzle ORM', 'Plaid API'],
     liveLink: 'https://idsp.onrender.com/',
     githubLink: 'https://github.com/JustArmaan/FairShare',
     image: '/images/fs_logo.png',

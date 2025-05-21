@@ -1,5 +1,6 @@
 import './globals.css';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { Metadata } from 'next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -11,12 +12,12 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: `Byron's Portfolio`,
   description: 'Check out some of the projects I have built.',
   icons: {
     icon: '/favicon.svg',
-  }
+  },
 };
 
 export default function RootLayout({
