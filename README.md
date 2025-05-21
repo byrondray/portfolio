@@ -1,8 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Byron's Portfolio
 
-## Getting Started
+![Portfolio Preview](public/images/relay_logo.png)
 
-First, run the development server:
+A portfolio site built with Next.js, Tailwind CSS, and Framer Motion, showcasing my web development projects and skills.
+
+## 🛠️ Technologies
+
+- **Frontend**: Next.js 14, React, TypeScript
+- **Styling**: Tailwind CSS, Shadcn/UI components
+- **Animations**: Framer Motion
+
+## 🚀 Getting Started
+
+First, clone the repository:
+
+```bash
+git clone <https://github.com/byrondray/portfolio.git>
+cd portfolio
+```
+
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +37,36 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📂 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app/page.tsx` - Main portfolio page
+- `src/app/details/[id]/page.tsx` - Dynamic project detail pages
+- `src/components/` - Reusable UI components
+- `src/data/projectData.ts` - Project information data store
+- `public/images/` - Project images and screenshots
 
-## Learn More
+## 🎨 Customization
 
-To learn more about Next.js, take a look at the following resources:
+To add or modify projects, edit the `src/data/projectData.ts` file with your project information.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Each project can include:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Title, description, and technologies used
+- Links to GitHub repository and live demo
+- Detailed features and technical challenges
+- Screenshots and demo videos
 
-## Deploy on Vercel
+## 🔄 Future Improvements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Add dark/light mode toggle
+- Implement blog section with MDX
+- Add filterable project categories
+- Add contact form with server actions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Created with 💻 by Byron Dray | [GitHub](https://github.com/byrondray) | [LinkedIn](https://www.linkedin.com/in/byron-dray)
