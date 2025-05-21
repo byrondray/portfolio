@@ -2,7 +2,7 @@
 
 ![Portfolio Preview](public/images/relay_logo.png)
 
-A portfolio site built with Next.js, Tailwind CSS, and Framer Motion, showcasing my web development projects and skills.
+A [portfolio](https://www.byrondray.com/) site built with Next.js, Tailwind CSS, and Framer Motion, showcasing my web development projects and skills.
 
 ## 🛠️ Technologies
 
