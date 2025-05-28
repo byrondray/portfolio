@@ -49,7 +49,7 @@ const ProjectCards = () => {
     <ScrollAnimation
       direction='up'
       delay={0.7}
-      className='w-full sm:px-8 py-16 px-1'
+      className='w-full sm:px-8 py-8 px-1'
     >
       <motion.h2
         className={`text-3xl font-bold mb-8 text-center ${
@@ -73,7 +73,7 @@ const ProjectCards = () => {
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
               whileTap={{ scale: 0.97 }}
             >
-              <Card className='flex flex-col bg-black/60 backdrop-blur-md border-gray-600 hover:border-gray-500 transition-all duration-300 h-full'>
+              <Card className='flex flex-col bg-black/60 backdrop-blur-md border-gray-600 hover:border-gray-500 transition-all duration-300 h-full mb-3 mx-1'>
                 <CardHeader>
                   <div className='flex justify-center items-center h-48 w-full mb-2'>
                     {project.title === 'Flash Learn' ? (
