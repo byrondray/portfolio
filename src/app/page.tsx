@@ -15,7 +15,7 @@ export default function Home() {
     <PageWrapper>
       <main className='relative min-h-screen bg-transparent'>
         <BackgroundBeamsWithCollision />
-        <div className='relative min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center space-y-12'>
+        <div className='relative min-h-screen w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-12 flex flex-col items-center space-y-12'>
           {/* Top section */}
           <motion.div
             className='mt-28 min-h-[5rem] py-4 w-full flex justify-center'

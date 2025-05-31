@@ -44,12 +44,11 @@ const ProjectCards = () => {
     (theme === 'system' &&
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-color-scheme: dark)').matches);
-
   return (
     <ScrollAnimation
       direction='up'
       delay={0.7}
-      className='w-full sm:px-8 py-8 px-1'
+      className='w-full py-8'
     >
       <motion.h2
         className={`text-3xl font-bold mb-8 text-center ${
@@ -59,9 +58,7 @@ const ProjectCards = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.9 }}
       >
-        My Projects
-      </motion.h2>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6'>
+        My Projects      </motion.h2>      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 xl:gap-6'>
         {projects.map((project, index) => (
           <ScrollAnimation
             key={index}
@@ -72,8 +69,7 @@ const ProjectCards = () => {
             <motion.div
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
               whileTap={{ scale: 0.97 }}
-            >
-              <Card className='flex flex-col bg-black/60 backdrop-blur-md border-gray-600 hover:border-gray-500 transition-all duration-300 h-full mb-3 mx-1'>
+            >              <Card className='flex flex-col bg-black/60 backdrop-blur-md border-gray-600 hover:border-gray-500 transition-all duration-300 h-full'>
                 <CardHeader>
                   <div className='flex justify-center items-center h-48 w-full mb-2'>
                     {project.title === 'Flash Learn' ? (

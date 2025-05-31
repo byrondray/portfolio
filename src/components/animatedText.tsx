@@ -48,7 +48,7 @@ const AnimatedText: React.FC = () => {
       animate='visible'
       className={`text-6xl font-extrabold whitespace-pre ${
         isDarkTheme ? 'text-white' : 'text-gray-900'
-      } pb-2 transition-colors duration-300 font-inter inline-block`}
+      } pb-2 transition-colors duration-300 inline-block`}
     >
       {text.split('').map((char, index) => (
         <motion.span key={index} variants={child} className='inline-block'>
