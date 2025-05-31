@@ -42,7 +42,6 @@ export default function Home() {
               Check out some of the projects I&apos;ve built using modern
               frameworks and cloud technologies.
             </h1>
-            
           </ScrollAnimation>
 
           {/* Projects */}
