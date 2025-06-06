@@ -11,7 +11,12 @@ export interface Project {
     features?: string[];
     challenges?: string[];
     screenshots?: string[];
-    videoUrl?: string;
+    videoUrl?: string; // Keep for backward compatibility
+    videos?: {
+      url: string;
+      title?: string;
+      description?: string;
+    }[];
     techDetails?: {
       name: string;
       description: string;
@@ -55,8 +60,22 @@ export const projects: Project[] = [
       screenshots: [
         '/images/relay-screenshot2.jpg',
         '/images/relay-screenshot.png',
+        '/images/relay-booth.JPG',
       ],
-      videoUrl: '/videos/RelayFinalDemo.mp4',
+      videos: [
+        {
+          url: '/videos/RelayFinalDemo.mp4',
+          title: 'Final Demo Presentation',
+          description:
+            'Complete overview of Relay Rideshare features and user experience',
+        },
+        {
+          url: '/videos/relay-showcase.mp4',
+          title: 'App Showcase',
+          description:
+            'Demonstration of key app functionality and user interface',
+        },
+      ],
       techDetails: [
         {
           name: 'React Native',

@@ -49,9 +49,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   if (!project) {
     notFound();
   }
-
   const details = project.details || {};
-  const isDirectVideo = details.videoUrl?.endsWith('.mp4');
+
+  // Support both single video (backward compatibility) and multiple videos
+  const videos =
+    details.videos ||
+    (details.videoUrl
+      ? [{ url: details.videoUrl, title: 'Project Demo' }]
+      : []);
 
   const techIcons = [Code2, Layers, Zap, Rocket];
 
@@ -66,7 +71,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         >
           <div className='absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 opacity-50' />
           <div className='relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-8'>
-            {' '}
             <motion.div
               className='flex-shrink-0'
               initial={{ opacity: 0, scale: 0.8 }}
@@ -266,9 +270,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   </motion.div>
                 )}
               </div>
-            </ScrollAnimation>
-
-            {details.videoUrl && (
+            </ScrollAnimation>{' '}
+            {videos.length > 0 && (
               <ScrollAnimation direction='up' delay={0.3}>
                 <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
                   <motion.h2
@@ -280,34 +283,90 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     <div className='w-6 h-6 md:w-8 md:h-8 rounded-lg bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center'>
                       <Rocket className='w-3.5 h-3.5 md:w-5 md:h-5 text-white' />
                     </div>
-                    Project Demo
+                    {videos.length > 1 ? 'Project Demos' : 'Project Demo'}
                   </motion.h2>
-                  <motion.div
-                    className='aspect-video w-full rounded-lg md:rounded-xl overflow-hidden shadow-2xl'
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                  >
-                    {isDirectVideo ? (
-                      <video
-                        src={details.videoUrl}
-                        className='w-full h-full object-cover'
-                        controls
-                        poster={details.screenshots?.[0] || ''}
-                      />
-                    ) : (
-                      <iframe
-                        src={details.videoUrl}
-                        className='w-full h-full'
-                        title={`${project.title} demo video`}
-                        allowFullScreen
-                      ></iframe>
-                    )}
-                  </motion.div>
+
+                  {videos.length === 1 ? (
+                    // Single video layout
+                    <motion.div
+                      className='aspect-video w-full rounded-lg md:rounded-xl overflow-hidden shadow-2xl'
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.5 }}
+                    >
+                      {videos[0].url.endsWith('.mp4') ? (
+                        <video
+                          src={videos[0].url}
+                          className='w-full h-full object-cover'
+                          controls
+                          poster={details.screenshots?.[0] || ''}
+                        />
+                      ) : (
+                        <iframe
+                          src={videos[0].url}
+                          className='w-full h-full'
+                          title={
+                            videos[0].title || `${project.title} demo video`
+                          }
+                          allowFullScreen
+                        ></iframe>
+                      )}
+                    </motion.div>
+                  ) : (
+                    // Multiple videos layout
+                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6'>
+                      {videos.map((video, index) => (
+                        <motion.div
+                          key={index}
+                          className='space-y-3'
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 0.5,
+                            delay: 0.5 + index * 0.1,
+                          }}
+                        >
+                          {video.title && (
+                            <h3 className='text-lg md:text-xl font-semibold text-white'>
+                              {video.title}
+                            </h3>
+                          )}
+                          {video.description && (
+                            <p className='text-sm md:text-base text-gray-300 mb-3'>
+                              {video.description}
+                            </p>
+                          )}
+                          <div className='aspect-video w-full rounded-lg md:rounded-xl overflow-hidden shadow-2xl'>
+                            {video.url.endsWith('.mp4') ? (
+                              <video
+                                src={video.url}
+                                className='w-full h-full object-cover'
+                                controls
+                                poster={
+                                  details.screenshots?.[index] ||
+                                  details.screenshots?.[0] ||
+                                  ''
+                                }
+                              />
+                            ) : (
+                              <iframe
+                                src={video.url}
+                                className='w-full h-full'
+                                title={
+                                  video.title ||
+                                  `${project.title} demo video ${index + 1}`
+                                }
+                                allowFullScreen
+                              ></iframe>
+                            )}
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </ScrollAnimation>
             )}
-
             {details.techDetails && (
               <ScrollAnimation direction='up' delay={0.4}>
                 <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
@@ -357,7 +416,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               </ScrollAnimation>
             )}
-
             {details.processSteps && (
               <ScrollAnimation direction='up' delay={0.5}>
                 <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
