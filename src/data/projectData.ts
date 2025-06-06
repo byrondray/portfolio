@@ -491,6 +491,128 @@ export const projects: Project[] = [
     },
   },
   {
+    id: '8',
+    title: 'Travel Planner',
+    description:
+      'An intelligent travel planning platform that leverages AI to create personalized itineraries, discover local attractions, and manage trip details with seamless user authentication and responsive design.',
+    technologies: [
+      'Laravel 10',
+      'PHP 8.2',
+      'MySQL',
+      'Tailwind CSS',
+      'Vite',
+      'OpenAI API',
+      'Laravel Breeze',
+      'Railway',
+    ],
+    liveLink: 'https://travel-planner-php-production.up.railway.app',
+    githubLink: 'https://github.com/byrondray/travel-planner-php',
+    image: '',
+    details: {
+      longDescription:
+        "Travel Planner is a comprehensive travel management platform that combines the power of artificial intelligence with intuitive design to revolutionize trip planning. The application enables users to create detailed travel itineraries, discover local attractions and activities, and manage all aspects of their trips in one centralized location. Built with Laravel 10 and powered by OpenAI's API, the platform provides intelligent recommendations based on user preferences, travel dates, and destination characteristics. The responsive design ensures a seamless experience across all devices, while secure authentication through Laravel Breeze protects user data and travel plans.",
+
+      features: [
+        'AI-powered itinerary generation using OpenAI API for personalized travel recommendations',
+        'Comprehensive travel plan management with destinations, activities, and scheduling',
+        'Secure user authentication and registration system with Laravel Breeze',
+        'Responsive design optimized for desktop, tablet, and mobile devices',
+        'Real-time travel plan creation',
+        'Intelligent activity suggestions based on location and user preferences',
+        'Clean, modern interface built with Tailwind CSS for optimal user experience',
+        'Scalable cloud deployment on Railway with MySQL database integration',
+      ],
+
+      challenges: [
+        'Implementing secure OpenAI API integration while managing costs and rate limiting',
+        'Designing a flexible database schema to handle complex travel itineraries with multiple destinations and activities',
+        'Creating a responsive UI that works seamlessly across devices for on-the-go travel planning',
+        'Optimizing Laravel application performance for Railway cloud deployment',
+        'Building an intuitive interface that balances feature richness with ease of use',
+      ],
+
+      screenshots: [],
+
+      videoUrl: '',
+
+      techDetails: [
+        {
+          name: 'Laravel 10',
+          description:
+            'Leveraged as the primary PHP framework providing robust MVC architecture, elegant ORM with Eloquent, and comprehensive authentication features for secure travel plan management.',
+        },
+        {
+          name: 'OpenAI API',
+          description:
+            'Integrated to power intelligent travel recommendations and itinerary generation, with custom prompt engineering to create relevant and practical travel suggestions based on user input.',
+        },
+        {
+          name: 'MySQL',
+          description:
+            'Implemented as the primary database solution hosted on Railway, with optimized schema design for handling complex relationships between users, travel plans, destinations, and activities.',
+        },
+        {
+          name: 'Tailwind CSS',
+          description:
+            'Utilized for creating a modern, responsive design system with consistent styling across all components, enabling rapid UI development and excellent mobile optimization.',
+        },
+        {
+          name: 'Vite',
+          description:
+            'Employed as the build tool for fast asset compilation and hot module replacement during development, with optimized production builds for enhanced performance.',
+        },
+        {
+          name: 'Laravel Breeze',
+          description:
+            'Integrated for streamlined authentication and registration workflows, providing secure user management with password reset capabilities and session handling.',
+        },
+        {
+          name: 'Railway',
+          description:
+            'Selected as the cloud deployment platform for its seamless Laravel support, automatic deployments from GitHub, and integrated MySQL database hosting with environment variable management.',
+        },
+      ],
+
+      processSteps: [
+        {
+          title: 'Requirements Analysis & Travel Planning Research',
+          description:
+            'Researched travel planning pain points and user workflows to understand the challenges travelers face when organizing trips, identifying opportunities for AI-powered assistance and streamlined planning tools.',
+        },
+        {
+          title: 'Laravel Application Architecture',
+          description:
+            'Designed and implemented the core Laravel application structure with MVC patterns, database migrations for travel-specific entities, and authentication system using Laravel Breeze.',
+        },
+        {
+          title: 'Database Schema Design',
+          description:
+            'Created a comprehensive database structure to handle users, travel plans, destinations, itineraries, and activities with proper relationships and foreign key constraints for data integrity.',
+        },
+        {
+          title: 'OpenAI API Integration',
+          description:
+            'Developed secure API integration with OpenAI for intelligent travel recommendations, implementing proper error handling, rate limiting, and cost optimization strategies.',
+        },
+        {
+          title: 'Frontend Development & Responsive Design',
+          description:
+            'Built a responsive user interface using Tailwind CSS and Blade templates, ensuring optimal user experience across all device sizes with intuitive navigation and modern design principles.',
+        },
+        {
+          title: 'Production Deployment & Optimization',
+          description:
+            'Deployed to Railway cloud platform with proper environment configuration, database migrations, HTTPS enforcement, and asset optimization for production performance and security.',
+        },
+        {
+          title: 'Testing & Performance Optimization',
+          description:
+            'Conducted comprehensive testing of travel planning workflows, API integrations, and responsive design, optimizing database queries and implementing caching strategies for enhanced performance.',
+        },
+      ],
+    },
+  },
+  {
     id: '5',
     title: 'Warehouse CMS',
     description:

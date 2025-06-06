@@ -17,6 +17,7 @@ import {
   ChefHat,
   Dna,
   Database,
+  Plane,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ScrollAnimation } from '@/components/scrollAnimation';
@@ -92,6 +93,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       ? 'from-indigo-500 to-blue-500'
                       : project.title === 'CytoNET'
                       ? 'from-cyan-500 to-teal-500'
+                      : project.title === 'Travel Planner'
+                      ? 'from-blue-500 to-sky-500'
                       : 'from-emerald-500 to-green-500'
                   } shadow-2xl`}
                   whileHover={{ scale: 1.05, rotate: 5 }}
@@ -121,6 +124,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     </svg>
                   ) : project.title === 'CytoNET' ? (
                     <Dna size={40} className='text-white md:w-12 md:h-12' />
+                  ) : project.title === 'Travel Planner' ? (
+                    <Plane size={40} className='text-white md:w-12 md:h-12' />
                   ) : (
                     <Database
                       size={40}
