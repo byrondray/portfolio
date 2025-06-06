@@ -390,86 +390,7 @@ export const projects: Project[] = [
       ],
     },
   },
-  {
-    id: '4',
-    title: 'Recipe App',
-    description:
-      'A culinary social platform where food enthusiasts can discover, share, and organize recipes with intelligent meal planning and shopping list features.',
-    technologies: [
-      'Next.js',
-      'Tailwind CSS',
-      'Amazon S3',
-      'Drizzle ORM',
-      'PostgreSQL',
-      'NextAuth.js',
-    ],
-    liveLink: 'https://recipe-tracker-pcw2.vercel.app/',
-    githubLink: 'https://github.com/byrondray/recipe-tracker',
-    image: '',
-    details: {
-      longDescription:
-        'Recipe App transforms the cooking experience by combining a beautiful recipe repository with practical meal planning tools. Users can discover dishes through a visually rich interface, upload their own creations with step-by-step instructions, and build personalized collections.',
-      features: [
-        'Intuitive recipe creation with structured ingredients, instructions, and cooking times',
-        'Photo galleries for each recipe with step-by-step cooking visuals',
-      ],
-      challenges: [
-        'Implementing efficient image processing and storage for multiple photos per recipe',
-        'Optimizing database queries for complex recipe filtering and search operations',
-        'Creating a responsive design that works well for both cooking mode (kitchen use) and browsing mode',
-      ],
-      processSteps: [
-        {
-          title: 'User Research & Cooking Workflow Analysis',
-          description:
-            'Conducted interviews with home cooks to understand their pain points in recipe management, meal planning, and grocery shopping to identify key opportunity areas.',
-        },
-        {
-          title: 'Information Architecture Development',
-          description:
-            'Created a comprehensive data model for recipes that captures the complexity of ingredients, preparation methods, and variations while remaining flexible for different culinary traditions.',
-        },
-        {
-          title: 'User Experience Design',
-          description:
-            'Designed user flows and interfaces optimized for both recipe discovery and practical cooking use, with special attention to kitchen-friendly viewing modes and intuitive creation tools.',
-        },
 
-        {
-          title: 'Image Management Pipeline',
-          description:
-            'Implemented an S3-based image processing system that optimizes recipe photos for different viewing contexts while maintaining visual quality and fast loading times.',
-        },
-      ],
-      techDetails: [
-        {
-          name: 'Next.js',
-          description:
-            'Employed for its hybrid rendering capabilities, delivering fast initial page loads for recipe browsing while enabling dynamic features like real-time recipe scaling and meal planning.',
-        },
-        {
-          name: 'Tailwind CSS',
-          description:
-            'Used to create a visually appealing, responsive design system that adapts to various devices, including kitchen tablets and mobile phones used while shopping.',
-        },
-        {
-          name: 'Amazon S3',
-          description:
-            'Implemented with a custom image processing pipeline for storing and serving optimized recipe images, including thumbnail generation and progressive loading for gallery views.',
-        },
-        {
-          name: 'Drizzle ORM',
-          description:
-            'Leveraged for type-safe database access with a schema designed to efficiently represent complex relationships between recipes, ingredients, users, and meal plans.',
-        },
-        {
-          name: 'NextAuth.js',
-          description:
-            'Integrated for secure user authentication with multiple provider options, enabling personalized features like saved recipes and custom collections.',
-        },
-      ],
-    },
-  },
   {
     id: '6',
     title: 'CytoNET',
@@ -671,6 +592,86 @@ export const projects: Project[] = [
           name: 'Azure',
           description:
             'Deployed to Azure App Service with database backups, scheduled tasks, and monitoring to ensure high availability and disaster recovery capabilities essential for business-critical inventory systems.',
+        },
+      ],
+    },
+  },
+  {
+    id: '4',
+    title: 'Recipe App',
+    description:
+      'A culinary social platform where food enthusiasts can discover, share, and organize recipes with intelligent meal planning and shopping list features.',
+    technologies: [
+      'Next.js',
+      'Tailwind CSS',
+      'Amazon S3',
+      'Drizzle ORM',
+      'PostgreSQL',
+      'NextAuth.js',
+    ],
+    liveLink: 'https://recipe-tracker-pcw2.vercel.app/',
+    githubLink: 'https://github.com/byrondray/recipe-tracker',
+    image: '',
+    details: {
+      longDescription:
+        'Recipe App transforms the cooking experience by combining a beautiful recipe repository with practical meal planning tools. Users can discover dishes through a visually rich interface, upload their own creations with step-by-step instructions, and build personalized collections.',
+      features: [
+        'Intuitive recipe creation with structured ingredients, instructions, and cooking times',
+        'Photo galleries for each recipe with step-by-step cooking visuals',
+      ],
+      challenges: [
+        'Implementing efficient image processing and storage for multiple photos per recipe',
+        'Optimizing database queries for complex recipe filtering and search operations',
+        'Creating a responsive design that works well for both cooking mode (kitchen use) and browsing mode',
+      ],
+      processSteps: [
+        {
+          title: 'User Research & Cooking Workflow Analysis',
+          description:
+            'Conducted interviews with home cooks to understand their pain points in recipe management, meal planning, and grocery shopping to identify key opportunity areas.',
+        },
+        {
+          title: 'Information Architecture Development',
+          description:
+            'Created a comprehensive data model for recipes that captures the complexity of ingredients, preparation methods, and variations while remaining flexible for different culinary traditions.',
+        },
+        {
+          title: 'User Experience Design',
+          description:
+            'Designed user flows and interfaces optimized for both recipe discovery and practical cooking use, with special attention to kitchen-friendly viewing modes and intuitive creation tools.',
+        },
+
+        {
+          title: 'Image Management Pipeline',
+          description:
+            'Implemented an S3-based image processing system that optimizes recipe photos for different viewing contexts while maintaining visual quality and fast loading times.',
+        },
+      ],
+      techDetails: [
+        {
+          name: 'Next.js',
+          description:
+            'Employed for its hybrid rendering capabilities, delivering fast initial page loads for recipe browsing while enabling dynamic features like real-time recipe scaling and meal planning.',
+        },
+        {
+          name: 'Tailwind CSS',
+          description:
+            'Used to create a visually appealing, responsive design system that adapts to various devices, including kitchen tablets and mobile phones used while shopping.',
+        },
+        {
+          name: 'Amazon S3',
+          description:
+            'Implemented with a custom image processing pipeline for storing and serving optimized recipe images, including thumbnail generation and progressive loading for gallery views.',
+        },
+        {
+          name: 'Drizzle ORM',
+          description:
+            'Leveraged for type-safe database access with a schema designed to efficiently represent complex relationships between recipes, ingredients, users, and meal plans.',
+        },
+        {
+          name: 'NextAuth.js',
+          description:
+            'Integrated for secure user authentication with multiple provider options, enabling personalized features like saved recipes and custom collections.',
         },
       ],
     },
