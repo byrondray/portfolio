@@ -113,90 +113,7 @@ export const projects: Project[] = [
       ],
     },
   },
-  {
-    id: '2',
-    title: 'Fairshare',
-    description:
-      "A modern expense tracking and bill-splitting platform that integrates with users' bank accounts to automatically categorize and divide shared expenses.",
-    technologies: ['TypeScript', 'Bun', 'HTMX', 'Drizzle ORM', 'Plaid API'],
-    liveLink: 'https://idsp.onrender.com/',
-    githubLink: 'https://github.com/JustArmaan/FairShare',
-    image: '/images/fs_logo.png',
-    details: {
-      longDescription:
-        "Fairshare transforms group expense management by seamlessly connecting to users' banking data through Plaid API integration. This secure connection allows automatic transaction importing, intelligent expense categorization, and simplified bill splitting. Whether you're sharing an apartment with roommates, planning a group vacation, or managing household expenses with family, Fairshare eliminates tedious manual expense tracking and complex calculations. Users can create multiple expense groups, customize splitting rules based on percentages or fixed amounts, and visualize their spending patterns with interactive charts. The platform generates optimized settlement plans that minimize the number of transactions needed to settle debts, making financial reconciliation faster and more efficient.",
-      features: [
-        'Secure bank account integration through Plaid API for automatic transaction importing',
-        'Multiple splitting methods: equal, percentage-based, itemized, or custom amounts',
-        'Interactive spending analytics with category breakdown',
-        'Real-time balance tracking and notifications',
-        'In-app payment reminders and settlement tracking',
-        'Expense history with searchable transactions and receipt storage',
-      ],
-      challenges: [
-        'Implementing secure OAuth flow and token management for Plaid API integration',
-        'Designing complex database relationships to track multi-party financial obligations',
-        'Creating an intuitive expense allocation interface that handles various splitting scenarios',
-        'Optimizing database queries for real-time financial calculations and reporting',
-        'Building responsive data visualizations that work across device sizes',
-      ],
-      processSteps: [
-        {
-          title: 'Research & Financial Analysis',
-          description:
-            'Conducted market research on expense sharing needs and analyzed existing solutions to identify gaps in bill-splitting applications. Studied financial behaviors of roommates, travelers, and families to understand unique requirements.',
-        },
-        {
-          title: 'Plaid API Integration Planning',
-          description:
-            'Evaluated banking API options and selected Plaid for its comprehensive coverage and security features. Designed secure authentication flows and data handling processes compliant with financial regulations.',
-        },
-        {
-          title: 'Data Modeling & Architecture',
-          description:
-            'Created a flexible data model capable of representing complex financial relationships, transaction histories, and customizable expense allocations. Established schema using Drizzle ORM for type safety.',
-        },
-        {
-          title: 'Frontend Development & HTMX Implementation',
-          description:
-            'Built a responsive interface using HTMX to achieve dynamic content updates without the complexity of a full SPA framework. Focused on creating an intuitive UX for financial operations.',
-        },
 
-        {
-          title: 'Data Visualization & Reporting',
-          description:
-            'Designed interactive charts and reports using Chart.js to provide users with meaningful insights into spending patterns, category breakdowns, and financial trends over time.',
-        },
-      ],
-      techDetails: [
-        {
-          name: 'TypeScript',
-          description:
-            'Used throughout the application to ensure type safety in financial calculations and data handling, significantly reducing potential for calculation errors in sensitive financial operations.',
-        },
-        {
-          name: 'Bun',
-          description:
-            'Leveraged as our JavaScript runtime for its exceptional speed and built-in tooling, resulting in faster API responses and more efficient transaction processing.',
-        },
-        {
-          name: 'HTMX',
-          description:
-            'Implemented to create a responsive, modern UI while maintaining simplicity. This approach allowed us to deliver dynamic content updates and interactive features without the overhead of a heavy JavaScript framework.',
-        },
-        {
-          name: 'Drizzle ORM',
-          description:
-            'Employed for database operations, providing type-safe queries and migrations that ensure data integrity for financial records and complex expense relationships.',
-        },
-        {
-          name: 'Plaid API',
-          description:
-            "Integrated to securely connect with users' financial institutions, enabling automatic transaction importing, account balance monitoring, and streamlined expense tracking with bank-level security.",
-        },
-      ],
-    },
-  },
   {
     id: '7',
     title: 'Rezen Gaming',
@@ -385,6 +302,90 @@ export const projects: Project[] = [
           name: 'Kinde Auth',
           description:
             'Implemented for secure user authentication, allowing students to access their study materials across multiple devices while protecting their academic content.',
+        },
+      ],
+    },
+  },
+  {
+    id: '2',
+    title: 'Fairshare',
+    description:
+      "A modern expense tracking and bill-splitting platform that integrates with users' bank accounts to automatically categorize and divide shared expenses.",
+    technologies: ['TypeScript', 'Bun', 'HTMX', 'Drizzle ORM', 'Plaid API'],
+    liveLink: 'https://idsp.onrender.com/',
+    githubLink: 'https://github.com/JustArmaan/FairShare',
+    image: '/images/fs_logo.png',
+    details: {
+      longDescription:
+        "Fairshare transforms group expense management by seamlessly connecting to users' banking data through Plaid API integration. This secure connection allows automatic transaction importing, intelligent expense categorization, and simplified bill splitting. Whether you're sharing an apartment with roommates, planning a group vacation, or managing household expenses with family, Fairshare eliminates tedious manual expense tracking and complex calculations. Users can create multiple expense groups, customize splitting rules based on percentages or fixed amounts, and visualize their spending patterns with interactive charts. The platform generates optimized settlement plans that minimize the number of transactions needed to settle debts, making financial reconciliation faster and more efficient.",
+      features: [
+        'Secure bank account integration through Plaid API for automatic transaction importing',
+        'Multiple splitting methods: equal, percentage-based, itemized, or custom amounts',
+        'Interactive spending analytics with category breakdown',
+        'Real-time balance tracking and notifications',
+        'In-app payment reminders and settlement tracking',
+        'Expense history with searchable transactions and receipt storage',
+      ],
+      challenges: [
+        'Implementing secure OAuth flow and token management for Plaid API integration',
+        'Designing complex database relationships to track multi-party financial obligations',
+        'Creating an intuitive expense allocation interface that handles various splitting scenarios',
+        'Optimizing database queries for real-time financial calculations and reporting',
+        'Building responsive data visualizations that work across device sizes',
+      ],
+      processSteps: [
+        {
+          title: 'Research & Financial Analysis',
+          description:
+            'Conducted market research on expense sharing needs and analyzed existing solutions to identify gaps in bill-splitting applications. Studied financial behaviors of roommates, travelers, and families to understand unique requirements.',
+        },
+        {
+          title: 'Plaid API Integration Planning',
+          description:
+            'Evaluated banking API options and selected Plaid for its comprehensive coverage and security features. Designed secure authentication flows and data handling processes compliant with financial regulations.',
+        },
+        {
+          title: 'Data Modeling & Architecture',
+          description:
+            'Created a flexible data model capable of representing complex financial relationships, transaction histories, and customizable expense allocations. Established schema using Drizzle ORM for type safety.',
+        },
+        {
+          title: 'Frontend Development & HTMX Implementation',
+          description:
+            'Built a responsive interface using HTMX to achieve dynamic content updates without the complexity of a full SPA framework. Focused on creating an intuitive UX for financial operations.',
+        },
+
+        {
+          title: 'Data Visualization & Reporting',
+          description:
+            'Designed interactive charts and reports using Chart.js to provide users with meaningful insights into spending patterns, category breakdowns, and financial trends over time.',
+        },
+      ],
+      techDetails: [
+        {
+          name: 'TypeScript',
+          description:
+            'Used throughout the application to ensure type safety in financial calculations and data handling, significantly reducing potential for calculation errors in sensitive financial operations.',
+        },
+        {
+          name: 'Bun',
+          description:
+            'Leveraged as our JavaScript runtime for its exceptional speed and built-in tooling, resulting in faster API responses and more efficient transaction processing.',
+        },
+        {
+          name: 'HTMX',
+          description:
+            'Implemented to create a responsive, modern UI while maintaining simplicity. This approach allowed us to deliver dynamic content updates and interactive features without the overhead of a heavy JavaScript framework.',
+        },
+        {
+          name: 'Drizzle ORM',
+          description:
+            'Employed for database operations, providing type-safe queries and migrations that ensure data integrity for financial records and complex expense relationships.',
+        },
+        {
+          name: 'Plaid API',
+          description:
+            "Integrated to securely connect with users' financial institutions, enabling automatic transaction importing, account balance monitoring, and streamlined expense tracking with bank-level security.",
         },
       ],
     },
