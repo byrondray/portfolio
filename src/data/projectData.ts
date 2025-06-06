@@ -53,8 +53,8 @@ export const projects: Project[] = [
         'Designing an intuitive interface that simplifies complex coordination tasks',
       ],
       screenshots: [
-        '/images/relay-screenshot.png',
         '/images/relay-screenshot2.jpg',
+        '/images/relay-screenshot.png',
       ],
       videoUrl: '/videos/RelayFinalDemo.mp4',
       techDetails: [
