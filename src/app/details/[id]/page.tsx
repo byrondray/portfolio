@@ -339,6 +339,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             >
               <div className='flex flex-col space-y-6'>
                 <div className='flex flex-col space-y-3'>
+                  {' '}
                   <motion.a
                     href={project.liveLink}
                     target='_blank'
@@ -352,18 +353,19 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       ? 'Learn More'
                       : 'Live Demo'}
                   </motion.a>
-
-                  <motion.a
-                    href={project.githubLink}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='w-full py-3 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-lg text-center transition-colors flex items-center justify-center'
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Github className='h-5 w-5 mr-2' />
-                    View Source Code
-                  </motion.a>
+                  {project.githubLink && (
+                    <motion.a
+                      href={project.githubLink}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='w-full py-3 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-lg text-center transition-colors flex items-center justify-center'
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github className='h-5 w-5 mr-2' />
+                      View Source Code
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -379,7 +381,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
-                Screenshots
+                Images
               </motion.h2>
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {details.screenshots.map((screenshot, idx) => (

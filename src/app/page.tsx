@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client';
 
 import AnimatedText from '@/components/animatedText';
@@ -16,7 +15,6 @@ export default function Home() {
       <main className='relative min-h-screen bg-transparent'>
         <BackgroundBeamsWithCollision />
         <div className='relative min-h-screen w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-12 flex flex-col items-center space-y-12'>
-          {/* Top section */}
           <motion.div
             className='mt-28 min-h-[5rem] py-4 w-full flex justify-center'
             initial={{ opacity: 0, y: -50 }}
@@ -26,25 +24,28 @@ export default function Home() {
             <AnimatedText />
           </motion.div>
 
-          {/* Middle section */}
           <ScrollAnimation
             direction='up'
             delay={0.5}
             className='w-full flex flex-col items-center space-y-8'
           >
             <h1 className='text-2xl font-medium text-center transition-colors duration-300 dark:text-white text-gray-900 font-inter leading-relaxed w-full'>
-              I&apos;m a fullstack web developer specializing in React, Next.js,
-              ASP.NET, and Node.js. <br />
-              I am passionate about creating innovative solutions that can help
-              people in the real world, <br />
-              with a focus on clean code, responsive design, and intuitive user
-              experiences. <br />
-              Check out some of the projects I&apos;ve built using modern
-              frameworks and cloud technologies.
+              I'm a versatile full-stack developer who thrives on solving
+              complex business challenges with practical, modern solutions. From
+              building robust APIs to implementing AI integrations, I focus on
+              delivering real value through clean, maintainable code that scales
+              with your needs. My approach is simple: understand the problem
+              deeply, choose the right tools for the job, and build something
+              that actually works in the real world.
             </h1>
+            <Link
+              href='/about'
+              className='mt-4 px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors'
+            >
+              Learn More About Me
+            </Link>
           </ScrollAnimation>
 
-          {/* Projects */}
           <div className='w-full'>
             <ProjectCards />
           </div>

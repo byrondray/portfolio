@@ -198,6 +198,117 @@ export const projects: Project[] = [
     },
   },
   {
+    id: '7',
+    title: 'Rezen Gaming',
+    description:
+      'A competitive gaming wager platform that enables players to create and accept monetary wagers across multiple gaming platforms, with integrated team management, dispute resolution, and secure payment processing.',
+    technologies: [
+      'Next.js 15',
+      'TypeScript',
+      'Drizzle ORM',
+      'SQLite',
+      'Kinde Auth',
+      'Stripe',
+      'AWS Lambda',
+      'WebSocket',
+      'Framer Motion',
+      'Tailwind CSS',
+    ],
+    liveLink: 'https://rezengaming.com',
+    githubLink: '',
+    image: '/images/icon-256.svg',
+    details: {
+      longDescription:
+        'Rezen Gaming is a comprehensive competitive gaming platform that transforms casual gaming into organized, monetized competitions. The platform enables players to create wagers for popular games, challenge opponents individually or as teams, and compete for real money prizes. Built with enterprise-grade security and financial handling, the platform supports cross-platform gaming (PlayStation, Xbox, PC), automated dispute resolution, real-time notifications, and integrated payment processing through Stripe. Players can form teams, track their gaming performance, manage their gaming accounts across platforms, and participate in a trusted ecosystem where fair play is enforced through comprehensive verification systems.',
+      features: [
+        'Multi-platform wager creation supporting individual and team competitions',
+        'Secure payment processing with Stripe integration and automated escrow system',
+        'Real-time WebSocket notifications for wager updates and team communications',
+        'Comprehensive dispute resolution system with evidence submission and admin review',
+        'Cross-platform gaming account integration (PlayStation Network, Xbox Live, Steam)',
+        'Team management system with invitation handling and member coordination',
+        'Advanced wager filtering and discovery with game-specific categorization',
+        'Automated balance management and transaction history tracking',
+        'Push notification system for mobile engagement and real-time updates',
+        'Responsive design optimized for desktop and mobile gaming experiences',
+      ],
+      challenges: [
+        'Implementing secure financial transactions with proper escrow handling to protect all parties in wager agreements',
+        'Designing complex database relationships to handle multi-participant wagers, team dynamics, and dispute workflows',
+        'Building a fair dispute resolution system that can handle score disagreements and evidence verification',
+        'Creating a scalable WebSocket architecture for real-time notifications across thousands of concurrent users',
+        'Integrating with multiple gaming platform APIs while maintaining data consistency and user privacy',
+        'Implementing comprehensive validation systems to prevent fraud and ensure fair play',
+        'Optimizing database performance for complex queries involving wagers, participants, and financial calculations',
+      ],
+      processSteps: [
+        {
+          title: 'Market Research & Competitive Analysis',
+          description:
+            'Conducted extensive research into the competitive gaming and esports betting markets, analyzing existing platforms to identify gaps in user experience, security, and feature sets that could be addressed by a new platform.',
+        },
+        {
+          title: 'Architecture Design & Technology Selection',
+          description:
+            'Designed a scalable architecture using Next.js 15 with TypeScript for type safety, Drizzle ORM for database management, and AWS services for cloud infrastructure. Selected technologies prioritizing security, performance, and developer experience.',
+        },
+        {
+          title: 'Financial System Development',
+          description:
+            'Implemented secure payment processing with Stripe, including escrow functionality, automated payouts, dispute handling, and comprehensive financial audit trails to ensure transparent and secure monetary transactions.',
+        },
+        {
+          title: 'Gaming Platform Integration',
+          description:
+            'Developed secure OAuth integrations with major gaming platforms (PlayStation Network, Xbox Live, Steam) to verify player identities and gaming accounts while maintaining user privacy and platform compliance.',
+        },
+        {
+          title: 'Real-time Communication System',
+          description:
+            'Built a WebSocket-based notification system using AWS Lambda for real-time updates on wager status, team invitations, dispute notifications, and other critical platform events to ensure users stay informed.',
+        },
+        {
+          title: 'Team Collaboration & Testing',
+          description:
+            'Coordinated development across a 3-person team, implementing comprehensive testing strategies, code reviews, and deployment pipelines to ensure platform stability and security for the September 2024 launch.',
+        },
+      ],
+      techDetails: [
+        {
+          name: 'Next.js 15',
+          description:
+            'Leveraged the latest Next.js features including App Router, Server Components, and Turbopack for optimal performance and developer experience. The framework provides excellent SEO capabilities and hybrid rendering for the gaming platform.',
+        },
+        {
+          name: 'TypeScript',
+          description:
+            'Implemented throughout the entire codebase to ensure type safety in financial calculations, gaming data handling, and API interactions. Critical for preventing bugs in monetary transactions and maintaining code quality across the team.',
+        },
+        {
+          name: 'Drizzle ORM',
+          description:
+            'Used for type-safe database operations with a complex schema handling users, wagers, teams, disputes, and financial transactions. Provides excellent TypeScript integration and migration management for evolving data requirements.',
+        },
+        {
+          name: 'Stripe Integration',
+          description:
+            'Implemented for secure payment processing, including account creation, payment methods, escrow handling, automated payouts, and comprehensive webhook handling for real-time payment status updates.',
+        },
+        {
+          name: 'AWS Lambda & WebSocket',
+          description:
+            'Built a serverless notification system using AWS Lambda functions and WebSocket connections for real-time communication, ensuring scalable message delivery for wager updates, team communications, and platform notifications.',
+        },
+        {
+          name: 'Kinde Auth',
+          description:
+            'Integrated for secure user authentication with multi-factor authentication support, social login options, and comprehensive user management features essential for a financial gaming platform.',
+        },
+      ],
+      screenshots: [],
+    },
+  },
+  {
     id: '3',
     title: 'Flash Learn',
     description:
@@ -209,7 +320,7 @@ export const projects: Project[] = [
       'SQLite',
       'Kinde Auth',
     ],
-    liveLink: 'https://flash-learn-f9pl.onrender.com/',
+    liveLink: 'https://flash-learn-production.up.railway.app/',
     githubLink: 'https://github.com/byrondray/flash-learn',
     image: '',
     details: {
@@ -356,6 +467,107 @@ export const projects: Project[] = [
             'Integrated for secure user authentication with multiple provider options, enabling personalized features like saved recipes and custom collections.',
         },
       ],
+    },
+  },
+  {
+    id: '6',
+    title: 'CytoNET',
+    description:
+      'A comprehensive bioinformatics data management platform for protein interaction analysis, modification tracking, and tissue distribution visualization with automated CSV data seeding capabilities.',
+    technologies: [
+      'ASP.NET Core',
+      'Entity Framework Core',
+      'SQLite',
+      'Razor Pages',
+      'Bootstrap',
+      'C#',
+    ],
+    liveLink:
+      'https://cytonet-hndnbkd0erbufgc9.canadacentral-01.azurewebsites.net/',
+    githubLink: '',
+    image: '',
+    details: {
+      longDescription:
+        'CytoNET is a sophisticated bioinformatics platform designed to manage and analyze complex protein data for research purposes. Built for a client with extensive biological datasets, the system handles over 21,000 database entries across multiple interconnected biological domains including protein interactions, modifications, small molecules, and tissue distributions. The platform features an intelligent data seeding system that allows researchers to dynamically import new datasets, automatically processing and integrating the data into the appropriate database contexts while maintaining data integrity and relationships.',
+      features: [
+        'Maps showing protein interactions and modifications across different tissues',
+        'Multi-database architecture supporting proteins, interactions, modifications, small molecules, and tissue distributions',
+        'Automated CSV data seeding with intelligent file processing and validation',
+        'Automatic data cleaning and preprocessing pipeline for imported CSV files',
+        'Production-ready deployment with environment-specific database configurations',
+      ],
+      challenges: [
+        'Designing a scalable database schema to handle complex biological relationships across 21,000+ entries',
+        'Implementing robust CSV parsing and validation to handle diverse biological data formats',
+        'Creating an efficient background seeding system that processes large datasets without impacting application performance',
+        'Ensuring data integrity across multiple related database contexts during bulk import operations',
+        'Optimizing database queries for complex biological data relationships and large-scale analytics',
+      ],
+      processSteps: [
+        {
+          title: 'Client Requirements Analysis',
+          description:
+            'Analyzed client needs for managing 21,000 biological database entries, understanding the complex relationships between proteins, interactions, modifications, and tissue distributions.',
+        },
+        {
+          title: 'Database Architecture Design',
+          description:
+            'Designed a multi-context Entity Framework architecture with separate databases for each biological domain while maintaining referential integrity and optimized query performance.',
+        },
+        {
+          title: 'CSV Processing Pipeline Development',
+          description:
+            'Built a robust data import system with automatic CSV cleaning, validation, and transformation capabilities to handle diverse biological data formats from research sources.',
+        },
+        {
+          title: 'Background Processing Implementation',
+          description:
+            'Implemented asynchronous seeding processes to handle large dataset imports without blocking the main application, including comprehensive error handling and progress monitoring.',
+        },
+        {
+          title: 'Debugging and Monitoring System',
+          description:
+            'Created comprehensive debugging endpoints and monitoring tools to track seeding progress, database status, and data integrity across all biological contexts.',
+        },
+        {
+          title: 'Production Deployment and Optimization',
+          description:
+            'Deployed the system with environment-specific configurations, database migration automation, and performance optimizations for handling large-scale biological datasets.',
+        },
+      ],
+      techDetails: [
+        {
+          name: 'ASP.NET Core',
+          description:
+            'Leveraged for building a high-performance web application with robust dependency injection, middleware pipeline, and hosting capabilities optimized for data-intensive bioinformatics operations.',
+        },
+        {
+          name: 'Entity Framework Core',
+          description:
+            'Implemented with multiple DbContexts (Protein, ProteinModification, ProteinInteraction, SmallMolecule, TissueDistribution) using Code First approach with optimized migrations and relationship mapping.',
+        },
+        {
+          name: 'SQLite',
+          description:
+            'Selected for its lightweight nature and excellent performance with read-heavy biological data operations, with separate database files for each biological domain to optimize query performance.',
+        },
+        {
+          name: 'Background Task Processing',
+          description:
+            'Implemented asynchronous data seeding using Task.Run with comprehensive error handling to process large CSV datasets without impacting user experience or causing application timeouts.',
+        },
+        {
+          name: 'CSV Processing Engine',
+          description:
+            'Built a custom CsvCleaner class with intelligent data validation, formatting, and error correction specifically designed for biological data standards and research dataset requirements.',
+        },
+        {
+          name: 'Debugging API',
+          description:
+            'Created comprehensive RESTful debugging endpoints for real-time monitoring of database status, seeding progress, and data integrity validation across all biological contexts.',
+        },
+      ],
+      screenshots: ['/images/kinexus-crew.jpeg'],
     },
   },
   {
