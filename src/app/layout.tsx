@@ -22,10 +22,75 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `Byron's Portfolio`,
-  description: 'Check out some of the projects I have built.',
+  title: {
+    default: 'Byron Dray - Full Stack Developer & AI Engineer',
+    template: '%s | Byron Dray',
+  },
+  description:
+    'Full Stack Developer & AI Engineer specializing in modern web technologies and intelligent solutions. Explore my portfolio of React, Next.js, Node.js, and AI-powered applications. Available for freelance work and collaboration.',
+  keywords: [
+    'Byron Dray',
+    'Full Stack Developer',
+    'AI Engineer',
+    'Software Engineer',
+    'React Developer',
+    'Next.js',
+    'TypeScript',
+    'JavaScript',
+    'Node.js',
+    'Artificial Intelligence',
+    'Machine Learning',
+    'AI Integration',
+    'Portfolio',
+    'Web Development',
+    'AI',
+    'Byron',
+    'Dray',
+  ],
+  authors: [{ name: 'Byron Dray' }],
+  creator: 'Byron Dray',
+  publisher: 'Byron Dray',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://byrondray.com',
+    siteName: "Byron Dray's Portfolio",
+    title: 'Byron Dray - Full Stack Developer & AI Engineer',
+    description:
+      'Full Stack Developer & AI Engineer specializing in modern web technologies and intelligent solutions. Explore my portfolio of React, Next.js, Node.js, and AI-powered applications.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Byron Dray - Full Stack Developer & AI Engineer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Byron Dray - Full Stack Developer & AI Engineer',
+    description:
+      'Full Stack Developer & AI Engineer specializing in modern web technologies and intelligent solutions. Explore my portfolio of React, Next.js, Node.js, and AI-powered applications.',
+    creator: '@byrondray',
+    images: ['/og-image.png'],
   },
 };
 
