@@ -113,118 +113,6 @@ export const projects: Project[] = [
       ],
     },
   },
-
-  {
-    id: '7',
-    title: 'Rezen Gaming',
-    description:
-      'A competitive gaming wager platform that enables players to create and accept monetary wagers across multiple gaming platforms, with integrated team management, dispute resolution, and secure payment processing.',
-    technologies: [
-      'Next.js 15',
-      'TypeScript',
-      'Drizzle ORM',
-      'SQLite',
-      'Kinde Auth',
-      'Stripe',
-      'AWS Lambda',
-      'WebSocket',
-      'Framer Motion',
-      'Tailwind CSS',
-    ],
-    liveLink: 'https://rezengaming.com',
-    githubLink: '',
-    image: '/images/icon-256.svg',
-    details: {
-      longDescription:
-        'Rezen Gaming is a comprehensive competitive gaming platform that transforms casual gaming into organized, monetized competitions. The platform enables players to create wagers for popular games, challenge opponents individually or as teams, and compete for real money prizes. Built with enterprise-grade security and financial handling, the platform supports cross-platform gaming (PlayStation, Xbox, PC), automated dispute resolution, real-time notifications, and integrated payment processing through Stripe. Players can form teams, track their gaming performance, manage their gaming accounts across platforms, and participate in a trusted ecosystem where fair play is enforced through comprehensive verification systems.',
-      features: [
-        'Multi-platform wager creation supporting individual and team competitions',
-        'Secure payment processing with Stripe integration and automated escrow system',
-        'Real-time WebSocket notifications for wager updates and team communications',
-        'Comprehensive dispute resolution system with evidence submission and admin review',
-        'Cross-platform gaming account integration (PlayStation Network, Xbox Live, Steam)',
-        'Team management system with invitation handling and member coordination',
-        'Advanced wager filtering and discovery with game-specific categorization',
-        'Automated balance management and transaction history tracking',
-        'Push notification system for mobile engagement and real-time updates',
-        'Responsive design optimized for desktop and mobile gaming experiences',
-      ],
-      challenges: [
-        'Implementing secure financial transactions with proper escrow handling to protect all parties in wager agreements',
-        'Designing complex database relationships to handle multi-participant wagers, team dynamics, and dispute workflows',
-        'Building a fair dispute resolution system that can handle score disagreements and evidence verification',
-        'Creating a scalable WebSocket architecture for real-time notifications across thousands of concurrent users',
-        'Integrating with multiple gaming platform APIs while maintaining data consistency and user privacy',
-        'Implementing comprehensive validation systems to prevent fraud and ensure fair play',
-        'Optimizing database performance for complex queries involving wagers, participants, and financial calculations',
-      ],
-      processSteps: [
-        {
-          title: 'Market Research & Competitive Analysis',
-          description:
-            'Conducted extensive research into the competitive gaming and esports betting markets, analyzing existing platforms to identify gaps in user experience, security, and feature sets that could be addressed by a new platform.',
-        },
-        {
-          title: 'Architecture Design & Technology Selection',
-          description:
-            'Designed a scalable architecture using Next.js 15 with TypeScript for type safety, Drizzle ORM for database management, and AWS services for cloud infrastructure. Selected technologies prioritizing security, performance, and developer experience.',
-        },
-        {
-          title: 'Financial System Development',
-          description:
-            'Implemented secure payment processing with Stripe, including escrow functionality, automated payouts, dispute handling, and comprehensive financial audit trails to ensure transparent and secure monetary transactions.',
-        },
-        {
-          title: 'Gaming Platform Integration',
-          description:
-            'Developed secure OAuth integrations with major gaming platforms (PlayStation Network, Xbox Live, Steam) to verify player identities and gaming accounts while maintaining user privacy and platform compliance.',
-        },
-        {
-          title: 'Real-time Communication System',
-          description:
-            'Built a WebSocket-based notification system using AWS Lambda for real-time updates on wager status, team invitations, dispute notifications, and other critical platform events to ensure users stay informed.',
-        },
-        {
-          title: 'Team Collaboration & Testing',
-          description:
-            'Coordinated development across a 3-person team, implementing comprehensive testing strategies, code reviews, and deployment pipelines to ensure platform stability and security for the September 2024 launch.',
-        },
-      ],
-      techDetails: [
-        {
-          name: 'Next.js 15',
-          description:
-            'Leveraged the latest Next.js features including App Router, Server Components, and Turbopack for optimal performance and developer experience. The framework provides excellent SEO capabilities and hybrid rendering for the gaming platform.',
-        },
-        {
-          name: 'TypeScript',
-          description:
-            'Implemented throughout the entire codebase to ensure type safety in financial calculations, gaming data handling, and API interactions. Critical for preventing bugs in monetary transactions and maintaining code quality across the team.',
-        },
-        {
-          name: 'Drizzle ORM',
-          description:
-            'Used for type-safe database operations with a complex schema handling users, wagers, teams, disputes, and financial transactions. Provides excellent TypeScript integration and migration management for evolving data requirements.',
-        },
-        {
-          name: 'Stripe Integration',
-          description:
-            'Implemented for secure payment processing, including account creation, payment methods, escrow handling, automated payouts, and comprehensive webhook handling for real-time payment status updates.',
-        },
-        {
-          name: 'AWS Lambda & WebSocket',
-          description:
-            'Built a serverless notification system using AWS Lambda functions and WebSocket connections for real-time communication, ensuring scalable message delivery for wager updates, team communications, and platform notifications.',
-        },
-        {
-          name: 'Kinde Auth',
-          description:
-            'Integrated for secure user authentication with multi-factor authentication support, social login options, and comprehensive user management features essential for a financial gaming platform.',
-        },
-      ],
-      screenshots: [],
-    },
-  },
   {
     id: '3',
     title: 'Flash Learn',
@@ -390,7 +278,117 @@ export const projects: Project[] = [
       ],
     },
   },
-
+  {
+    id: '7',
+    title: 'Rezen Gaming',
+    description:
+      'A competitive gaming wager platform that enables players to create and accept monetary wagers across multiple gaming platforms, with integrated team management, dispute resolution, and secure payment processing.',
+    technologies: [
+      'Next.js 15',
+      'TypeScript',
+      'Drizzle ORM',
+      'SQLite',
+      'Kinde Auth',
+      'Stripe',
+      'AWS Lambda',
+      'WebSocket',
+      'Framer Motion',
+      'Tailwind CSS',
+    ],
+    liveLink: 'https://rezengaming.com',
+    githubLink: '',
+    image: '/images/icon-256.svg',
+    details: {
+      longDescription:
+        'Rezen Gaming is a comprehensive competitive gaming platform that transforms casual gaming into organized, monetized competitions. The platform enables players to create wagers for popular games, challenge opponents individually or as teams, and compete for real money prizes. Built with enterprise-grade security and financial handling, the platform supports cross-platform gaming (PlayStation, Xbox, PC), automated dispute resolution, real-time notifications, and integrated payment processing through Stripe. Players can form teams, track their gaming performance, manage their gaming accounts across platforms, and participate in a trusted ecosystem where fair play is enforced through comprehensive verification systems.',
+      features: [
+        'Multi-platform wager creation supporting individual and team competitions',
+        'Secure payment processing with Stripe integration and automated escrow system',
+        'Real-time WebSocket notifications for wager updates and team communications',
+        'Comprehensive dispute resolution system with evidence submission and admin review',
+        'Cross-platform gaming account integration (PlayStation Network, Xbox Live, Steam)',
+        'Team management system with invitation handling and member coordination',
+        'Advanced wager filtering and discovery with game-specific categorization',
+        'Automated balance management and transaction history tracking',
+        'Push notification system for mobile engagement and real-time updates',
+        'Responsive design optimized for desktop and mobile gaming experiences',
+      ],
+      challenges: [
+        'Implementing secure financial transactions with proper escrow handling to protect all parties in wager agreements',
+        'Designing complex database relationships to handle multi-participant wagers, team dynamics, and dispute workflows',
+        'Building a fair dispute resolution system that can handle score disagreements and evidence verification',
+        'Creating a scalable WebSocket architecture for real-time notifications across thousands of concurrent users',
+        'Integrating with multiple gaming platform APIs while maintaining data consistency and user privacy',
+        'Implementing comprehensive validation systems to prevent fraud and ensure fair play',
+        'Optimizing database performance for complex queries involving wagers, participants, and financial calculations',
+      ],
+      processSteps: [
+        {
+          title: 'Market Research & Competitive Analysis',
+          description:
+            'Conducted extensive research into the competitive gaming and esports betting markets, analyzing existing platforms to identify gaps in user experience, security, and feature sets that could be addressed by a new platform.',
+        },
+        {
+          title: 'Architecture Design & Technology Selection',
+          description:
+            'Designed a scalable architecture using Next.js 15 with TypeScript for type safety, Drizzle ORM for database management, and AWS services for cloud infrastructure. Selected technologies prioritizing security, performance, and developer experience.',
+        },
+        {
+          title: 'Financial System Development',
+          description:
+            'Implemented secure payment processing with Stripe, including escrow functionality, automated payouts, dispute handling, and comprehensive financial audit trails to ensure transparent and secure monetary transactions.',
+        },
+        {
+          title: 'Gaming Platform Integration',
+          description:
+            'Developed secure OAuth integrations with major gaming platforms (PlayStation Network, Xbox Live, Steam) to verify player identities and gaming accounts while maintaining user privacy and platform compliance.',
+        },
+        {
+          title: 'Real-time Communication System',
+          description:
+            'Built a WebSocket-based notification system using AWS Lambda for real-time updates on wager status, team invitations, dispute notifications, and other critical platform events to ensure users stay informed.',
+        },
+        {
+          title: 'Team Collaboration & Testing',
+          description:
+            'Coordinated development across a 3-person team, implementing comprehensive testing strategies, code reviews, and deployment pipelines to ensure platform stability and security for the September 2024 launch.',
+        },
+      ],
+      techDetails: [
+        {
+          name: 'Next.js 15',
+          description:
+            'Leveraged the latest Next.js features including App Router, Server Components, and Turbopack for optimal performance and developer experience. The framework provides excellent SEO capabilities and hybrid rendering for the gaming platform.',
+        },
+        {
+          name: 'TypeScript',
+          description:
+            'Implemented throughout the entire codebase to ensure type safety in financial calculations, gaming data handling, and API interactions. Critical for preventing bugs in monetary transactions and maintaining code quality across the team.',
+        },
+        {
+          name: 'Drizzle ORM',
+          description:
+            'Used for type-safe database operations with a complex schema handling users, wagers, teams, disputes, and financial transactions. Provides excellent TypeScript integration and migration management for evolving data requirements.',
+        },
+        {
+          name: 'Stripe Integration',
+          description:
+            'Implemented for secure payment processing, including account creation, payment methods, escrow handling, automated payouts, and comprehensive webhook handling for real-time payment status updates.',
+        },
+        {
+          name: 'AWS Lambda & WebSocket',
+          description:
+            'Built a serverless notification system using AWS Lambda functions and WebSocket connections for real-time communication, ensuring scalable message delivery for wager updates, team communications, and platform notifications.',
+        },
+        {
+          name: 'Kinde Auth',
+          description:
+            'Integrated for secure user authentication with multi-factor authentication support, social login options, and comprehensive user management features essential for a financial gaming platform.',
+        },
+      ],
+      screenshots: [],
+    },
+  },
   {
     id: '6',
     title: 'CytoNET',
