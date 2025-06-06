@@ -13,6 +13,10 @@ import {
   Code2,
   Layers,
   Rocket,
+  Brain,
+  ChefHat,
+  Dna,
+  Database,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ScrollAnimation } from '@/components/scrollAnimation';
@@ -54,21 +58,22 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     <PageWrapper>
       <ProjectLayout title={project.title}>
         <motion.div
-          className='relative mb-16 overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-xl border border-gray-700 p-8'
+          className='relative mb-6 md:mb-12 overflow-hidden rounded-xl md:rounded-3xl bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-xl border border-gray-700 p-4 md:p-8'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <div className='absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 opacity-50' />
-          <div className='relative z-10 flex items-center'>
-            {project.image && (
-              <motion.div
-                className='mr-8 flex-shrink-0'
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <div className='relative w-24 h-24 rounded-2xl overflow-hidden shadow-2xl'>
+          <div className='relative z-10 flex flex-col md:flex-row items-center gap-4 md:gap-8'>
+            {' '}
+            <motion.div
+              className='flex-shrink-0'
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              {project.image ? (
+                <div className='relative w-16 h-16 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl'>
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -76,11 +81,58 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     className='object-contain'
                   />
                 </div>
-              </motion.div>
-            )}
-            <div className='flex-1'>
+              ) : (
+                <motion.div
+                  className={`p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${
+                    project.title === 'Flash Learn'
+                      ? 'from-purple-500 to-indigo-500'
+                      : project.title === 'Recipe App'
+                      ? 'from-red-500 to-pink-500'
+                      : project.title === 'Warehouse CMS'
+                      ? 'from-indigo-500 to-blue-500'
+                      : project.title === 'CytoNET'
+                      ? 'from-cyan-500 to-teal-500'
+                      : 'from-emerald-500 to-green-500'
+                  } shadow-2xl`}
+                  whileHover={{ scale: 1.05, rotate: 5 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  {project.title === 'Flash Learn' ? (
+                    <Brain size={40} className='text-white md:w-12 md:h-12' />
+                  ) : project.title === 'Recipe App' ? (
+                    <ChefHat size={40} className='text-white md:w-12 md:h-12' />
+                  ) : project.title === 'Warehouse CMS' ? (
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='40'
+                      height='40'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeWidth='1.5'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      className='text-white md:w-12 md:h-12'
+                    >
+                      <path d='M12 12H5a2 2 0 0 0-2 2v5' />
+                      <circle cx='13' cy='19' r='2' />
+                      <circle cx='5' cy='19' r='2' />
+                      <path d='M8 19h3m5-17v17h6M6 12V7c0-1.1.9-2 2-2h3l5 5' />
+                    </svg>
+                  ) : project.title === 'CytoNET' ? (
+                    <Dna size={40} className='text-white md:w-12 md:h-12' />
+                  ) : (
+                    <Database
+                      size={40}
+                      className='text-white md:w-12 md:h-12'
+                    />
+                  )}
+                </motion.div>
+              )}
+            </motion.div>
+            <div className='flex-1 text-center md:text-left'>
               <motion.h1
-                className='text-5xl font-bold text-white font-inter tracking-tight mb-4'
+                className='text-2xl sm:text-3xl md:text-5xl font-bold text-white font-inter tracking-tight mb-3 md:mb-4'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -88,7 +140,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 {project.title}
               </motion.h1>
               <motion.div
-                className='flex flex-wrap gap-2'
+                className='flex flex-wrap gap-1.5 md:gap-2 justify-center md:justify-start'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -96,7 +148,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 {project.technologies.map((tech, idx) => (
                   <motion.span
                     key={idx}
-                    className='px-4 py-2 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 backdrop-blur-sm rounded-full text-sm text-gray-100 font-medium border border-gray-600/50 hover:border-gray-500 transition-all duration-300'
+                    className='px-2 py-1 md:px-4 md:py-2 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 backdrop-blur-sm rounded-full text-xs md:text-sm text-gray-100 font-medium border border-gray-600/50 hover:border-gray-500 transition-all duration-300'
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.4 + idx * 0.05 }}
@@ -110,23 +162,23 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </motion.div>
 
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
-          <div className='lg:col-span-2'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8'>
+          <div className='lg:col-span-2 order-2 lg:order-1 space-y-4 md:space-y-6'>
             <ScrollAnimation direction='up' delay={0.5}>
-              <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-2xl p-8 mb-8 border border-gray-700 shadow-2xl'>
+              <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
                 <motion.h2
-                  className='text-3xl font-bold text-white mb-6 flex items-center gap-3'
+                  className='text-xl md:text-3xl font-bold text-white mb-3 md:mb-6 flex items-center gap-2 md:gap-3'
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                  <div className='w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center'>
-                    <Layers className='w-5 h-5 text-white' />
+                  <div className='w-6 h-6 md:w-8 md:h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center'>
+                    <Layers className='w-3.5 h-3.5 md:w-5 md:h-5 text-white' />
                   </div>
                   Project Overview
                 </motion.h2>
                 <motion.p
-                  className='text-gray-300 text-lg leading-relaxed mb-8'
+                  className='text-gray-300 text-sm md:text-lg leading-relaxed'
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
@@ -136,27 +188,27 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
                 {(details.features || details.challenges) && (
                   <motion.div
-                    className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8'
+                    className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mt-4 md:mt-8'
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
                   >
                     {details.features && (
-                      <div className='space-y-4'>
+                      <div className='space-y-3 md:space-y-4'>
                         <motion.h3
-                          className='text-xl font-bold text-white mb-4 flex items-center gap-2'
+                          className='text-base md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2'
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.5, delay: 0.9 }}
                         >
-                          <CheckCircle2 className='w-5 h-5 text-green-400' />
+                          <CheckCircle2 className='w-4 h-4 md:w-5 md:h-5 text-green-400' />
                           Key Features
                         </motion.h3>
-                        <div className='space-y-3'>
+                        <div className='space-y-2 md:space-y-3'>
                           {details.features.map((feature, idx) => (
                             <motion.div
                               key={idx}
-                              className='flex items-start gap-3 p-3 rounded-lg bg-gray-800/30 border border-gray-700/50 hover:border-gray-600 transition-all duration-300'
+                              className='flex items-start gap-2 md:gap-3 p-2 md:p-3 rounded-lg bg-gray-800/30 border border-gray-700/50 hover:border-gray-600 transition-all duration-300'
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{
@@ -164,8 +216,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                                 delay: 0.9 + idx * 0.1,
                               }}
                             >
-                              <div className='w-2 h-2 rounded-full bg-green-400 mt-2 flex-shrink-0' />
-                              <span className='text-gray-300 text-sm'>
+                              <div className='w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-400 mt-1.5 md:mt-2 flex-shrink-0' />
+                              <span className='text-gray-300 text-xs md:text-sm'>
                                 {feature}
                               </span>
                             </motion.div>
@@ -175,21 +227,21 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     )}
 
                     {details.challenges && (
-                      <div className='space-y-4'>
+                      <div className='space-y-3 md:space-y-4'>
                         <motion.h3
-                          className='text-xl font-bold text-white mb-4 flex items-center gap-2'
+                          className='text-base md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2'
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.5, delay: 0.9 }}
                         >
-                          <Zap className='w-5 h-5 text-yellow-400' />
+                          <Zap className='w-4 h-4 md:w-5 md:h-5 text-yellow-400' />
                           Technical Challenges
                         </motion.h3>
-                        <div className='space-y-3'>
+                        <div className='space-y-2 md:space-y-3'>
                           {details.challenges.map((challenge, idx) => (
                             <motion.div
                               key={idx}
-                              className='flex items-start gap-3 p-3 rounded-lg bg-gray-800/30 border border-gray-700/50 hover:border-gray-600 transition-all duration-300'
+                              className='flex items-start gap-2 md:gap-3 p-2 md:p-3 rounded-lg bg-gray-800/30 border border-gray-700/50 hover:border-gray-600 transition-all duration-300'
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{
@@ -197,8 +249,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                                 delay: 0.9 + idx * 0.1,
                               }}
                             >
-                              <div className='w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0' />
-                              <span className='text-gray-300 text-sm'>
+                              <div className='w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-yellow-400 mt-1.5 md:mt-2 flex-shrink-0' />
+                              <span className='text-gray-300 text-xs md:text-sm'>
                                 {challenge}
                               </span>
                             </motion.div>
@@ -213,20 +265,20 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
             {details.videoUrl && (
               <ScrollAnimation direction='up' delay={0.3}>
-                <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-2xl p-8 mb-8 border border-gray-700 shadow-2xl'>
+                <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
                   <motion.h2
-                    className='text-3xl font-bold text-white mb-6 flex items-center gap-3'
+                    className='text-xl md:text-3xl font-bold text-white mb-3 md:mb-6 flex items-center gap-2 md:gap-3'
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                   >
-                    <div className='w-8 h-8 rounded-lg bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center'>
-                      <Rocket className='w-5 h-5 text-white' />
+                    <div className='w-6 h-6 md:w-8 md:h-8 rounded-lg bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center'>
+                      <Rocket className='w-3.5 h-3.5 md:w-5 md:h-5 text-white' />
                     </div>
                     Project Demo
                   </motion.h2>
                   <motion.div
-                    className='aspect-video w-full rounded-xl overflow-hidden shadow-2xl'
+                    className='aspect-video w-full rounded-lg md:rounded-xl overflow-hidden shadow-2xl'
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
@@ -253,19 +305,19 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
             {details.techDetails && (
               <ScrollAnimation direction='up' delay={0.4}>
-                <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-2xl p-8 mb-8 border border-gray-700 shadow-2xl'>
+                <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
                   <motion.h2
-                    className='text-3xl font-bold text-white mb-6 flex items-center gap-3'
+                    className='text-xl md:text-3xl font-bold text-white mb-3 md:mb-6 flex items-center gap-2 md:gap-3'
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                   >
-                    <div className='w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center'>
-                      <Code2 className='w-5 h-5 text-white' />
+                    <div className='w-6 h-6 md:w-8 md:h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center'>
+                      <Code2 className='w-3.5 h-3.5 md:w-5 md:h-5 text-white' />
                     </div>
                     Technology Stack
                   </motion.h2>
-                  <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                  <div className='grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4'>
                     {details.techDetails.map((tech, idx) => (
                       <motion.div
                         key={idx}
@@ -274,19 +326,22 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                         transition={{ duration: 0.5, delay: 0.5 + idx * 0.1 }}
                       >
                         <Card className='bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm border-gray-700 hover:border-gray-600 transition-all duration-300 group hover:shadow-xl'>
-                          <CardHeader className='pb-3'>
-                            <CardTitle className='text-lg text-white flex items-center gap-3'>
-                              <div className='w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-300'>
+                          <CardHeader className='pb-2 md:pb-3'>
+                            <CardTitle className='text-base md:text-lg text-white flex items-center gap-2 md:gap-3'>
+                              <div className='w-6 h-6 md:w-8 md:h-8 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-300'>
                                 {React.createElement(
                                   techIcons[idx % techIcons.length],
-                                  { className: 'w-4 h-4 text-indigo-400' }
+                                  {
+                                    className:
+                                      'w-3 h-3 md:w-4 md:h-4 text-indigo-400',
+                                  }
                                 )}
                               </div>
                               {tech.name}
                             </CardTitle>
                           </CardHeader>
                           <CardContent>
-                            <p className='text-gray-300 text-sm leading-relaxed'>
+                            <p className='text-gray-300 text-xs md:text-sm leading-relaxed'>
                               {tech.description}
                             </p>
                           </CardContent>
@@ -300,31 +355,31 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
             {details.processSteps && (
               <ScrollAnimation direction='up' delay={0.5}>
-                <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-2xl p-8 mb-8 border border-gray-700 shadow-2xl'>
+                <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
                   <motion.h2
-                    className='text-3xl font-bold text-white mb-8 flex items-center gap-3'
+                    className='text-xl md:text-3xl font-bold text-white mb-4 md:mb-8 flex items-center gap-2 md:gap-3'
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
                   >
-                    <div className='w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-green-500 flex items-center justify-center'>
-                      <Layers className='w-5 h-5 text-white' />
+                    <div className='w-6 h-6 md:w-8 md:h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-green-500 flex items-center justify-center'>
+                      <Layers className='w-3.5 h-3.5 md:w-5 md:h-5 text-white' />
                     </div>
                     Development Process
                   </motion.h2>
                   <div className='relative'>
-                    <div className='absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 to-purple-500 opacity-20' />
-                    <div className='space-y-8'>
+                    <div className='absolute left-5 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 to-purple-500 opacity-20' />
+                    <div className='space-y-4 md:space-y-8'>
                       {details.processSteps.map((step, idx) => (
                         <motion.div
                           key={idx}
-                          className='relative flex items-start gap-6'
+                          className='relative flex items-start gap-3 md:gap-6'
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5, delay: 0.6 + idx * 0.1 }}
                         >
                           <motion.div
-                            className='relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-lg'
+                            className='relative z-10 flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-lg'
                             initial={{ scale: 0.8 }}
                             animate={{ scale: 1 }}
                             transition={{
@@ -332,13 +387,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                               delay: 0.7 + idx * 0.1,
                             }}
                           >
-                            <span className='text-white text-lg font-bold'>
+                            <span className='text-white text-sm md:text-lg font-bold'>
                               {idx + 1}
                             </span>
                           </motion.div>
-                          <div className='flex-1 p-6 rounded-xl bg-gray-800/30 border border-gray-700/50 hover:border-gray-600 transition-all duration-300'>
+                          <div className='flex-1 p-3 md:p-6 rounded-lg md:rounded-xl bg-gray-800/30 border border-gray-700/50 hover:border-gray-600 transition-all duration-300'>
                             <motion.h3
-                              className='text-xl font-bold text-white mb-2'
+                              className='text-base md:text-xl font-bold text-white mb-1 md:mb-2'
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               transition={{
@@ -349,7 +404,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                               {step.title}
                             </motion.h3>
                             <motion.p
-                              className='text-gray-300 leading-relaxed'
+                              className='text-gray-300 text-xs md:text-base leading-relaxed'
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               transition={{
@@ -369,27 +424,27 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             )}
           </div>
 
-          <div className='lg:col-span-1'>
+          <div className='lg:col-span-1 order-1 lg:order-2 mb-4 lg:mb-0'>
             <motion.div
-              className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-2xl p-6 mb-8 sticky top-8 border border-gray-700 shadow-2xl'
+              className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-6 lg:sticky lg:top-8 border border-gray-700 shadow-2xl'
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >
-              <h3 className='text-lg font-bold text-white mb-4'>
+              <h3 className='text-base md:text-lg font-bold text-white mb-3 md:mb-4'>
                 Project Links
               </h3>
-              <div className='flex flex-col space-y-3'>
+              <div className='flex flex-col space-y-2 md:space-y-3'>
                 <motion.a
                   href={project.liveLink}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='relative overflow-hidden group w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium rounded-xl text-center transition-all duration-300 flex items-center justify-center shadow-lg'
+                  className='relative overflow-hidden group w-full py-2 md:py-3 px-3 md:px-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium rounded-lg md:rounded-xl text-center transition-all duration-300 flex items-center justify-center shadow-lg text-sm md:text-base'
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <span className='relative z-10 flex items-center gap-2'>
-                    <ExternalLink className='h-5 w-5' />
+                    <ExternalLink className='h-4 w-4 md:h-5 md:w-5' />
                     {project.title === 'Relay Rideshare'
                       ? 'Learn More'
                       : 'Live Demo'}
@@ -401,11 +456,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     href={project.githubLink}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='relative overflow-hidden group w-full py-3 px-4 bg-gray-800/80 hover:bg-gray-700/80 text-white font-medium rounded-xl text-center transition-all duration-300 flex items-center justify-center border border-gray-700 hover:border-gray-600 shadow-lg'
+                    className='relative overflow-hidden group w-full py-2 md:py-3 px-3 md:px-4 bg-gray-800/80 hover:bg-gray-700/80 text-white font-medium rounded-lg md:rounded-xl text-center transition-all duration-300 flex items-center justify-center border border-gray-700 hover:border-gray-600 shadow-lg text-sm md:text-base'
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Github className='h-5 w-5 mr-2' />
+                    <Github className='h-4 w-4 md:h-5 md:w-5 mr-2' />
                     View Source Code
                   </motion.a>
                 )}
@@ -416,23 +471,23 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         {details.screenshots && details.screenshots.length > 0 && (
           <ScrollAnimation direction='up' delay={0.6}>
-            <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-2xl p-8 mb-8 border border-gray-700 shadow-2xl'>
+            <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 mt-4 md:mt-6 border border-gray-700 shadow-2xl'>
               <motion.h2
-                className='text-3xl font-bold text-white mb-8 flex items-center gap-3'
+                className='text-xl md:text-3xl font-bold text-white mb-4 md:mb-8 flex items-center gap-2 md:gap-3'
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
-                <div className='w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-500 flex items-center justify-center'>
-                  <Layers className='w-5 h-5 text-white' />
+                <div className='w-6 h-6 md:w-8 md:h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-500 flex items-center justify-center'>
+                  <Layers className='w-3.5 h-3.5 md:w-5 md:h-5 text-white' />
                 </div>
                 Gallery
               </motion.h2>
-              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6'>
                 {details.screenshots.map((screenshot, idx) => (
                   <motion.div
                     key={idx}
-                    className='group relative h-80 overflow-hidden rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-gray-600 transition-all duration-300 shadow-lg hover:shadow-2xl'
+                    className='group relative h-60 md:h-80 overflow-hidden rounded-lg md:rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-gray-600 transition-all duration-300 shadow-lg hover:shadow-2xl'
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 + idx * 0.1 }}

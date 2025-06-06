@@ -22,7 +22,7 @@ const ProjectLayout = ({ children, title }: ProjectLayoutProps) => {
   return (
     <div className='relative min-h-screen bg-transparent'>
       <BackgroundBeamsWithCollision />
-      <div className='relative min-h-screen w-full p-8'>
+      <div className='relative min-h-screen w-full p-6'>
         <div className='max-w-6xl mx-auto'>
           <motion.div
             className='mb-8'
