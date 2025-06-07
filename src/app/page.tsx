@@ -81,7 +81,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <ThemeToggle />
-          <a href='mailto:bytondray8@gmail.com' className='group'>
+          <a href='mailto:byrondray8@gmail.com' className='group'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 24 24'

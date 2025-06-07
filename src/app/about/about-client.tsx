@@ -442,7 +442,7 @@ const AboutPageClient = () => {
                 <div className='hidden sm:block w-px h-8 bg-gray-600'></div>
                 <div className='flex items-center gap-3 flex-wrap justify-center'>
                   <a
-                    href='mailto:bytondray8@gmail.com'
+                    href='mailto:byrondray8@gmail.com'
                     className='group flex items-center gap-2 px-3 py-2 bg-gray-800/60 hover:bg-gray-700/60 rounded-lg transition-all duration-300 text-sm text-gray-200 hover:text-white'
                   >
                     <svg

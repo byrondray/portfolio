@@ -177,7 +177,7 @@ const structuredData = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'professional',
-    email: 'bytondray8@gmail.com',
+    email: 'byrondray8@gmail.com',
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
