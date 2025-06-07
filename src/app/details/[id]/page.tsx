@@ -173,7 +173,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8'>
           <div className='lg:col-span-2 order-2 lg:order-1 space-y-4 md:space-y-6'>
-            <ScrollAnimation direction='up' delay={0.5}>
+            <ScrollAnimation
+              direction='up'
+              delay={0.1}
+              threshold={0.1}
+              rootMargin='50px 0px 0px 0px'
+              distance={30}
+            >
               <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
                 <motion.h2
                   className='text-xl md:text-3xl font-bold text-white mb-3 md:mb-6 flex items-center gap-2 md:gap-3'
@@ -272,7 +278,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               </div>
             </ScrollAnimation>{' '}
             {videos.length > 0 && (
-              <ScrollAnimation direction='up' delay={0.3}>
+              <ScrollAnimation
+                direction='up'
+                delay={0.05}
+                threshold={0.1}
+                rootMargin='50px 0px 0px 0px'
+                distance={30}
+              >
                 <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
                   <motion.h2
                     className='text-xl md:text-3xl font-bold text-white mb-3 md:mb-6 flex items-center gap-2 md:gap-3'
@@ -368,7 +380,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               </ScrollAnimation>
             )}
             {details.techDetails && (
-              <ScrollAnimation direction='up' delay={0.4}>
+              <ScrollAnimation
+                direction='up'
+                delay={0.1}
+                threshold={0.1}
+                rootMargin='50px 0px 0px 0px'
+                distance={30}
+              >
                 <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
                   <motion.h2
                     className='text-xl md:text-3xl font-bold text-white mb-3 md:mb-6 flex items-center gap-2 md:gap-3'
@@ -417,7 +435,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               </ScrollAnimation>
             )}
             {details.processSteps && (
-              <ScrollAnimation direction='up' delay={0.5}>
+              <ScrollAnimation
+                direction='up'
+                delay={0.15}
+                threshold={0.1}
+                rootMargin='50px 0px 0px 0px'
+                distance={30}
+              >
                 <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 border border-gray-700 shadow-2xl'>
                   <motion.h2
                     className='text-xl md:text-3xl font-bold text-white mb-4 md:mb-8 flex items-center gap-2 md:gap-3'
@@ -533,7 +557,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </div>
 
         {details.screenshots && details.screenshots.length > 0 && (
-          <ScrollAnimation direction='up' delay={0.6}>
+          <ScrollAnimation
+            direction='up'
+            delay={0.2}
+            threshold={0.05}
+            rootMargin='100px 0px 0px 0px'
+            distance={30}
+          >
             <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 mt-4 md:mt-6 border border-gray-700 shadow-2xl'>
               <motion.h2
                 className='text-xl md:text-3xl font-bold text-white mb-4 md:mb-8 flex items-center gap-2 md:gap-3'

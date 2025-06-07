@@ -71,7 +71,13 @@ const ProjectCards = () => {
   };
 
   return (
-    <ScrollAnimation direction='up' delay={0.7} className='w-full py-8'>
+    <ScrollAnimation
+      direction='up'
+      delay={0.7}
+      className='w-full py-8'
+      threshold={0.05}
+      rootMargin='100px 0px 0px 0px'
+    >
       <motion.h2
         className={`text-3xl font-bold mb-12 text-center ${
           isDarkTheme ? 'text-white' : 'text-gray-900'
@@ -87,8 +93,11 @@ const ProjectCards = () => {
           <ScrollAnimation
             key={index}
             direction='up'
-            delay={0.3 + index * 0.1}
+            delay={0.1 + index * 0.05}
             className='h-full'
+            threshold={0.1}
+            rootMargin='50px 0px 0px 0px'
+            distance={30}
           >
             <motion.div
               whileHover={{ y: -5, transition: { duration: 0.2 } }}

@@ -11,6 +11,8 @@ interface ScrollAnimationProps {
   className?: string;
   once?: boolean;
   distance?: number;
+  threshold?: number;
+  rootMargin?: string;
 }
 
 const getDirectionOffset = (
@@ -39,13 +41,15 @@ export const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
   className = '',
   once = true,
   distance = 50,
+  threshold = 0.5,
+  rootMargin = '0px 0px -150px 0px',
 }) => {
   const controls = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref, {
     once,
-    amount: 0.01,
-    margin: '0px 0px -150px 0px',
+    amount: threshold,
+    margin: rootMargin,
   });
 
   useEffect(() => {
