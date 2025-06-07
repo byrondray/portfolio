@@ -57,6 +57,31 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <ThemeToggle />
+          <a href='mailto:bytondray8@gmail.com' className='group'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+              width='36'
+              height='36'
+              className='transition-transform duration-300 ease-in-out group-hover:scale-110'
+              fill='none'
+            >
+              <path
+                className='stroke-gray-800 dark:stroke-white transition-colors duration-300 ease-in-out group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'
+              />
+              <path
+                className='stroke-gray-800 dark:stroke-white transition-colors duration-300 ease-in-out group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                d='M22 6l-10 7L2 6'
+              />
+            </svg>
+          </a>
           <a
             href='https://github.com/byrondray'
             target='_blank'
