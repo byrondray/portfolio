@@ -24,12 +24,26 @@ export default function Home() {
             <AnimatedText />
           </motion.div>
 
-          <ScrollAnimation
-            direction='up'
-            delay={0.5}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             className='w-full flex flex-col items-center space-y-8'
           >
-            <h1 className='text-2xl font-medium text-center transition-colors duration-300 dark:text-white text-gray-900 font-inter leading-relaxed w-full'>
+            <motion.h1
+              className='text-2xl font-medium text-center transition-colors duration-300 dark:text-white text-gray-900 font-inter leading-relaxed w-full'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.7,
+                delay: 0.6,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+            >
               I'm a versatile full-stack developer who thrives on solving
               complex business challenges with practical, modern solutions. From
               building robust APIs to implementing AI integrations, I focus on
@@ -37,21 +51,31 @@ export default function Home() {
               with your needs. My approach is simple: understand the problem
               deeply, choose the right tools for the job, and build something
               that actually works in the real world.
-            </h1>
-            <Link
-              href='/about'
-              className='mt-4 px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors'
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.8,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
             >
-              Learn More About Me
-            </Link>
-          </ScrollAnimation>
+              <Link
+                href='/about'
+                className='mt-4 px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors'
+              >
+                Learn More About Me
+              </Link>
+            </motion.div>
+          </motion.div>
 
           <div className='w-full'>
             <ProjectCards />
           </div>
         </div>
         <motion.div
-          className='fixed right-20 top-12 flex gap-8 items-center'
+          className='absolute right-20 top-12 flex gap-8 items-center'
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
