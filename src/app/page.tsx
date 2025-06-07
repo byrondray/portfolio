@@ -13,14 +13,16 @@ export default function Home() {
     <PageWrapper>
       <main className='relative min-h-screen bg-transparent'>
         <BackgroundBeamsWithCollision />
-        <div className='relative min-h-screen w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-12 flex flex-col items-center space-y-12'>
+        <div className='relative min-h-screen w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-12 flex flex-col items-center space-y-6 sm:space-y-8'>
           <motion.div
-            className='mt-28 min-h-[5rem] py-4 w-full flex justify-center'
+            className='mt-20 sm:mt-24 md:mt-28 min-h-[5rem] py-4 w-full flex justify-center'
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <AnimatedText />
+            <div className='mt-6 sm:mt-0'>
+              <AnimatedText />
+            </div>
           </motion.div>
 
           <motion.div
@@ -31,10 +33,10 @@ export default function Home() {
               delay: 0.5,
               ease: [0.25, 0.1, 0.25, 1],
             }}
-            className='w-full flex flex-col items-center space-y-8'
+            className='w-full flex flex-col items-center space-y-6 sm:space-y-6 md:space-y-8'
           >
             <motion.h1
-              className='text-2xl font-medium text-center transition-colors duration-300 dark:text-white text-gray-900 font-inter leading-relaxed w-full'
+              className='text-2xl font-semibold text-center dark:text-white text-gray-900 leading-relaxed'
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -43,14 +45,9 @@ export default function Home() {
                 ease: [0.25, 0.1, 0.25, 1],
               }}
             >
-              I'm a versatile full-stack developer who thrives on solving
-              complex business challenges with practical, modern solutions. From
-              building robust APIs to implementing AI integrations, I focus on
-              delivering real value through clean, maintainable code that scales
-              with your needs. My approach is simple: understand the problem
-              deeply, choose the right tools for the job, and build something
-              that actually works in the real world.
+              Full-stack engineer crafting scalable web&nbsp;& AI solutions.
             </motion.h1>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
