@@ -564,6 +564,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             rootMargin='100px 0px 0px 0px'
             distance={30}
           >
+            {/* Gallery Header - constrained container */}
             <div className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-8 mt-4 md:mt-6 border border-gray-700 shadow-2xl'>
               <motion.h2
                 className='text-xl md:text-3xl font-bold text-white mb-4 md:mb-8 flex items-center gap-2 md:gap-3'
@@ -576,24 +577,36 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 </div>
                 Gallery
               </motion.h2>
-              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6'>
+            </div>
+
+            {/* Full-width image grid on mobile */}
+            <div className='-mx-4 sm:mx-0 mt-4 md:mt-6'>
+              <div className='grid grid-cols-1 gap-4 md:gap-6'>
                 {details.screenshots.map((screenshot, idx) => (
                   <motion.div
                     key={idx}
-                    className='group relative h-60 md:h-80 overflow-hidden rounded-lg md:rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 hover:border-gray-600 transition-all duration-300 shadow-lg hover:shadow-2xl'
+                    className='group relative overflow-hidden bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-0 sm:border border-gray-700 hover:border-gray-600 transition-all duration-300 shadow-lg hover:shadow-2xl sm:rounded-lg md:rounded-xl'
+                    style={{
+                      height: 'auto',
+                      aspectRatio: 'auto',
+                    }}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 + idx * 0.1 }}
-                    whileHover={{ y: -5 }}
+                    whileHover={{ y: -2 }}
                   >
                     <div className='absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10' />
-                    <Image
-                      src={screenshot}
-                      alt={`${project.title} screenshot ${idx + 1}`}
-                      fill
-                      className='object-contain group-hover:scale-105 transition-transform duration-300'
-                      sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                    />
+                    <div className='relative w-full flex items-center justify-center'>
+                      <Image
+                        src={screenshot}
+                        alt={`${project.title} screenshot ${idx + 1}`}
+                        width={800}
+                        height={1200}
+                        className='w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-300 max-h-[60vh] sm:max-h-[70vh]'
+                        sizes='(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw'
+                        priority={idx < 3}
+                      />
+                    </div>
                   </motion.div>
                 ))}
               </div>

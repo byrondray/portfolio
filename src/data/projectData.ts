@@ -560,7 +560,11 @@ export const projects: Project[] = [
         'Building an intuitive interface that balances feature richness with ease of use',
       ],
 
-      screenshots: [],
+      screenshots: [
+        '/images/ta-form.png',
+        '/images/ta-loading.png',
+        '/images/ta-generated.png',
+      ],
 
       videoUrl: '',
 
