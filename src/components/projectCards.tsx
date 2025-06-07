@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Card,
   CardContent,
@@ -45,6 +45,7 @@ const ProjectCards = () => {
     (theme === 'system' &&
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-color-scheme: dark)').matches);
+
   const iconColors = {
     'Flash Learn': 'from-purple-500 to-indigo-500',
     'Recipe App': 'from-red-500 to-pink-500',
@@ -53,6 +54,7 @@ const ProjectCards = () => {
     'Travel Planner': 'from-blue-500 to-sky-500',
     default: 'from-emerald-500 to-green-500',
   };
+
   const getIconForProject = (title: string) => {
     switch (title) {
       case 'Flash Learn':
@@ -68,6 +70,152 @@ const ProjectCards = () => {
       default:
         return <Database size={80} className='text-white' />;
     }
+  };
+
+  const ProjectCard = ({
+    project,
+    index,
+  }: {
+    project: (typeof projects)[0];
+    index: number;
+  }) => {
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const [isCardHovered, setIsCardHovered] = useState(false);
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+      if (cardRef.current) {
+        const rect = cardRef.current.getBoundingClientRect();
+        setMousePos({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
+      }
+    };
+
+    return (
+      <ScrollAnimation
+        key={index}
+        direction='up'
+        delay={0.1 + index * 0.05}
+        className='h-full'
+        threshold={0.1}
+        rootMargin='50px 0px 0px 0px'
+        distance={30}
+      >
+        <motion.div
+          ref={cardRef}
+          onMouseMove={handleCardMouseMove}
+          onMouseEnter={() => setIsCardHovered(true)}
+          onMouseLeave={() => setIsCardHovered(false)}
+          whileHover={{ y: -5, transition: { duration: 0.2 } }}
+          className='h-full relative'
+        >
+          <Card className='relative flex flex-col bg-black/50 backdrop-blur-xl border-gray-700 hover:border-gray-500 transition-all duration-300 h-full overflow-hidden group'>
+            {/* Mouse tracking glow effect */}
+            <div
+              className='absolute pointer-events-none transition-opacity duration-300 rounded-xl z-0'
+              style={{
+                left: mousePos.x - 150,
+                top: mousePos.y - 150,
+                width: '300px',
+                height: '300px',
+                background: `radial-gradient(circle, ${
+                  project.title === 'Flash Learn'
+                    ? 'rgba(139, 92, 246, 0.3)'
+                    : project.title === 'Recipe App'
+                    ? 'rgba(236, 72, 33, 0.3)'
+                    : project.title === 'Warehouse CMS'
+                    ? 'rgba(99, 102, 241, 0.3)'
+                    : project.title === 'CytoNET'
+                    ? 'rgba(6, 182, 212, 0.3)'
+                    : project.title === 'Travel Planner'
+                    ? 'rgba(59, 130, 246, 0.3)'
+                    : 'rgba(16, 185, 129, 0.3)'
+                } 0%, transparent 70%)`,
+                opacity: isCardHovered ? 1 : 0,
+              }}
+            />
+            <div className='absolute inset-0 bg-gradient-to-br from-gray-900/50 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+
+            <CardHeader className='relative z-10 flex-shrink-0'>
+              <div className='flex justify-center items-center mb-6'>
+                {project.image ? (
+                  <motion.div
+                    className='relative w-32 h-32 rounded-2xl overflow-hidden shadow-2xl'
+                    whileHover={{ scale: 1.05, rotate: 5 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className='object-contain'
+                    />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    className={`p-8 rounded-2xl bg-gradient-to-br ${
+                      iconColors[project.title as keyof typeof iconColors] ||
+                      iconColors.default
+                    } shadow-2xl`}
+                    whileHover={{ scale: 1.05, rotate: 5 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    {getIconForProject(project.title)}
+                  </motion.div>
+                )}
+              </div>
+              <div className='space-y-2'>
+                <CardTitle className='text-2xl font-bold text-white text-center'>
+                  {project.title}
+                </CardTitle>
+                <CardDescription className='text-gray-300 text-center line-clamp-2 text-base'>
+                  {project.description}
+                </CardDescription>
+              </div>
+            </CardHeader>
+
+            <CardContent className='relative z-10 flex-1 pb-2'>
+              <div className='flex flex-wrap gap-2 justify-center'>
+                {project.technologies.slice(0, 4).map((tech, idx) => (
+                  <motion.span
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 + idx * 0.05 }}
+                    className='px-3 py-1 bg-gray-800/60 backdrop-blur-sm rounded-full text-xs text-gray-200 font-medium border border-gray-700'
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+                {project.technologies.length > 4 && (
+                  <span className='px-3 py-1 bg-gray-800/60 backdrop-blur-sm rounded-full text-xs text-gray-400 font-medium border border-gray-700'>
+                    +{project.technologies.length - 4} more
+                  </span>
+                )}
+              </div>
+            </CardContent>
+
+            <CardFooter className='relative z-10 pt-4 pb-6'>
+              <Link href={`/details/${project.id}`} className='w-full'>
+                <Button
+                  variant='outline'
+                  className='w-full border-gray-600 bg-transparent hover:bg-white hover:text-gray-900 text-white font-semibold transition-all duration-300 group/btn'
+                >
+                  <span className='flex items-center gap-2'>
+                    Learn More
+                    <ArrowRight className='w-4 h-4 group-hover/btn:translate-x-1 transition-transform' />
+                  </span>
+                </Button>
+              </Link>
+            </CardFooter>
+
+            <div className='absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+          </Card>
+        </motion.div>
+      </ScrollAnimation>
+    );
   };
 
   return (
@@ -90,100 +238,7 @@ const ProjectCards = () => {
       </motion.h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8'>
         {projects.map((project, index) => (
-          <ScrollAnimation
-            key={index}
-            direction='up'
-            delay={0.1 + index * 0.05}
-            className='h-full'
-            threshold={0.1}
-            rootMargin='50px 0px 0px 0px'
-            distance={30}
-          >
-            <motion.div
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className='h-full'
-            >
-              <Card className='relative flex flex-col bg-black/50 backdrop-blur-xl border-gray-700 hover:border-gray-500 transition-all duration-300 h-full overflow-hidden group'>
-                <div className='absolute inset-0 bg-gradient-to-br from-gray-900/50 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-
-                <CardHeader className='relative z-10 flex-shrink-0'>
-                  <div className='flex justify-center items-center mb-6'>
-                    {project.image ? (
-                      <motion.div
-                        className='relative w-32 h-32 rounded-2xl overflow-hidden shadow-2xl'
-                        whileHover={{ scale: 1.05, rotate: 5 }}
-                        transition={{ type: 'spring', stiffness: 300 }}
-                      >
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className='object-contain'
-                        />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        className={`p-8 rounded-2xl bg-gradient-to-br ${
-                          iconColors[
-                            project.title as keyof typeof iconColors
-                          ] || iconColors.default
-                        } shadow-2xl`}
-                        whileHover={{ scale: 1.05, rotate: 5 }}
-                        transition={{ type: 'spring', stiffness: 300 }}
-                      >
-                        {getIconForProject(project.title)}
-                      </motion.div>
-                    )}
-                  </div>
-                  <div className='space-y-2'>
-                    <CardTitle className='text-2xl font-bold text-white text-center'>
-                      {project.title}
-                    </CardTitle>
-                    <CardDescription className='text-gray-300 text-center line-clamp-2 text-base'>
-                      {project.description}
-                    </CardDescription>
-                  </div>
-                </CardHeader>
-
-                <CardContent className='relative z-10 flex-1 pb-2'>
-                  <div className='flex flex-wrap gap-2 justify-center'>
-                    {project.technologies.slice(0, 4).map((tech, idx) => (
-                      <motion.span
-                        key={idx}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.5 + idx * 0.05 }}
-                        className='px-3 py-1 bg-gray-800/60 backdrop-blur-sm rounded-full text-xs text-gray-200 font-medium border border-gray-700'
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <span className='px-3 py-1 bg-gray-800/60 backdrop-blur-sm rounded-full text-xs text-gray-400 font-medium border border-gray-700'>
-                        +{project.technologies.length - 4} more
-                      </span>
-                    )}
-                  </div>
-                </CardContent>
-
-                <CardFooter className='relative z-10 pt-4 pb-6'>
-                  <Link href={`/details/${project.id}`} className='w-full'>
-                    <Button
-                      variant='outline'
-                      className='w-full border-gray-600 bg-transparent hover:bg-white hover:text-gray-900 text-white font-semibold transition-all duration-300 group/btn'
-                    >
-                      <span className='flex items-center gap-2'>
-                        Learn More
-                        <ArrowRight className='w-4 h-4 group-hover/btn:translate-x-1 transition-transform' />
-                      </span>
-                    </Button>
-                  </Link>
-                </CardFooter>
-
-                <div className='absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-              </Card>
-            </motion.div>
-          </ScrollAnimation>
+          <ProjectCard key={index} project={project} index={index} />
         ))}
       </div>
     </ScrollAnimation>

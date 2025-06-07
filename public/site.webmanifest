@@ -1,0 +1,26 @@
+{
+  "name": "Byron Dray - Full Stack Developer & AI Engineer",
+  "short_name": "Byron Dray",
+  "description": "Full Stack Developer & AI Engineer specializing in modern web technologies and intelligent solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
