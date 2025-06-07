@@ -211,6 +211,11 @@ export const projects: Project[] = [
             'Implemented for secure user authentication, allowing students to access their study materials across multiple devices while protecting their academic content.',
         },
       ],
+      screenshots: [
+        '/images/fl-home.png',
+        '/images/fl-rich-text.png',
+        '/images/fl-generate-note.png',
+      ],
     },
   },
   {
@@ -294,6 +299,11 @@ export const projects: Project[] = [
           description:
             "Integrated to securely connect with users' financial institutions, enabling automatic transaction importing, account balance monitoring, and streamlined expense tracking with bank-level security.",
         },
+      ],
+      screenshots: [
+        '/images/fs-homepage.png',
+        '/images/fs-home-page.png',
+        '/images/fs-group-page.png',
       ],
     },
   },

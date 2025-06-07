@@ -3,7 +3,6 @@
 import AnimatedText from '@/components/animatedText';
 import { BackgroundBeamsWithCollision } from '@/components/backgroundBeams';
 import ProjectCards from '@/components/projectCards';
-import { ScrollAnimation } from '@/components/scrollAnimation';
 import { PageWrapper } from '@/components/pageWrapper';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { motion } from 'framer-motion';
