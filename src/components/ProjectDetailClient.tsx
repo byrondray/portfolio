@@ -27,7 +27,9 @@ interface ProjectDetailClientProps {
   project: Project;
 }
 
-export default function ProjectDetailClient({ project }: ProjectDetailClientProps) {
+export default function ProjectDetailClient({
+  project,
+}: ProjectDetailClientProps) {
   const details = project.details || {};
 
   // Support both single video (backward compatibility) and multiple videos
@@ -86,10 +88,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   {project.title === 'Flash Learn' ? (
                     <Brain size={40} className='text-white md:w-12 md:h-12' />
                   ) : project.title === 'Recipe App' ? (
-                    <ChefHat
-                      size={40}
-                      className='text-white md:w-12 md:h-12'
-                    />
+                    <ChefHat size={40} className='text-white md:w-12 md:h-12' />
                   ) : project.title === 'Warehouse CMS' ? (
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
@@ -307,6 +306,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                             controls
                             className='w-full h-full object-cover'
                             preload='metadata'
+                            poster={video.thumbnail}
                           >
                             <source src={video.url} type='video/mp4' />
                             Your browser does not support the video tag.

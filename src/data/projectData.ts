@@ -16,6 +16,7 @@ export interface Project {
       url: string;
       title?: string;
       description?: string;
+      thumbnail?: string;
     }[];
     techDetails?: {
       name: string;
@@ -64,16 +65,18 @@ export const projects: Project[] = [
       ],
       videos: [
         {
-          url: '/videos/RelayFinalDemo.mp4',
-          title: 'Final Demo Presentation',
+          url: '/videos/relay-showcase.mp4',
+          title: 'Relay Showcase Day',
           description:
-            'Complete overview of Relay Rideshare features and user experience',
+            'Judges announcement of Relay Rideshare as the winner of the Showcase Day',
+          thumbnail: '/images/relay-booth.JPG',
         },
         {
-          url: '/videos/relay-showcase.mp4',
-          title: 'App Showcase',
+          url: '/videos/RelayFinalDemo.mp4',
+          title: 'Full App Demo',
           description:
-            'Demonstration of key app functionality and user interface',
+            'Complete overview of Relay Rideshare features and user experience',
+          thumbnail: '/images/relay-screenshot2.jpg',
         },
       ],
       techDetails: [
