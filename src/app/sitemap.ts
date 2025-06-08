@@ -18,14 +18,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/uses`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/process`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    },
   ];
 
-  // Dynamic project pages
+  // Dynamic project pages with enhanced metadata
   const projectPages = projects.map((project) => ({
     url: `${baseUrl}/details/${project.id}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
+    // Note: Images and videos would be handled by separate XML sitemaps
+    // as Next.js MetadataRoute.Sitemap doesn't support extended properties
   }));
 
   return [...staticPages, ...projectPages];

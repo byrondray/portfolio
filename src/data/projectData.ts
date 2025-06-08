@@ -11,7 +11,7 @@ export interface Project {
     features?: string[];
     challenges?: string[];
     screenshots?: string[];
-    videoUrl?: string; // Keep for backward compatibility
+    videoUrl?: string;
     videos?: {
       url: string;
       title?: string;
@@ -142,6 +142,7 @@ export const projects: Project[] = [
       'Tailwind CSS',
       'OpenAI API',
       'SQLite',
+      'Socket.io',
       'Kinde Auth',
     ],
     liveLink: 'https://flash-learn-production.up.railway.app/',
@@ -153,12 +154,16 @@ export const projects: Project[] = [
       features: [
         'One-click transformation of notes into comprehensive flashcard sets and quizzes',
         'AI-powered question generation',
+        'Realtime collaborative note-taking and study sessions with live cursor tracking',
         'Performance analytics showing mastery levels across different subject areas',
+        'Shared study spaces for group learning and collaborative flashcard creation',
       ],
       challenges: [
         'Creating natural-sounding quiz questions that effectively test understanding rather than rote memorization',
         'Designing an intuitive note-taking interface that preserves user workflow while enabling powerful conversion features',
+        'Implementing realtime synchronization across multiple users while maintaining data consistency and handling conflicts',
         'Optimizing AI processing to generate study materials quickly without excessive API costs',
+        'Building scalable WebSocket infrastructure to support live collaboration without performance degradation',
         'Implementing effective content parsing for various note formats and structures from different academic disciplines',
         'Creating meaningful analytics that help users identify knowledge gaps and learning trends',
       ],
@@ -179,9 +184,14 @@ export const projects: Project[] = [
             'Designed a distraction-free note-taking environment that seamlessly transitions to study mode, with careful attention to typography, reading comfort, and interaction design.',
         },
         {
+          title: 'Realtime Collaboration Implementation',
+          description:
+            'Built Socket.io infrastructure for live document editing, user presence indicators, and synchronized flashcard sessions.',
+        },
+        {
           title: 'Testing & Educational Validation',
           description:
-            'Conducted testing with students across different academic disciplines to validate the effectiveness of automatically generated study materials and refine the conversion algorithms.',
+            'Conducted testing with students across different academic disciplines to validate the effectiveness of automatically generated study materials and collaborative features, refining both AI algorithms and realtime sync performance.',
         },
       ],
       techDetails: [
@@ -206,9 +216,14 @@ export const projects: Project[] = [
             'Used as the primary database for storing notes, flashcards, and study progress with a schema optimized for quick retrieval of scheduled review items and efficient spaced repetition algorithms.',
         },
         {
+          name: 'Socket.io',
+          description:
+            'Powers the realtime collaboration features including live document editing, user presence indicators, and synchronized study sessions. Handles WebSocket connections with automatic fallback to long polling for reliability.',
+        },
+        {
           name: 'Kinde Auth',
           description:
-            'Implemented for secure user authentication, allowing students to access their study materials across multiple devices while protecting their academic content.',
+            'Implemented for secure user authentication, allowing students to access their study materials across multiple devices while protecting their academic content and managing collaborative permissions.',
         },
       ],
       screenshots: [
@@ -751,7 +766,7 @@ export const projects: Project[] = [
   },
   {
     id: '4',
-    title: 'Recipe App',
+    title: 'Cookbook+',
     description:
       'A culinary social platform where food enthusiasts can discover, share, and organize recipes with intelligent meal planning and shopping list features.',
     technologies: [
@@ -767,7 +782,7 @@ export const projects: Project[] = [
     image: '',
     details: {
       longDescription:
-        'Recipe App transforms the cooking experience by combining a beautiful recipe repository with practical meal planning tools. Users can discover dishes through a visually rich interface, upload their own creations with step-by-step instructions, and build personalized collections.',
+        'Cookbook+ transforms the cooking experience by combining a beautiful recipe repository with practical meal planning tools. Users can discover dishes through a visually rich interface, upload their own creations with step-by-step instructions, and build personalized collections.',
       features: [
         'Intuitive recipe creation with structured ingredients, instructions, and cooking times',
         'Photo galleries for each recipe with step-by-step cooking visuals',
