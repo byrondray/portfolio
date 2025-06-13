@@ -273,6 +273,10 @@ export default function RootLayout({
         <link rel='me' href='https://github.com/byrondray' />
         <link rel='me' href='https://linkedin.com/in/byron-dray' />
         <link rel='sitemap' type='application/xml' href='/sitemap.xml' />
+        <script
+          async
+          src='https://scripts.simpleanalyticscdn.com/latest.js'
+        ></script>
       </head>
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-inter antialiased`}
