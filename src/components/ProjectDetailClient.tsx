@@ -23,6 +23,79 @@ import { ScrollAnimation } from '@/components/scrollAnimation';
 import { PageWrapper } from '@/components/pageWrapper';
 import React from 'react';
 
+const StockChartIcon = ({
+  size = 40,
+  className = 'text-white md:w-12 md:h-12',
+}) => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width={size}
+    height={size}
+    viewBox='0 0 80 80'
+    fill='none'
+    className={className}
+  >
+    {/* Background circle */}
+    <circle
+      cx='40'
+      cy='40'
+      r='35'
+      fill='currentColor'
+      opacity='0.1'
+      stroke='currentColor'
+      strokeWidth='1'
+    />
+
+    {/* Grid lines */}
+    <g stroke='currentColor' strokeWidth='0.5' opacity='0.3'>
+      <line x1='15' y1='20' x2='65' y2='20' />
+      <line x1='15' y1='30' x2='65' y2='30' />
+      <line x1='15' y1='40' x2='65' y2='40' />
+      <line x1='15' y1='50' x2='65' y2='50' />
+      <line x1='15' y1='60' x2='65' y2='60' />
+      <line x1='20' y1='15' x2='20' y2='65' />
+      <line x1='30' y1='15' x2='30' y2='65' />
+      <line x1='40' y1='15' x2='40' y2='65' />
+      <line x1='50' y1='15' x2='50' y2='65' />
+      <line x1='60' y1='15' x2='60' y2='65' />
+    </g>
+
+    {/* Chart line (trending upward) */}
+    <path
+      d='M 18 55 Q 25 50 32 45 Q 40 35 48 30 Q 55 25 62 22'
+      stroke='currentColor'
+      strokeWidth='2.5'
+      fill='none'
+      strokeLinecap='round'
+    />
+
+    {/* Chart area fill */}
+    <path
+      d='M 18 55 Q 25 50 32 45 Q 40 35 48 30 Q 55 25 62 22 L 62 60 L 18 60 Z'
+      fill='currentColor'
+      opacity='0.2'
+    />
+
+    {/* Data points */}
+    <circle cx='18' cy='55' r='1.5' fill='currentColor' />
+    <circle cx='32' cy='45' r='1.5' fill='currentColor' />
+    <circle cx='48' cy='30' r='1.5' fill='currentColor' />
+    <circle cx='62' cy='22' r='1.5' fill='currentColor' />
+
+    {/* Dollar sign */}
+    <text
+      x='12'
+      y='12'
+      fontFamily='Arial, sans-serif'
+      fontSize='8'
+      fontWeight='bold'
+      fill='currentColor'
+    >
+      $
+    </text>
+  </svg>
+);
+
 interface ProjectDetailClientProps {
   project: Project;
 }
@@ -80,6 +153,8 @@ export default function ProjectDetailClient({
                       ? 'from-cyan-500 to-teal-500'
                       : project.title === 'Travel Planner'
                       ? 'from-blue-500 to-sky-500'
+                      : project.title === 'AI Stock Tracker'
+                      ? 'from-green-500 to-emerald-500'
                       : 'from-emerald-500 to-green-500'
                   } shadow-2xl`}
                   whileHover={{ scale: 1.05, rotate: 5 }}
@@ -111,6 +186,11 @@ export default function ProjectDetailClient({
                     <Dna size={40} className='text-white md:w-12 md:h-12' />
                   ) : project.title === 'Travel Planner' ? (
                     <Plane size={40} className='text-white md:w-12 md:h-12' />
+                  ) : project.title === 'AI Stock Tracker' ? (
+                    <StockChartIcon
+                      size={40}
+                      className='text-white md:w-12 md:h-12'
+                    />
                   ) : (
                     <Database
                       size={40}
@@ -300,13 +380,14 @@ export default function ProjectDetailClient({
                               </p>
                             )}
                           </div>
-                        )}
-                        <div className='aspect-video'>
+                        )}{' '}
+                        <div className='relative w-full max-w-4xl mx-auto bg-black rounded-lg overflow-hidden'>
                           <video
                             controls
-                            className='w-full h-full object-cover'
+                            className='w-full h-auto max-h-[70vh] object-contain'
                             preload='metadata'
                             poster={video.thumbnail}
+                            style={{ aspectRatio: 'auto' }}
                           >
                             <source src={video.url} type='video/mp4' />
                             Your browser does not support the video tag.
@@ -468,24 +549,26 @@ export default function ProjectDetailClient({
             >
               <h3 className='text-base md:text-lg font-bold text-white mb-3 md:mb-4'>
                 Project Links
-              </h3>
+              </h3>{' '}
               <div className='flex flex-col space-y-2 md:space-y-3'>
-                <motion.a
-                  href={project.liveLink}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='relative overflow-hidden group w-full py-2 md:py-3 px-3 md:px-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium rounded-lg md:rounded-xl text-center transition-all duration-300 flex items-center justify-center shadow-lg text-sm md:text-base'
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className='relative z-10 flex items-center gap-2'>
-                    <ExternalLink className='h-4 w-4 md:h-5 md:w-5' />
-                    {project.title === 'Relay Rideshare'
-                      ? 'Learn More'
-                      : 'Live Demo'}
-                  </span>
-                  <div className='absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-                </motion.a>
+                {project.liveLink && (
+                  <motion.a
+                    href={project.liveLink}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='relative overflow-hidden group w-full py-2 md:py-3 px-3 md:px-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium rounded-lg md:rounded-xl text-center transition-all duration-300 flex items-center justify-center shadow-lg text-sm md:text-base'
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className='relative z-10 flex items-center gap-2'>
+                      <ExternalLink className='h-4 w-4 md:h-5 md:w-5' />
+                      {project.title === 'Relay Rideshare'
+                        ? 'Learn More'
+                        : 'Live Demo'}
+                    </span>
+                    <div className='absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                  </motion.a>
+                )}
                 {project.githubLink && (
                   <motion.a
                     href={project.githubLink}

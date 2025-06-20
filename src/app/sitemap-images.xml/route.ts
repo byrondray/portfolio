@@ -1,15 +1,13 @@
-import { projects } from '@/data/projectData';
+import { projects, createSlug } from '@/data/projectData';
 
 export async function GET() {
   const baseUrl = 'https://byrondray.com';
 
   const imageEntries = projects.flatMap((project) => {
-    const images = [];
-
-    // Project main image
+    const images = []; // Project main image
     if (project.image) {
       images.push({
-        url: `${baseUrl}/details/${project.id}`,
+        url: `${baseUrl}/details/${createSlug(project.title)}`,
         image: `${baseUrl}${project.image}`,
         title: project.title,
         caption: project.description,
@@ -20,7 +18,7 @@ export async function GET() {
     if (project.details?.screenshots) {
       project.details.screenshots.forEach((screenshot, index) => {
         images.push({
-          url: `${baseUrl}/details/${project.id}`,
+          url: `${baseUrl}/details/${createSlug(project.title)}`,
           image: `${baseUrl}${screenshot}`,
           title: `${project.title} - Screenshot ${index + 1}`,
           caption: `Screenshot of ${project.title} application`,

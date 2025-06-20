@@ -1,3 +1,13 @@
+// Utility function to create URL-friendly slugs
+export function createSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single
+    .trim(); // Remove leading/trailing whitespace
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -437,6 +447,157 @@ export const projects: Project[] = [
     },
   },
   {
+    id: '9',
+    title: 'AI Stock Tracker',
+    description:
+      'A comprehensive AI-powered stock analysis platform featuring advanced LSTM neural networks, multi-model sentiment analysis, and real-time prediction capabilities with a full-stack FastAPI backend and React Native mobile application.',
+    technologies: [
+      'Python',
+      'FastAPI',
+      'TensorFlow',
+      'PyTorch',
+      'Transformers',
+      'LSTM',
+      'React Native',
+      'Expo',
+      'PostgreSQL',
+      'Redis',
+      'WebSocket',
+      'Scikit-learn',
+      'NLTK',
+      'Celery',
+    ],
+    liveLink: '',
+    githubLink: 'https://github.com/byrondray/ai-stock-tracker',
+    image: '',
+    details: {
+      longDescription:
+        'AI Stock Tracker represents a cutting-edge fusion of financial analysis and artificial intelligence, delivering sophisticated stock prediction capabilities through advanced machine learning architectures. The platform combines multiple AI models including LSTM neural networks for time series forecasting, transformer-based sentiment analysis for news impact assessment, and comprehensive technical analysis engines. Built with a robust FastAPI backend and an intuitive React Native mobile interface, the system provides real-time predictions, sentiment-driven market insights, and advanced portfolio analytics. The ML pipeline features a custom feature store for consistent data processing, multi-horizon prediction capabilities, and production-ready model management with automated retraining workflows.',
+
+      features: [
+        'Advanced LSTM neural networks with 60-day sequence learning for multi-horizon stock price prediction',
+        'Multi-model sentiment analysis using Hugging Face transformers, VADER, and TextBlob for financial news processing',
+        'Comprehensive technical indicator engine with 20+ advanced indicators (RSI, MACD, Bollinger Bands, ATR, ADX)',
+        'Custom feature store ensuring consistent data preprocessing between training and inference pipelines',
+        'Real-time WebSocket integration for live market data and prediction updates',
+        'Intelligent portfolio analytics with risk assessment and performance tracking',
+        'Advanced data validation and preprocessing pipeline with outlier detection and normalization',
+        'Production-ready model versioning and metadata management system',
+        'Asynchronous task processing with Celery for computationally intensive ML operations',
+        'Robust caching layer with Redis for optimized prediction retrieval and data management',
+        'Cross-platform mobile application with offline capability and push notifications',
+        'Comprehensive API documentation with interactive testing interface',
+      ],
+
+      challenges: [
+        'Designing a scalable LSTM architecture capable of handling multi-dimensional time series data with varying prediction horizons while maintaining temporal consistency',
+        'Implementing production-grade feature engineering pipeline that ensures consistent data preprocessing between model training and real-time inference',
+        'Building a multi-model sentiment analysis system that effectively combines transformer models, lexicon-based approaches, and domain-specific financial sentiment scoring',
+        'Creating an efficient data validation framework that handles missing values, outliers, and market anomalies without compromising prediction accuracy',
+        'Developing a robust model management system with automated retraining, version control, and A/B testing capabilities for continuous model improvement',
+        'Optimizing memory usage and computational efficiency for real-time predictions while handling multiple concurrent users and large datasets',
+        'Implementing sophisticated technical indicator calculations that maintain mathematical accuracy while handling edge cases in financial data',
+        'Designing a scalable WebSocket architecture for real-time data streaming without overwhelming the ML inference pipeline',
+      ],
+
+      screenshots: [
+        '/images/stock-tracker4.png',
+        '/images/stock-tracker2.png',
+        '/images/stock-tracker3.png',
+      ],
+
+      videos: [
+        {
+          url: '/images/stock-tracker1.mp4',
+          title: 'AI Stock Tracker Demo',
+          description:
+            'Complete demonstration of the AI Stock Tracker platform featuring LSTM predictions and sentiment analysis',
+        },
+      ],
+
+      techDetails: [
+        {
+          name: 'TensorFlow & LSTM Networks',
+          description:
+            'Implemented advanced LSTM architecture with custom layers for sequential pattern recognition in stock price movements. Features include dropout regularization, batch normalization, and adaptive learning rates with early stopping to prevent overfitting while maintaining predictive accuracy.',
+        },
+        {
+          name: 'Hugging Face Transformers',
+          description:
+            'Integrated pre-trained financial sentiment models including FinBERT and custom fine-tuned transformers for analyzing market news, social media sentiment, and earnings reports. Implements attention mechanisms to weight sentiment impact on price predictions.',
+        },
+        {
+          name: 'Custom Feature Store',
+          description:
+            'Built a production-ready feature engineering pipeline that calculates 18+ technical indicators, handles missing data imputation, and ensures consistency between training and inference. Includes automated feature validation and drift detection.',
+        },
+        {
+          name: 'FastAPI & Async Architecture',
+          description:
+            'Leveraged FastAPI for high-performance async API endpoints with automatic OpenAPI documentation. Implements connection pooling, request queuing, and efficient database operations for handling concurrent ML inference requests.',
+        },
+        {
+          name: 'PyTorch Integration',
+          description:
+            'Utilized PyTorch for experimental model architectures and research prototyping, enabling rapid iteration on new neural network designs and ensemble methods for improved prediction accuracy.',
+        },
+        {
+          name: 'Redis & Caching Strategy',
+          description:
+            'Implemented intelligent caching system for prediction results, model artifacts, and preprocessed features. Reduces API response times by 80% and enables efficient batch processing of multiple stock predictions.',
+        },
+        {
+          name: 'Scikit-learn Pipeline',
+          description:
+            'Integrated comprehensive preprocessing pipeline with RobustScaler, MinMaxScaler, and custom feature transformers. Includes automated hyperparameter tuning and cross-validation for optimal model performance.',
+        },
+        {
+          name: 'React Native & Real-time Updates',
+          description:
+            'Built cross-platform mobile application with Redux state management, real-time WebSocket connections, and optimized chart rendering using react-native-chart-kit for displaying prediction visualizations and portfolio analytics.',
+        },
+      ],
+
+      processSteps: [
+        {
+          title: 'Financial Data Research & ML Architecture Design',
+          description:
+            'Conducted extensive research on financial time series analysis, studying market microstructure, technical analysis principles, and deep learning approaches for stock prediction. Designed a modular ML architecture supporting multiple prediction models and real-time inference.',
+        },
+        {
+          title: 'Advanced Feature Engineering & Data Pipeline',
+          description:
+            'Developed a comprehensive feature store calculating 18+ technical indicators, price-based features, and volume analysis metrics. Implemented robust data validation, outlier detection, and normalization strategies to ensure high-quality training data.',
+        },
+        {
+          title: 'LSTM Neural Network Development',
+          description:
+            'Built and optimized LSTM networks with custom architectures for multi-horizon predictions. Implemented advanced techniques including attention mechanisms, residual connections, and ensemble methods to improve forecasting accuracy and handle market volatility.',
+        },
+        {
+          title: 'Sentiment Analysis Integration',
+          description:
+            'Integrated multiple NLP models including transformer-based financial sentiment analysis, VADER sentiment scoring, and custom news processing pipelines. Developed correlation analysis between sentiment scores and price movements for enhanced prediction accuracy.',
+        },
+        {
+          title: 'Production ML Infrastructure',
+          description:
+            'Implemented production-ready ML infrastructure with model versioning, automated retraining workflows, A/B testing capabilities, and comprehensive monitoring. Built efficient caching and batch processing systems for scalable real-time predictions.',
+        },
+        {
+          title: 'Mobile Application & Real-time Integration',
+          description:
+            'Developed React Native mobile application with real-time WebSocket connections, interactive charting capabilities, and offline functionality. Implemented Redux for state management and optimized data synchronization between backend predictions and mobile interface.',
+        },
+        {
+          title: 'Performance Optimization & Validation',
+          description:
+            'Conducted extensive backtesting across multiple market conditions, optimized model performance using cross-validation techniques, and implemented comprehensive error analysis. Fine-tuned API performance and established monitoring systems for production deployment.',
+        },
+      ],
+    },
+  },
+  {
     id: '6',
     title: 'CytoNET',
     description:
@@ -851,4 +1012,13 @@ export const projects: Project[] = [
 
 export function getProjectById(id: string) {
   return projects.find((project) => project.id === id);
+}
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((project) => createSlug(project.title) === slug);
+}
+
+// Get all slugs for static generation
+export function getAllProjectSlugs() {
+  return projects.map((project) => createSlug(project.title));
 }

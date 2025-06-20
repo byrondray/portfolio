@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { projects } from '@/data/projectData';
+import { projects, createSlug } from '@/data/projectData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://byrondray.com';
@@ -31,10 +31,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
   ];
-
   // Dynamic project pages with enhanced metadata
   const projectPages = projects.map((project) => ({
-    url: `${baseUrl}/details/${project.id}`,
+    url: `${baseUrl}/details/${createSlug(project.title)}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,

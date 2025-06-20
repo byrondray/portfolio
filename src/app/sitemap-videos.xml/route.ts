@@ -1,16 +1,26 @@
-import { projects } from '@/data/projectData';
+import { projects, createSlug } from '@/data/projectData';
 
 export async function GET() {
   const baseUrl = 'https://byrondray.com';
 
-  const videoEntries = projects.flatMap((project) => {
-    const videos = [];
+  interface VideoEntry {
+    url: string;
+    videoUrl: string;
+    title: string;
+    description: string;
+    thumbnailUrl?: string;
+    duration: number;
+    publicationDate: string;
+  }
+
+  const videoEntries: VideoEntry[] = projects.flatMap((project) => {
+    const videos: VideoEntry[] = [];
 
     // Project videos
     if (project.details?.videos) {
       project.details.videos.forEach((video, index) => {
         videos.push({
-          url: `${baseUrl}/details/${project.id}`,
+          url: `${baseUrl}/details/${createSlug(project.title)}`,
           videoUrl: `${baseUrl}${video.url}`,
           title: video.title || `${project.title} Demo`,
           description:
