@@ -501,9 +501,9 @@ export const projects: Project[] = [
       ],
 
       screenshots: [
-        '/images/stock-tracker4.png',
-        '/images/stock-tracker2.png',
-        '/images/stock-tracker3.png',
+        '/images/stock-tracker4.PNG',
+        '/images/stock-tracker2.PNG',
+        '/images/stock-tracker3.PNG',
       ],
 
       videos: [
