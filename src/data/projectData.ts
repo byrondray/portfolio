@@ -512,6 +512,7 @@ export const projects: Project[] = [
           title: 'AI Stock Tracker Demo',
           description:
             'Complete demonstration of the AI Stock Tracker platform featuring LSTM predictions and sentiment analysis',
+          thumbnail: '/images/stock-tracker2.PNG',
         },
       ],
 

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PageWrapper } from '@/components/pageWrapper';
 import { BackgroundBeamsWithCollision } from '@/components/backgroundBeams';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/components/theme-provider';
 import Link from 'next/link';
@@ -13,16 +13,13 @@ import {
   ArrowLeft,
   User,
   Code2,
-  Sparkles,
   Server,
-  Database,
   Cloud,
-  Wrench,
   Brain,
 } from 'lucide-react';
 
 const AboutPageClient = () => {
-  const [activeTab, setActiveTab] = useState<'about' | 'skills'>('about');
+  const [activeTab, setActiveTab] = useState<'about' | 'skills' | 'education'>('about');
   const { theme } = useTheme();
   const isDarkTheme =
     theme === 'dark' ||
@@ -156,8 +153,8 @@ const AboutPageClient = () => {
                       skill.level === 'expert'
                         ? '100%'
                         : skill.level === 'advanced'
-                        ? '75%'
-                        : '50%',
+                          ? '75%'
+                          : '50%',
                   }}
                   transition={{ duration: 0.8, delay: index * 0.05 + 0.3 }}
                   className={`h-full ${getLevelColor(skill.level)}`}
@@ -187,11 +184,10 @@ const AboutPageClient = () => {
           >
             <Link
               href='/'
-              className={`flex items-center ${
-                isDarkTheme
-                  ? 'text-white hover:text-gray-300'
-                  : 'text-gray-900 hover:text-gray-600'
-              } transition-colors group w-fit font-inter font-medium`}
+              className={`flex items-center ${isDarkTheme
+                ? 'text-white hover:text-gray-300'
+                : 'text-gray-900 hover:text-gray-600'
+                } transition-colors group w-fit font-inter font-medium`}
             >
               <ArrowLeft className='mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform' />
               Back to Home
@@ -206,16 +202,14 @@ const AboutPageClient = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
           >
             <h1
-              className={`text-5xl font-extrabold ${
-                isDarkTheme ? 'text-white' : 'text-gray-900'
-              } pb-2 transition-colors duration-300 font-inter tracking-tight`}
+              className={`text-5xl font-extrabold ${isDarkTheme ? 'text-white' : 'text-gray-900'
+                } pb-2 transition-colors duration-300 font-inter tracking-tight`}
             >
               About Me
             </h1>
             <p
-              className={`text-xl mt-4 ${
-                isDarkTheme ? 'text-gray-300' : 'text-gray-600'
-              } font-medium`}
+              className={`text-xl mt-4 ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'
+                } font-medium`}
             >
               Get to know more about my background and expertise
             </p>
@@ -238,23 +232,32 @@ const AboutPageClient = () => {
                   <Button
                     onClick={() => setActiveTab('about')}
                     variant={activeTab === 'about' ? 'default' : 'ghost'}
-                    className={`flex items-center space-x-2 px-6 py-3 rounded-md transition-all duration-300 font-inter font-medium ${
-                      activeTab === 'about'
-                        ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                        : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
-                    }`}
+                    className={`flex items-center space-x-2 px-6 py-3 rounded-md transition-all duration-300 font-inter font-medium ${activeTab === 'about'
+                      ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+                      : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                      }`}
                   >
                     <User size={18} />
                     <span>About</span>
                   </Button>
                   <Button
+                    onClick={() => setActiveTab('education')}
+                    variant={activeTab === 'education' ? 'default' : 'ghost'}
+                    className={`flex items-center space-x-2 px-6 py-3 rounded-md transition-all duration-300 font-inter font-medium ${activeTab === 'education'
+                      ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+                      : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                      }`}
+                  >
+                    <Brain size={18} />
+                    <span>Education</span>
+                  </Button>
+                  <Button
                     onClick={() => setActiveTab('skills')}
                     variant={activeTab === 'skills' ? 'default' : 'ghost'}
-                    className={`flex items-center space-x-2 px-6 py-3 rounded-md transition-all duration-300 font-inter font-medium ${
-                      activeTab === 'skills'
-                        ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                        : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
-                    }`}
+                    className={`flex items-center space-x-2 px-6 py-3 rounded-md transition-all duration-300 font-inter font-medium ${activeTab === 'skills'
+                      ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+                      : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                      }`}
                   >
                     <Code2 size={18} />
                     <span>Skills</span>
@@ -303,12 +306,14 @@ const AboutPageClient = () => {
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.5, delay: 0.1 }}
                             >
-                              Hi, I'm Byron! I'm a versatile fullstack developer
-                              who thrives on solving complex business challenges
-                              with modern technology. My approach is simple:
-                              understand the problem deeply, choose the right
-                              tools for the job, and build solutions that
-                              deliver real value.
+                              Hi, I'm Byron! I'm currently working as a fullstack developer
+                              at <a href="https://arkhet.com" target="_blank" rel="noopener noreferrer"
+                                className="text-indigo-400 hover:text-indigo-300 underline transition-colors">
+                                Arkhet</a>, where we're building an innovative prototyping tool
+                              that empowers product managers to rapidly ideate and iterate
+                              using AI-powered generations. Our mission is to bridge the gap
+                              between concept and creation, making product development more
+                              intuitive and efficient.
                             </motion.p>
 
                             <motion.p
@@ -317,14 +322,13 @@ const AboutPageClient = () => {
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.5, delay: 0.2 }}
                             >
-                              I work across the entire technology stack, from
-                              crafting responsive interfaces with React and
-                              Next.js to building robust APIs with ASP.NET Core,
-                              Node.js, Laravel, and Python. Whether it's
-                              architecting microservices, implementing real-time
-                              features, or optimizing database queries, I bring
-                              a comprehensive understanding of what it takes to
-                              build production-ready applications.
+                              What excites me most about this work is the intersection of
+                              creativity and technology. We're not just building another design
+                              tool, we're reimagining how product managers can go from a
+                              rough idea to a tangible prototype in minutes rather than days.
+                              By integrating advanced AI capabilities with intuitive user
+                              interfaces, we're enabling teams to explore more possibilities,
+                              validate concepts faster, and ultimately build better products.
                             </motion.p>
 
                             <motion.p
@@ -333,15 +337,11 @@ const AboutPageClient = () => {
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.5, delay: 0.3 }}
                             >
-                              Recently, I've been diving deep into the
-                              intersection of AI and web development. I'm
-                              exploring Model Context Protocol (MCP) for
-                              building intelligent agents and leveraging machine
-                              learning to create personalized user experiences.
-                              From integrating LLMs into applications to
-                              building custom recommendation systems, I'm
-                              fascinated by how AI can transform the way users
-                              interact with software.
+                              I'm constantly exploring new ways to optimize performance, enhance user experience,
+                              and maintain clean, scalable codebases that can evolve with our rapidly changing needs.
+                              This hands-on experience at the forefront of AI technology has reinforced my belief
+                              that the future of product development lies in tools that augment human creativity
+                              rather than replace it.
                             </motion.p>
 
                             <motion.p
@@ -350,40 +350,17 @@ const AboutPageClient = () => {
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.5, delay: 0.4 }}
                             >
-                              What sets me apart is my ability to quickly adapt
-                              to new technologies and frameworks. I don't just
-                              learn the syntax, I understand the underlying
-                              principles, which allows me to pick up new tools
-                              rapidly and apply them effectively. This
-                              flexibility has enabled me to work on diverse
-                              projects, from ridesharing platforms to inventory
-                              management systems to AI-powered study tools.
+                              Beyond my work at Arkhet, I'm deeply invested in expanding my technical horizons.
+                              I'm currently diving into machine learning fundamentals and building intelligent
+                              agents using Model Context Protocol (MCP) to explore autonomous system design.
+                              I'm also working on
+                              <a href="https://rezengaming.com" target="_blank" rel="noopener noreferrer"
+                                className="text-indigo-400 hover:text-indigo-300 underline transition-colors mx-1">
+                                Rezen Gaming</a>, a passion project that combines my love for gaming and competition
+                              with web development.
                             </motion.p>
 
-                            <motion.div
-                              className='pt-4'
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.5, delay: 0.5 }}
-                            >
-                              <h3 className='text-xl font-semibold text-white mb-3'>
-                                Current Focus Areas
-                              </h3>
-                              <ul className='list-disc list-inside space-y-2 text-gray-300 ml-4'>
-                                <li>
-                                  Building autonomous agents using MCP and
-                                  LangChain
-                                </li>
-                                <li>
-                                  Implementing machine learning models for
-                                  personalized user experiences
-                                </li>
-                                <li>
-                                  Exploring cloud-native architectures and
-                                  serverless computing
-                                </li>
-                              </ul>
-                            </motion.div>
+
                           </div>
                         </CardContent>
                       </Card>
@@ -411,6 +388,141 @@ const AboutPageClient = () => {
                         </motion.div>
                       ))}
                     </div>
+                  </motion.div>
+                )}
+
+                {activeTab === 'education' && (
+                  <motion.div
+                    key='education'
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className='max-w-4xl mx-auto'
+                  >
+                    <Card className='bg-black/60 backdrop-blur-sm border-gray-600 p-8'>
+                      <CardContent className='p-0'>
+                        <div className='space-y-8'>
+                          {/* Education Header */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                            className='text-center'
+                          >
+                            <h2 className='text-3xl font-bold text-white mb-2'>
+                              Full-Stack Web Development Diploma
+                            </h2>
+                            <p className='text-xl text-indigo-400'>
+                              British Columbia Institute of Technology (BCIT)
+                            </p>
+                            <p className='text-gray-400 mt-1'>2023 - 2025</p>
+                          </motion.div>
+
+                          {/* Program Overview */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            className='space-y-4'
+                          >
+                            <h3 className='text-xl font-semibold text-white'>Program Overview</h3>
+                            <p className='text-gray-200 leading-relaxed'>
+                              I completed BCIT's intensive 2-year Full-Stack Web Development Diploma program,
+                              a comprehensive hands-on program that prepared me for the demands of modern web development.
+                              The program featured <span className='text-indigo-400 font-semibold'>7 courses per term</span>,
+                              requiring exceptional time management skills and the ability to balance multiple projects simultaneously.
+                            </p>
+                          </motion.div>
+
+                          {/* Key Highlights */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            className='space-y-4'
+                          >
+                            <h3 className='text-xl font-semibold text-white'>Key Highlights</h3>
+                            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                              <div className='bg-gray-800/40 rounded-lg p-4 border border-gray-700'>
+                                <h4 className='text-indigo-400 font-semibold mb-2'>Comprehensive Curriculum</h4>
+                                <p className='text-gray-300 text-sm'>
+                                  Covered full-stack development including front-end frameworks, back-end programming,
+                                  database management, server configuration, and modern web architectures.
+                                </p>
+                              </div>
+                              <div className='bg-gray-800/40 rounded-lg p-4 border border-gray-700'>
+                                <h4 className='text-indigo-400 font-semibold mb-2'>Industry Collaboration</h4>
+                                <p className='text-gray-300 text-sm'>
+                                  Worked with real clients on production-ready applications, gaining valuable experience
+                                  in client communication and project delivery.
+                                </p>
+                              </div>
+                              <div className='bg-gray-800/40 rounded-lg p-4 border border-gray-700'>
+                                <h4 className='text-indigo-400 font-semibold mb-2'>Team-Based Learning</h4>
+                                <p className='text-gray-300 text-sm'>
+                                  Collaborated extensively with designers and developers in interdisciplinary teams,
+                                  honing communication and project management skills.
+                                </p>
+                              </div>
+                              <div className='bg-gray-800/40 rounded-lg p-4 border border-gray-700'>
+                                <h4 className='text-indigo-400 font-semibold mb-2'>Intensive Workload</h4>
+                                <p className='text-gray-300 text-sm'>
+                                  Successfully managed 7 concurrent courses each term while maintaining a 93% average and delivering quality projects.
+                                </p>
+                              </div>
+                            </div>
+                          </motion.div>
+
+                          {/* Skills Developed */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                            className='space-y-4'
+                          >
+                            <h3 className='text-xl font-semibold text-white'>Core Competencies Developed</h3>
+                            <div className='space-y-3'>
+                              <div className='flex items-start gap-3'>
+                                <div className='w-2 h-2 bg-indigo-400 rounded-full mt-2'></div>
+                                <p className='text-gray-200'>
+                                  <span className='font-semibold'>Team Collaboration:</span> Developed strong communication
+                                  skills working in diverse teams on end-to-end web applications.
+                                </p>
+                              </div>
+                              <div className='flex items-start gap-3'>
+                                <div className='w-2 h-2 bg-indigo-400 rounded-full mt-2'></div>
+                                <p className='text-gray-200'>
+                                  <span className='font-semibold'>Problem Solving:</span> Learned to quickly adapt to new
+                                  technologies and solve complex technical challenges under pressure.
+                                </p>
+                              </div>
+                              <div className='flex items-start gap-3'>
+                                <div className='w-2 h-2 bg-indigo-400 rounded-full mt-2'></div>
+                                <p className='text-gray-200'>
+                                  <span className='font-semibold'>Project Management:</span> Gained experience in agile
+                                  methodologies and delivering projects from conception to deployment.
+                                </p>
+                              </div>
+                              <div className='flex items-start gap-3'>
+                                <div className='w-2 h-2 bg-indigo-400 rounded-full mt-2'></div>
+                                <p className='text-gray-200'>
+                                  <span className='font-semibold'>Source Control & Version Management:</span> Mastered Git workflows,
+                                  branching strategies, and collaborative development practices for team-based projects.
+                                </p>
+                              </div>
+                              <div className='flex items-start gap-3'>
+                                <div className='w-2 h-2 bg-indigo-400 rounded-full mt-2'></div>
+                                <p className='text-gray-200'>
+                                  <span className='font-semibold'>UX/UI Design Fundamentals:</span> Learned user-centered design
+                                  principles, wireframing, prototyping, and design tools like Figma for creating intuitive interfaces.
+                                </p>
+                              </div>
+                            </div>
+                          </motion.div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </motion.div>
                 )}
               </AnimatePresence>
