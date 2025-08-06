@@ -266,21 +266,22 @@ const ProjectCards = () => {
                 top: mousePos.y - 150,
                 width: '300px',
                 height: '300px',
-                background: `radial-gradient(circle, ${
-                  project.title === 'Flash Learn'
-                    ? 'rgba(139, 92, 246, 0.3)'
-                    : project.title === 'Recipe App'
+                background: `radial-gradient(circle, ${project.title === 'Flash Learn' || project.title === 'Arkhet'
+                  ? 'rgba(139, 92, 246, 0.3)'
+                  : project.title === 'Recipe App'
                     ? 'rgba(236, 72, 33, 0.3)'
                     : project.title === 'Warehouse CMS'
-                    ? 'rgba(99, 102, 241, 0.3)'
-                    : project.title === 'CytoNET'
-                    ? 'rgba(6, 182, 212, 0.3)'
-                    : project.title === 'Travel Planner'
-                    ? 'rgba(59, 130, 246, 0.3)'
-                    : project.title === 'AI Stock Tracker'
-                    ? 'rgba(16, 185, 129, 0.3)'
-                    : 'rgba(16, 185, 129, 0.3)'
-                } 0%, transparent 70%)`,
+                      ? 'rgba(99, 102, 241, 0.3)'
+                      : project.title === 'CytoNET'
+                        ? 'rgba(6, 182, 212, 0.3)'
+                        : project.title === 'Travel Planner'
+                          ? 'rgba(59, 130, 246, 0.3)'
+                          : project.title === 'AI Stock Tracker'
+                            ? 'rgba(16, 185, 129, 0.3)'
+                            : project.title === 'Relay Rideshare' || project.title === 'Rezen Gaming'
+                              ? 'rgba(239, 68, 68, 0.3)'
+                              : 'rgba(16, 185, 129, 0.3)'
+                  } 0%, transparent 70%)`,
                 opacity: isCardHovered ? 1 : 0,
               }}
             />
@@ -302,10 +303,9 @@ const ProjectCards = () => {
                   </motion.div>
                 ) : (
                   <motion.div
-                    className={`p-8 rounded-2xl bg-gradient-to-br ${
-                      iconColors[project.title as keyof typeof iconColors] ||
+                    className={`p-8 rounded-2xl bg-gradient-to-br ${iconColors[project.title as keyof typeof iconColors] ||
                       iconColors.default
-                    } shadow-2xl`}
+                      } shadow-2xl`}
                     whileHover={{ scale: 1.05, rotate: 5 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
@@ -374,9 +374,8 @@ const ProjectCards = () => {
       rootMargin='100px 0px 0px 0px'
     >
       <motion.h2
-        className={`text-3xl font-bold mb-12 text-center ${
-          isDarkTheme ? 'text-white' : 'text-gray-900'
-        } transition-colors duration-300 font-inter tracking-tight`}
+        className={`text-3xl font-bold mb-12 text-center ${isDarkTheme ? 'text-white' : 'text-gray-900'
+          } transition-colors duration-300 font-inter tracking-tight`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.9 }}

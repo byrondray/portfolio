@@ -142,21 +142,20 @@ export default function ProjectDetailClient({
                 </div>
               ) : (
                 <motion.div
-                  className={`p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${
-                    project.title === 'Flash Learn'
+                  className={`p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${project.title === 'Flash Learn'
                       ? 'from-purple-500 to-indigo-500'
                       : project.title === 'Recipe App'
-                      ? 'from-red-500 to-pink-500'
-                      : project.title === 'Warehouse CMS'
-                      ? 'from-indigo-500 to-blue-500'
-                      : project.title === 'CytoNET'
-                      ? 'from-cyan-500 to-teal-500'
-                      : project.title === 'Travel Planner'
-                      ? 'from-blue-500 to-sky-500'
-                      : project.title === 'AI Stock Tracker'
-                      ? 'from-green-500 to-emerald-500'
-                      : 'from-emerald-500 to-green-500'
-                  } shadow-2xl`}
+                        ? 'from-red-500 to-pink-500'
+                        : project.title === 'Warehouse CMS'
+                          ? 'from-indigo-500 to-blue-500'
+                          : project.title === 'CytoNET'
+                            ? 'from-cyan-500 to-teal-500'
+                            : project.title === 'Travel Planner'
+                              ? 'from-blue-500 to-sky-500'
+                              : project.title === 'AI Stock Tracker'
+                                ? 'from-green-500 to-emerald-500'
+                                : 'from-emerald-500 to-green-500'
+                    } shadow-2xl`}
                   whileHover={{ scale: 1.05, rotate: 5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
@@ -562,7 +561,7 @@ export default function ProjectDetailClient({
                   >
                     <span className='relative z-10 flex items-center gap-2'>
                       <ExternalLink className='h-4 w-4 md:h-5 md:w-5' />
-                      {project.title === 'Relay Rideshare'
+                      {project.title === 'Relay Rideshare' || project.title === 'Arkhet'
                         ? 'Learn More'
                         : 'Live Demo'}
                     </span>

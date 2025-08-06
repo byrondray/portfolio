@@ -41,6 +41,104 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: '10',
+    title: 'Arkhet',
+    description: 'Worked on an advanced AI-powered design and prototyping platform that enables product managers to create interactive user interfaces and rapidly ideate and iterate on product concepts',
+    technologies: [
+      'React',
+      'TypeScript',
+      'PostgreSQL',
+      'Drizzle ORM',
+      'Tailwind CSS',
+      'Bun',
+      'Zustand',
+    ],
+    liveLink: 'https://arkhet.com',
+    githubLink: '',
+    image: '/images/arkhet-logo.svg',
+    details: {
+      longDescription: 'Contributed to developing a sophisticated prototyping platform that enables product managers to rapidly transform ideas into interactive user interfaces. Focused on building core canvas functionality that accelerates the design process, implementing drag-and-drop tools that allow quick iteration. Created essential features including copy/paste functionality, alt-drag operations, and annotation tools that streamline the feedback loop from concept to prototype. Helped build the style guide system enabling users to maintain design consistency while rapidly experimenting with different visual approaches. Delivered numerous workflow optimizations and added new canvas components like tables that reduce time from idea to testable prototype. Collaborated with the team on code reviews and AI feature integration that further accelerates the prototyping process. The project strengthened expertise in modern React patterns, TypeScript development, and building complex interactive applications focused on developer and designer productivity.',
+
+      features: [
+        'Built interactive annotation tools for design feedback',
+        'Implemented copy/paste and alt-drag functionality for improved workflow',
+        'Developed backend usage tracking and management systems',
+        'Created style customization system for colors and typography',
+        'Added new canvas components including tables and other UI elements',
+        'Collaborated on AI feature development',
+        'Delivered quality of life improvements across the platform'
+      ],
+
+      challenges: [
+        'Building complex canvas interactions with smooth copy/paste and drag operations',
+        'Implementing scalable backend systems for resource management',
+        'Creating intuitive annotation and feedback systems',
+        'Developing a flexible style guide that integrates with the generation system',
+        'Optimizing canvas performance with multiple interactive components',
+        'Ensuring seamless user experience across complex design workflows'
+      ],
+
+      screenshots: [
+        '/images/arkhet-web-summit.jpg',
+        '/images/arkhet-hangout.PNG',
+      ],
+
+      processSteps: [
+        {
+          title: 'Canvas Functionality Enhancement',
+          description: 'Improved core canvas features by implementing copy/paste operations, alt-drag functionality, and adding new interactive components like tables. Participated in a major canvas refactor that significantly improved performance, ensuring smooth interactions even with complex designs. Focused on creating intuitive interactions that speed up the design process.'
+        },
+        {
+          title: 'Annotation Tool Development',
+          description: 'Helped build a sophisticated system allowing users to add feedback and annotations. This feature bridges the gap between visual design and requirements, enhancing collaboration and iteration.'
+        },
+        {
+          title: 'Backend System Implementation',
+          description: 'Developed the complete backend infrastructure for resource management and usage tracking to enable sustainable platform operations.'
+        },
+        {
+          title: 'Style Guide System Creation',
+          description: 'Contributed to a comprehensive style guide feature allowing users to define custom colors and typography that integrate with their designs, ensuring brand consistency.'
+        },
+        {
+          title: 'Quality of Life Improvements',
+          description: 'Identified and implemented numerous UX enhancements based on user feedback and testing, improving overall platform usability and reducing friction in common workflows.'
+        },
+        {
+          title: 'Code Review & Integration Support',
+          description: 'Participated in code reviews for AI-related features and successfully integrated new functionality into existing tools, ensuring smooth collaboration with the AI development team.'
+        }
+      ],
+
+      techDetails: [
+        {
+          name: 'React & TypeScript',
+          description: 'Built complex, type-safe interactive components for the canvas system including copy/paste handlers, drag operations, and dynamic UI elements. Developed custom hooks for state management and canvas interactions.'
+        },
+        {
+          name: 'Canvas Development',
+          description: 'Implemented sophisticated canvas features including component manipulation, copy/paste functionality, alt-drag operations, and interactive overlays for annotations.'
+        },
+        {
+          name: 'Backend Development',
+          description: 'Developed backend systems for resource management using PostgreSQL and Drizzle ORM, implementing efficient tracking and data management.'
+        },
+        {
+          name: 'Zustand State Management',
+          description: 'Utilized Zustand for managing complex application state across canvas interactions, and style guides'
+        },
+        {
+          name: 'Component Architecture',
+          description: 'Built reusable canvas components including tables and other UI elements, focusing on performance optimization and smooth user interactions within the design environment.'
+        },
+        {
+          name: 'Style Guide Implementation',
+          description: 'Contributed to the creation of a flexible style system allowing users to define and apply custom colors and typography, integrating seamlessly with the existing design workflows.'
+        }
+      ]
+    }
+  },
+  {
     id: '1',
     title: 'Relay Rideshare',
     description:
