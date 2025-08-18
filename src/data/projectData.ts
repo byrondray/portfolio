@@ -710,7 +710,7 @@ export const projects: Project[] = [
       'C#',
     ],
     liveLink:
-      'https://cytonet-hndnbkd0erbufgc9.canadacentral-01.azurewebsites.net/',
+      '',
     githubLink: '',
     image: '',
     details: {
