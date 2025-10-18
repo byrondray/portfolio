@@ -945,13 +945,12 @@ export const projects: Project[] = [
     technologies: [
       "ASP.NET Core",
       "Entity Framework Core",
-      "MySQL",
+      "PostgreSQL",
       "Razor Pages",
       "Bootstrap",
       "Azure",
     ],
-    liveLink:
-      "https://warehouse-cms-dubzcvftchbwdhg0.canadacentral-01.azurewebsites.net",
+    liveLink: "https://warehouse-cms-production.up.railway.app/",
     githubLink: "https://github.com/byrondray/Warehouse-CMS",
     image: "",
     details: {
