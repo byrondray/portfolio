@@ -712,6 +712,123 @@ export const projects: Project[] = [
     },
   },
   {
+    id: "11",
+    title: "Los Hermanos",
+    description:
+      "A modern e-commerce platform for industrial clothing and work uniforms, featuring an admin dashboard for inventory management, shopping cart functionality, and a customer-focused browsing experience.",
+    technologies: [
+      "SvelteKit",
+      "TypeScript",
+      "SQLite",
+      "Drizzle ORM",
+      "Tailwind CSS 4",
+      "Vite",
+    ],
+    liveLink: "loshermanos.app",
+    githubLink: "",
+    image: "",
+    details: {
+      longDescription:
+        "Los Hermanos is a comprehensive e-commerce solution built for a Colombian industrial clothing business operating since 1985. The platform provides a seamless shopping experience for customers seeking work uniforms and industrial apparel, while offering powerful administrative tools for inventory management. Built with modern web technologies including SvelteKit 5 and Tailwind CSS 4, the application features a complete shopping cart system, product categorization, image management, and secure admin authentication. Developed collaboratively by a two-person team, the project emphasizes performance, user experience, and maintainability with TypeScript and Drizzle ORM ensuring type safety throughout the stack.",
+
+      features: [
+        "Complete e-commerce shopping experience with product browsing and categorization",
+        "Shopping cart functionality with real-time updates and persistent storage",
+        "Admin dashboard for managing products, categories, and inventory",
+        "Secure authentication system for admin users with password hashing",
+        "Image upload and management system with blob storage for product photos",
+        "Product catalog with filtering by categories and in-stock status",
+        "Responsive design optimized for desktop and mobile shopping experiences",
+        "SEO-optimized pages with proper meta tags and structured data",
+        "Toast notification system for user feedback",
+        "Contact page for customer inquiries",
+      ],
+
+      challenges: [
+        "Building a performant image handling system using SQLite blob storage for product photos",
+        "Implementing a type-safe shopping cart with persistent state management across sessions",
+        "Creating an intuitive admin interface for non-technical users to manage inventory",
+        "Designing a scalable database schema with proper relationships between products and categories",
+        "Ensuring responsive design works seamlessly across devices for shopping experience",
+        "Implementing secure authentication without over-engineering for a small business use case",
+        "Optimizing database queries for product listing and filtering operations",
+      ],
+
+      screenshots: [],
+
+      processSteps: [
+        {
+          title: "Requirements Gathering & Business Analysis",
+          description:
+            "Collaborated with the business owner to understand their needs for managing an industrial clothing catalog, identifying key requirements for inventory management, customer browsing, and order handling.",
+        },
+        {
+          title: "Technology Stack Selection",
+          description:
+            "Selected SvelteKit 5 for its excellent performance and developer experience, Drizzle ORM for type-safe database operations, and SQLite for a lightweight yet powerful database solution suitable for small to medium e-commerce.",
+        },
+        {
+          title: "Database Schema Design",
+          description:
+            "Designed a normalized database schema with tables for products, categories, and admin users, implementing proper relationships and constraints to ensure data integrity across the inventory system.",
+        },
+        {
+          title: "Admin Dashboard Development",
+          description:
+            "Built a comprehensive admin interface for managing products and categories, including image upload functionality, inventory status updates, and CRUD operations with proper authentication guards.",
+        },
+        {
+          title: "E-commerce Frontend Implementation",
+          description:
+            "Developed the customer-facing website with product browsing, category filtering, detailed product pages, and a shopping cart system with persistent state management using Svelte stores.",
+        },
+        {
+          title: "Image Management System",
+          description:
+            "Implemented a blob storage system within SQLite for product images with API endpoints for serving images, ensuring efficient loading and proper content-type handling.",
+        },
+        {
+          title: "Team Collaboration & Code Review",
+          description:
+            "Worked collaboratively with another developer, conducting code reviews, coordinating feature development, and ensuring consistent code quality throughout the project lifecycle.",
+        },
+      ],
+
+      techDetails: [
+        {
+          name: "SvelteKit 5",
+          description:
+            "Leveraged SvelteKit's latest features including runes ($state, $derived, $props) for reactive state management, server-side rendering for SEO optimization, and file-based routing for intuitive project structure. The framework provides excellent performance with minimal JavaScript shipped to the client.",
+        },
+        {
+          name: "TypeScript",
+          description:
+            "Implemented throughout the entire codebase to ensure type safety in database operations, API routes, and component props. Critical for maintaining code quality and preventing bugs in e-commerce transactions and inventory management.",
+        },
+        {
+          name: "Drizzle ORM",
+          description:
+            "Used for type-safe database operations with a schema defining products, categories, and admin users. Provides excellent TypeScript integration, migration management, and query building with minimal overhead compared to heavier ORMs.",
+        },
+        {
+          name: "SQLite",
+          description:
+            "Selected for its simplicity, zero-configuration setup, and excellent performance for read-heavy e-commerce operations. The database includes blob storage for product images, eliminating the need for separate file storage infrastructure.",
+        },
+        {
+          name: "Tailwind CSS 4",
+          description:
+            "Utilized the latest Tailwind CSS version with its new oxide engine for styling, creating a modern, responsive design system. Implemented custom utility classes for consistent spacing, typography, and layout patterns across the application.",
+        },
+        {
+          name: "Svelte Stores",
+          description:
+            "Implemented custom stores for shopping cart state management with persistent storage, toast notifications, and global UI state, leveraging Svelte's reactive paradigm for automatic UI updates.",
+        },
+      ],
+    },
+  },
+  {
     id: "6",
     title: "CytoNET",
     description:
