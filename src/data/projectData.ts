@@ -69,6 +69,7 @@ export const projects: Project[] = [
         'Created GitHub integration for exporting generated prototype code to repositories',
         'Created style customization system for colors and typography',
         'Added new canvas components including tables and other UI elements',
+        'Wrote comprehensive end-to-end tests ensuring platform reliability',
         'Collaborated on AI feature development',
         'Delivered quality of life improvements across the platform',
       ],
@@ -118,6 +119,11 @@ export const projects: Project[] = [
           description:
             'Participated in code reviews for AI-related features and successfully integrated new functionality into existing tools, ensuring smooth collaboration with the AI development team.',
         },
+        {
+          title: 'End-to-End Testing Implementation',
+          description:
+            'Wrote comprehensive end-to-end tests covering critical user workflows including canvas interactions, billing flows, and authentication. Ensured platform reliability and prevented regressions during rapid feature development.',
+        },
       ],
 
       techDetails: [
@@ -145,6 +151,11 @@ export const projects: Project[] = [
           name: 'Style Guide Implementation',
           description:
             'Contributed to the creation of a flexible style system allowing users to define and apply custom colors and typography, integrating seamlessly with the existing design workflows.',
+        },
+        {
+          name: 'End-to-End Testing',
+          description:
+            'Implemented comprehensive E2E tests covering critical platform functionality including canvas operations, user authentication, billing workflows, and GitHub integration. Tests ensure reliability across releases and prevent regressions in complex interactive features.',
         },
       ],
     },
