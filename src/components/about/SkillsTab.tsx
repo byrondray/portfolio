@@ -21,6 +21,8 @@ const skillCategories: SkillCategory[] = [
       { name: "React" },
       { name: "Next.js" },
       { name: "TypeScript" },
+      { name: "Gleam" },
+      { name: "Lustre" },
       { name: "React Native" },
       { name: "Expo" },
       { name: "Tailwind CSS" },
