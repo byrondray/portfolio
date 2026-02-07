@@ -391,7 +391,7 @@ export default function ProjectDetailClient({
                             style={{ aspectRatio: 'auto' }}
                           >
                             <source
-                              src={video.url.replace('/upload/', '/upload/q_auto/')}
+                              src={video.url.replace('/upload/', '/upload/f_mp4,q_auto/')}
                               type='video/mp4'
                             />
                             Your browser does not support the video tag.
