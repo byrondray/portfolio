@@ -57,7 +57,7 @@ export const projects: Project[] = [
     ],
     liveLink: 'https://arkhet.com',
     githubLink: '',
-    image: '/images/arkhet-logo.svg',
+    image: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505180/portfolio/images/arkhet-logo.svg',
     details: {
       longDescription:
         'Contributed to developing a sophisticated prototyping platform that enables product managers to rapidly transform ideas into interactive user interfaces. Participated in a major frontend rebuild migrating from React to Gleam with the Lustre framework, adopting the Elm architecture (Model-View-Update) which dramatically improved canvas performance and state management. Built a complete token-based billing system with Stripe integration, implementing subscription tiers and usage tracking for sustainable platform monetization. Implemented GitHub integration enabling users to export generated prototype code directly to repositories for seamless handoff to development teams. Focused on building core canvas functionality that accelerates the design process, implementing drag-and-drop tools that allow quick iteration. Created essential features including copy/paste functionality, alt-drag operations, and annotation tools that streamline the feedback loop from concept to prototype. Helped build the style guide system enabling users to maintain design consistency while rapidly experimenting with different visual approaches. Delivered numerous workflow optimizations and added new canvas components like tables that reduce time from idea to testable prototype. Collaborated with the team on code reviews and AI feature integration that further accelerates the prototyping process. The project strengthened expertise in functional programming with Gleam, the Elm architecture, payment systems integration, and building complex interactive applications focused on developer and designer productivity.',
@@ -84,8 +84,8 @@ export const projects: Project[] = [
       ],
 
       screenshots: [
-        '/images/arkhet-web-summit.jpg',
-        '/images/arkhet-hangout.PNG',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505186/portfolio/images/arkhet-web-summit.jpg',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505188/portfolio/images/arkhet-hangout.png',
       ],
 
       processSteps: [
@@ -179,7 +179,7 @@ export const projects: Project[] = [
     ],
     liveLink: 'https://rezengaming.com',
     githubLink: '',
-    image: '/images/icon-256.svg',
+    image: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505182/portfolio/images/icon-256.svg',
     details: {
       longDescription:
         'Rezen Gaming is a comprehensive competitive gaming platform that transforms casual gaming into organized, monetized competitions. The platform enables players to create wagers for popular games, challenge opponents individually or as teams, and compete for real money prizes. Built with enterprise-grade security and financial handling, the platform supports cross-platform gaming (PlayStation, Xbox, PC), automated dispute resolution, real-time notifications, and integrated payment processing through Stripe. Players can form teams, track their gaming performance, manage their gaming accounts across platforms, and participate in a trusted ecosystem where fair play is enforced through comprehensive verification systems.',
@@ -279,7 +279,7 @@ export const projects: Project[] = [
     technologies: ['React Native', 'Expo', 'GraphQL', 'Firebase', 'OpenAI API'],
     liveLink: 'https://relay.arspera.com/',
     githubLink: 'https://github.com/byrondray/relay',
-    image: '/images/relay_logo.png',
+    image: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505184/portfolio/images/relay_logo.png',
     details: {
       longDescription:
         'Relay Rideshare is an innovative transportation solution designed specifically for families with busy schedules. The app enables parents within the same neighborhood or community to coordinate rides for their children who are attending the same schools, sports practices, music lessons, or other extracurricular activities. By allowing parents to create trusted connections with other parents, the platform reduces the transportation burden on individual families while ensuring children always have a safe, vetted ride. Parents can track rides in real-time, receive AI powered ride notifications when their children are picked up and dropped off, and manage recurring transportation needs through an intuitive scheduling system. Relay not only saves time and reduces traffic congestion but also fosters stronger community connections and provides peace of mind through its comprehensive safety features.',
@@ -300,24 +300,24 @@ export const projects: Project[] = [
         'Designing an intuitive interface that simplifies complex coordination tasks',
       ],
       screenshots: [
-        '/images/relay-screenshot2.jpg',
-        '/images/relay-screenshot.png',
-        '/images/relay-booth.JPG',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505191/portfolio/images/relay-screenshot2.jpg',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505192/portfolio/images/relay-screenshot.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505193/portfolio/images/relay-booth.jpg',
       ],
       videos: [
         {
-          url: '/videos/relay-showcase.mp4',
+          url: 'https://res.cloudinary.com/dretgpdr4/video/upload/v1770505203/portfolio/videos/relay-showcase.mp4',
           title: 'Relay Showcase Day',
           description:
             'Judges announcement of Relay Rideshare as the winner of the Showcase Day',
-          thumbnail: '/images/relay-booth.JPG',
+          thumbnail: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505193/portfolio/images/relay-booth.jpg',
         },
         {
-          url: '/videos/RelayFinalDemo.mp4',
+          url: 'https://res.cloudinary.com/dretgpdr4/video/upload/v1770505204/portfolio/videos/RelayFinalDemo.mp4',
           title: 'Full App Demo',
           description:
             'Complete overview of Relay Rideshare features and user experience',
-          thumbnail: '/images/relay-screenshot2.jpg',
+          thumbnail: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505191/portfolio/images/relay-screenshot2.jpg',
         },
       ],
       techDetails: [
@@ -471,9 +471,9 @@ export const projects: Project[] = [
         },
       ],
       screenshots: [
-        '/images/fl-home.png',
-        '/images/fl-rich-text.png',
-        '/images/fl-generate-note.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505194/portfolio/images/fl-home.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505195/portfolio/images/fl-rich-text.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505195/portfolio/images/fl-generate-note.png',
       ],
     },
   },
@@ -485,7 +485,7 @@ export const projects: Project[] = [
     technologies: ['TypeScript', 'Bun', 'HTMX', 'Drizzle ORM', 'Plaid API'],
     liveLink: 'https://idsp.onrender.com/',
     githubLink: 'https://github.com/JustArmaan/FairShare',
-    image: '/images/fs_logo.png',
+    image: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505185/portfolio/images/fs_logo.png',
     details: {
       longDescription:
         "Fairshare transforms group expense management by seamlessly connecting to users' banking data through Plaid API integration. This secure connection allows automatic transaction importing, intelligent expense categorization, and simplified bill splitting. Whether you're sharing an apartment with roommates, planning a group vacation, or managing household expenses with family, Fairshare eliminates tedious manual expense tracking and complex calculations. Users can create multiple expense groups, customize splitting rules based on percentages or fixed amounts, and visualize their spending patterns with interactive charts. The platform generates optimized settlement plans that minimize the number of transactions needed to settle debts, making financial reconciliation faster and more efficient.",
@@ -560,9 +560,9 @@ export const projects: Project[] = [
         },
       ],
       screenshots: [
-        '/images/fs-homepage.png',
-        '/images/fs-home-page.png',
-        '/images/fs-group-page.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505196/portfolio/images/fs-homepage.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505197/portfolio/images/fs-home-page.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505197/portfolio/images/fs-group-page.png',
       ],
     },
   },
@@ -622,18 +622,18 @@ export const projects: Project[] = [
       ],
 
       screenshots: [
-        '/images/stock-tracker4.PNG',
-        '/images/stock-tracker2.PNG',
-        '/images/stock-tracker3.PNG',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505198/portfolio/images/stock-tracker4.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505199/portfolio/images/stock-tracker2.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505199/portfolio/images/stock-tracker3.png',
       ],
 
       videos: [
         {
-          url: '/images/stock-tracker1.mp4',
+          url: 'https://res.cloudinary.com/dretgpdr4/video/upload/v1770505209/portfolio/images/stock-tracker1.mov',
           title: 'AI Stock Tracker Demo',
           description:
             'Complete demonstration of the AI Stock Tracker platform featuring LSTM predictions and sentiment analysis',
-          thumbnail: '/images/stock-tracker2.PNG',
+          thumbnail: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505199/portfolio/images/stock-tracker2.png',
         },
       ],
 
@@ -933,7 +933,7 @@ export const projects: Project[] = [
             'Created comprehensive RESTful debugging endpoints for real-time monitoring of database status, seeding progress, and data integrity validation across all biological contexts.',
         },
       ],
-      screenshots: ['/images/kinexus-crew.jpeg'],
+      screenshots: ['https://res.cloudinary.com/dretgpdr4/image/upload/v1770505202/portfolio/images/kinexus-crew.jpg'],
     },
   },
   {
@@ -978,9 +978,9 @@ export const projects: Project[] = [
       ],
 
       screenshots: [
-        '/images/ta-form.png',
-        '/images/ta-loading.png',
-        '/images/ta-generated.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505200/portfolio/images/ta-form.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505201/portfolio/images/ta-loading.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505201/portfolio/images/ta-generated.png',
       ],
 
       videoUrl: '',

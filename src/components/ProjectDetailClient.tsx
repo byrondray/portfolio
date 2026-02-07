@@ -138,6 +138,8 @@ export default function ProjectDetailClient({
                     alt={`${project.title} logo`}
                     fill
                     className='object-contain'
+                    sizes='(max-width: 768px) 64px, 96px'
+                    priority
                   />
                 </div>
               ) : (
@@ -388,7 +390,10 @@ export default function ProjectDetailClient({
                             poster={video.thumbnail}
                             style={{ aspectRatio: 'auto' }}
                           >
-                            <source src={video.url} type='video/mp4' />
+                            <source
+                              src={video.url.replace('/upload/', '/upload/q_auto/')}
+                              type='video/mp4'
+                            />
                             Your browser does not support the video tag.
                           </video>
                         </div>
@@ -634,7 +639,7 @@ export default function ProjectDetailClient({
                         width={800}
                         height={1200}
                         className='w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-300 max-h-[60vh] sm:max-h-[70vh]'
-                        sizes='(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw'
+                        sizes='(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px'
                         priority={idx < 3}
                       />
                     </div>

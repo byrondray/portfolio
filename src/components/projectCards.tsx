@@ -318,6 +318,7 @@ const ProjectCards = () => {
                       alt={project.title}
                       fill
                       className="object-contain"
+                      sizes="128px"
                     />
                   </motion.div>
                 ) : (
