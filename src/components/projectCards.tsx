@@ -190,6 +190,106 @@ const StockChartIcon = () => (
   </svg>
 );
 
+const EarningsAnalyzerIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="80"
+    height="80"
+    viewBox="0 0 80 80"
+    fill="none"
+    className="text-white"
+  >
+    <defs>
+      <linearGradient id="earnGreen" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stopColor="#10b981" stopOpacity="0.6" />
+        <stop offset="100%" stopColor="#34d399" stopOpacity="1" />
+      </linearGradient>
+      <linearGradient id="earnRed" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#ef4444" stopOpacity="0.6" />
+        <stop offset="100%" stopColor="#f87171" stopOpacity="1" />
+      </linearGradient>
+      <filter id="earnGlow">
+        <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
+        <feMerge>
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+
+    {/* Background circle */}
+    <circle
+      cx="40"
+      cy="40"
+      r="36"
+      fill="currentColor"
+      fillOpacity="0.06"
+      stroke="currentColor"
+      strokeWidth="0.5"
+      strokeOpacity="0.15"
+    />
+
+    {/* Candlestick bars */}
+    <g filter="url(#earnGlow)">
+      {/* Candle 1 - green (bullish) */}
+      <line x1="20" y1="22" x2="20" y2="58" stroke="url(#earnGreen)" strokeWidth="1" />
+      <rect x="16" y="30" width="8" height="18" rx="1" fill="url(#earnGreen)" />
+
+      {/* Candle 2 - red (bearish) */}
+      <line x1="33" y1="18" x2="33" y2="54" stroke="url(#earnRed)" strokeWidth="1" />
+      <rect x="29" y="24" width="8" height="20" rx="1" fill="url(#earnRed)" />
+
+      {/* Candle 3 - green (bullish, taller) */}
+      <line x1="46" y1="14" x2="46" y2="52" stroke="url(#earnGreen)" strokeWidth="1" />
+      <rect x="42" y="20" width="8" height="22" rx="1" fill="url(#earnGreen)" />
+    </g>
+
+    {/* AI sparkle cluster — top right */}
+    <g transform="translate(56, 14)" opacity="0.95">
+      {/* Main 4-point star */}
+      <path
+        d="M8 0 L9.5 5.5 L15 8 L9.5 10.5 L8 16 L6.5 10.5 L1 8 L6.5 5.5 Z"
+        fill="currentColor"
+        opacity="0.9"
+      />
+      {/* Small accent star */}
+      <path
+        d="M16 1 L16.6 3.2 L19 4 L16.6 4.8 L16 7 L15.4 4.8 L13 4 L15.4 3.2 Z"
+        fill="currentColor"
+        opacity="0.55"
+      />
+      {/* Tiny dot */}
+      <circle cx="3" cy="3" r="1" fill="currentColor" opacity="0.4" />
+    </g>
+
+    {/* Baseline axis */}
+    <line
+      x1="12"
+      y1="60"
+      x2="55"
+      y2="60"
+      stroke="currentColor"
+      strokeWidth="0.6"
+      opacity="0.3"
+    />
+
+    {/* Subtle EPS label */}
+    <text
+      x="40"
+      y="72"
+      fontFamily="SF Pro Display, -apple-system, system-ui, sans-serif"
+      fontSize="6.5"
+      fontWeight="600"
+      fill="currentColor"
+      textAnchor="middle"
+      opacity="0.5"
+      letterSpacing="1.5"
+    >
+      EPS
+    </text>
+  </svg>
+);
+
 const ProjectCards = () => {
   const { theme } = useTheme();
   const isDarkTheme =
@@ -207,6 +307,7 @@ const ProjectCards = () => {
     "Travel Planner": "from-blue-500 to-sky-500",
     "AI Stock Tracker": "from-green-500 to-emerald-500",
     "Los Hermanos": "from-orange-500 to-amber-500",
+    "Stock Earnings Analyzer": "from-slate-800 to-emerald-950",
     default: "from-emerald-500 to-green-500",
   };
   const getIconForProject = (title: string) => {
@@ -227,6 +328,8 @@ const ProjectCards = () => {
         return <StockChartIcon />;
       case "Los Hermanos":
         return <Shirt size={80} className="text-white" />;
+      case "Stock Earnings Analyzer":
+        return <EarningsAnalyzerIcon />;
       default:
         return <Database size={80} className="text-white" />;
     }
@@ -296,6 +399,8 @@ const ProjectCards = () => {
                     ? "rgba(16, 185, 129, 0.3)"
                     : project.title === "Los Hermanos"
                     ? "rgba(249, 115, 22, 0.3)"
+                    : project.title === "Stock Earnings Analyzer"
+                    ? "rgba(20, 184, 166, 0.3)"
                     : project.title === "Relay Rideshare" ||
                       project.title === "Rezen Gaming"
                     ? "rgba(239, 68, 68, 0.3)"

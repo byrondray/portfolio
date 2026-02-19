@@ -57,7 +57,8 @@ export const projects: Project[] = [
     ],
     liveLink: 'https://arkhet.com',
     githubLink: '',
-    image: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505180/portfolio/images/arkhet-logo.svg',
+    image:
+      'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505180/portfolio/images/arkhet-logo.svg',
     details: {
       longDescription:
         'Contributed to developing a sophisticated prototyping platform that enables product managers to rapidly transform ideas into interactive user interfaces. Participated in a major frontend rebuild migrating from React to Gleam with the Lustre framework, adopting the Elm architecture (Model-View-Update) which dramatically improved canvas performance and state management. Built a complete token-based billing system with Stripe integration, implementing subscription tiers and usage tracking for sustainable platform monetization. Implemented GitHub integration enabling users to export generated prototype code directly to repositories for seamless handoff to development teams. Focused on building core canvas functionality that accelerates the design process, implementing drag-and-drop tools that allow quick iteration. Created essential features including copy/paste functionality, alt-drag operations, and annotation tools that streamline the feedback loop from concept to prototype. Helped build the style guide system enabling users to maintain design consistency while rapidly experimenting with different visual approaches. Delivered numerous workflow optimizations and added new canvas components like tables that reduce time from idea to testable prototype. Collaborated with the team on code reviews and AI feature integration that further accelerates the prototyping process. The project strengthened expertise in functional programming with Gleam, the Elm architecture, payment systems integration, and building complex interactive applications focused on developer and designer productivity.',
@@ -179,7 +180,8 @@ export const projects: Project[] = [
     ],
     liveLink: 'https://rezengaming.com',
     githubLink: '',
-    image: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505182/portfolio/images/icon-256.svg',
+    image:
+      'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505182/portfolio/images/icon-256.svg',
     details: {
       longDescription:
         'Rezen Gaming is a comprehensive competitive gaming platform that transforms casual gaming into organized, monetized competitions. The platform enables players to create wagers for popular games, challenge opponents individually or as teams, and compete for real money prizes. Built with enterprise-grade security and financial handling, the platform supports cross-platform gaming (PlayStation, Xbox, PC), automated dispute resolution, real-time notifications, and integrated payment processing through Stripe. Players can form teams, track their gaming performance, manage their gaming accounts across platforms, and participate in a trusted ecosystem where fair play is enforced through comprehensive verification systems.',
@@ -279,7 +281,8 @@ export const projects: Project[] = [
     technologies: ['React Native', 'Expo', 'GraphQL', 'Firebase', 'OpenAI API'],
     liveLink: 'https://relay.arspera.com/',
     githubLink: 'https://github.com/byrondray/relay',
-    image: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505184/portfolio/images/relay_logo.png',
+    image:
+      'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505184/portfolio/images/relay_logo.png',
     details: {
       longDescription:
         'Relay Rideshare is an innovative transportation solution designed specifically for families with busy schedules. The app enables parents within the same neighborhood or community to coordinate rides for their children who are attending the same schools, sports practices, music lessons, or other extracurricular activities. By allowing parents to create trusted connections with other parents, the platform reduces the transportation burden on individual families while ensuring children always have a safe, vetted ride. Parents can track rides in real-time, receive AI powered ride notifications when their children are picked up and dropped off, and manage recurring transportation needs through an intuitive scheduling system. Relay not only saves time and reduces traffic congestion but also fosters stronger community connections and provides peace of mind through its comprehensive safety features.',
@@ -310,14 +313,16 @@ export const projects: Project[] = [
           title: 'Relay Showcase Day',
           description:
             'Judges announcement of Relay Rideshare as the winner of the Showcase Day',
-          thumbnail: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505193/portfolio/images/relay-booth.jpg',
+          thumbnail:
+            'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505193/portfolio/images/relay-booth.jpg',
         },
         {
           url: 'https://res.cloudinary.com/dretgpdr4/video/upload/v1770505204/portfolio/videos/RelayFinalDemo.mp4',
           title: 'Full App Demo',
           description:
             'Complete overview of Relay Rideshare features and user experience',
-          thumbnail: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505191/portfolio/images/relay-screenshot2.jpg',
+          thumbnail:
+            'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505191/portfolio/images/relay-screenshot2.jpg',
         },
       ],
       techDetails: [
@@ -485,7 +490,8 @@ export const projects: Project[] = [
     technologies: ['TypeScript', 'Bun', 'HTMX', 'Drizzle ORM', 'Plaid API'],
     liveLink: 'https://idsp.onrender.com/',
     githubLink: 'https://github.com/JustArmaan/FairShare',
-    image: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505185/portfolio/images/fs_logo.png',
+    image:
+      'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505185/portfolio/images/fs_logo.png',
     details: {
       longDescription:
         "Fairshare transforms group expense management by seamlessly connecting to users' banking data through Plaid API integration. This secure connection allows automatic transaction importing, intelligent expense categorization, and simplified bill splitting. Whether you're sharing an apartment with roommates, planning a group vacation, or managing household expenses with family, Fairshare eliminates tedious manual expense tracking and complex calculations. Users can create multiple expense groups, customize splitting rules based on percentages or fixed amounts, and visualize their spending patterns with interactive charts. The platform generates optimized settlement plans that minimize the number of transactions needed to settle debts, making financial reconciliation faster and more efficient.",
@@ -566,7 +572,6 @@ export const projects: Project[] = [
       ],
     },
   },
-
   {
     id: '9',
     title: 'AI Stock Tracker',
@@ -633,7 +638,8 @@ export const projects: Project[] = [
           title: 'AI Stock Tracker Demo',
           description:
             'Complete demonstration of the AI Stock Tracker platform featuring LSTM predictions and sentiment analysis',
-          thumbnail: 'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505199/portfolio/images/stock-tracker2.png',
+          thumbnail:
+            'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505199/portfolio/images/stock-tracker2.png',
         },
       ],
 
@@ -837,6 +843,141 @@ export const projects: Project[] = [
     },
   },
   {
+    id: '12',
+    title: 'Stock Earnings Analyzer',
+    description:
+      'A full-stack AI-powered stock earnings analysis platform featuring weekly earnings calendars, real-time SSE-streamed Claude analysis, interactive price charts, and a personalized watchlist with Clerk authentication.',
+    technologies: [
+      'Python',
+      'FastAPI',
+      'Svelte 5',
+      'PostgreSQL',
+      'Redis',
+      'Anthropic API',
+      'Brave Search API',
+      'Clerk Auth',
+      'SQLAlchemy',
+      'Tailwind CSS 4',
+      'Vite',
+      'Docker',
+    ],
+    liveLink: 'https://earnings-analyzer-production.up.railway.app/',
+    githubLink: 'https://github.com/byrondray/earnings-analyzer',
+    image: '',
+    details: {
+      longDescription:
+        'Stock Earnings Analyzer is a comprehensive financial intelligence platform that displays weekly earnings calendars for publicly traded companies and delivers AI-powered analysis of individual earnings reports. The backend fetches earnings data from Alpha Vantage, enriches it with market cap data, and stores it in PostgreSQL with upsert logic to maintain a clean, deduplicated dataset. When a user requests analysis for a specific stock, the system searches for the actual earnings press release and market reaction using the Brave Search API, scrapes and extracts the full article text prioritizing primary sources (BusinessWire, PR Newswire, SEC filings, investor relations pages), then sends the extracted content to the Anthropic Claude API with a structured tool-use schema to produce precise financial metrics including EPS, revenue, guidance summary, sentiment scoring, and price reaction data. Results stream to the frontend via Server-Sent Events for real-time status updates. The frontend is built with Svelte 5 runes and features interactive SVG price charts with hover tooltips, batched sparkline loading for performance, a favorites/watchlist system backed by Clerk JWT authentication, and a curated news feed aggregated from NewsAPI and Brave Search.',
+
+      features: [
+        'Weekly earnings calendar with navigation between weeks and top-company highlights sorted by market cap',
+        'AI-powered earnings analysis using Claude with structured tool-use for precise financial metric extraction',
+        'Real-time Server-Sent Events streaming analysis progress (searching, reading articles, analyzing, saving)',
+        'Interactive SVG price charts with multiple timeframes (1D to 5Y) and hover crosshair with price/date tooltips',
+        'Batched sparkline loading system with module-level caching and 50ms debounced batch requests for performance',
+        'User watchlist/favorites system with Clerk JWT authentication and persistent PostgreSQL storage',
+        'Stock news feed aggregated from NewsAPI and Brave Search with relative time formatting',
+        'Primary source prioritization for analysis — scrapes BusinessWire, PR Newswire, SEC filings, and IR pages before secondary sources',
+        'Multi-layer caching with Redis (calendar 4h TTL, market cap 24h, charts 5min–1h, analysis results) with graceful fallback when Redis is unavailable',
+        'Homepage with curated "Last Week\'s Top Earnings" and "This Week to Watch" sections with most-anticipated highlights',
+        'Full-text stock search with ticker lookup and earnings event discovery',
+        'Responsive glassmorphism UI with custom CSS theme system using CSS custom properties',
+      ],
+
+      challenges: [
+        'Designing a streaming analysis pipeline that orchestrates web search, HTML scraping, and AI inference while providing real-time progress to the client via SSE',
+        'Implementing reliable web scraping that prioritizes primary earnings sources (press releases, SEC filings) and falls back to secondary coverage, with concurrent page fetching and character limits to stay within AI context windows',
+        'Building an efficient sparkline batching system at the Svelte module level that debounces individual component requests into chunked API calls with client-side caching',
+        'Creating interactive SVG charts from scratch with computed derived state for chart paths, area fills, Y-axis labels, hover tracking, and responsive scaling without a charting library',
+        'Handling Brave Search API rate limiting with exponential backoff retry logic and sequential query spacing to avoid 429 responses',
+        'Implementing Clerk JWT authentication with JWKS caching, RS256 verification, and optional auth middleware that gracefully degrades for unauthenticated users',
+        'Designing PostgreSQL upsert logic with unique constraints to handle duplicate earnings events from repeated Alpha Vantage imports without data corruption',
+      ],
+
+      screenshots: [],
+
+      processSteps: [
+        {
+          title: 'Data Pipeline & Earnings Calendar',
+          description:
+            'Built the earnings data pipeline fetching from Alpha Vantage EARNINGS_CALENDAR endpoint, implementing PostgreSQL upserts with ON CONFLICT handling on a unique ticker/report_date constraint. Added batch market cap enrichment with Redis caching (24h TTL) to sort and display companies by size.',
+        },
+        {
+          title: 'AI Analysis Engine with Structured Output',
+          description:
+            'Developed the core analysis pipeline: Brave Search queries for earnings press releases and market reaction articles, concurrent HTML scraping with BeautifulSoup prioritizing primary sources (BusinessWire, PR Newswire, SEC.gov, investor relations pages), and Anthropic Claude API integration using forced tool-use to extract structured financial metrics (EPS, revenue, guidance, sentiment, price reaction).',
+        },
+        {
+          title: 'Real-time Streaming Architecture',
+          description:
+            'Implemented Server-Sent Events streaming from FastAPI async generators, delivering step-by-step progress updates (cache check → web search → article reading → AI analysis → database save) to the frontend with a custom SSE parser that handles buffered reads and event type routing.',
+        },
+        {
+          title: 'Interactive Frontend with Svelte 5',
+          description:
+            'Built the entire frontend using Svelte 5 runes ($state, $derived, $effect, $props) with hand-crafted SVG price charts featuring hover crosshairs, multiple timeframes, and computed chart geometry. Implemented a module-level sparkline batching system with debounced requests and client-side caching for efficient data loading across dozens of concurrent components.',
+        },
+        {
+          title: 'Authentication & Personalization',
+          description:
+            'Integrated Clerk authentication with JWT verification on the backend (JWKS fetching, RS256 decode, optional auth middleware) and the Clerk JS SDK on the frontend. Built a watchlist/favorites system with PostgreSQL-backed storage, optimistic UI updates, and bulk favorite checking for efficient page loads.',
+        },
+        {
+          title: 'Caching & Performance Optimization',
+          description:
+            'Implemented a multi-tier Redis caching layer with domain-specific TTLs (calendar 4h, market cap 24h, charts 5min–1h, analysis results) that gracefully no-ops when Redis is unavailable. Added Yahoo Finance chart data caching and response optimization throughout the API layer.',
+        },
+        {
+          title: 'Containerized Deployment',
+          description:
+            'Created a multi-stage Dockerfile with a Node.js stage for Vite/Svelte production builds and a Python stage for the FastAPI server, serving the SPA from static files with a catch-all route. Configured for Railway deployment with environment-based settings via Pydantic Settings.',
+        },
+      ],
+
+      techDetails: [
+        {
+          name: 'FastAPI & Async Python',
+          description:
+            'Built a fully async backend with FastAPI using async generators for SSE streaming, asyncpg for non-blocking PostgreSQL queries, and httpx for concurrent HTTP requests. Implements lifespan management for database table creation on startup and Redis cleanup on shutdown.',
+        },
+        {
+          name: 'Anthropic Claude API (Tool Use)',
+          description:
+            'Integrated Claude with a forced tool-use pattern where the model must call an earnings_analysis_result tool with a strict JSON schema, ensuring structured output with financial metrics (EPS, revenue, guidance, sentiment) rather than free-text responses.',
+        },
+        {
+          name: 'Brave Search & Web Scraping',
+          description:
+            'Built a two-query search strategy (press release + market reaction) with exponential backoff retry logic for rate limiting. Implements concurrent page fetching with BeautifulSoup extraction, prioritizing primary sources over secondary coverage, with per-page and total character limits.',
+        },
+        {
+          name: 'Svelte 5 (Runes)',
+          description:
+            'Leveraged Svelte 5 runes syntax ($state, $derived, $derived.by, $effect, $props) for reactive state management. Built complex derived computations for SVG chart geometry, hover interactions, and price change calculations using the new fine-grained reactivity system.',
+        },
+        {
+          name: 'PostgreSQL & SQLAlchemy',
+          description:
+            'Designed a normalized schema with EarningsEvent, EarningsAnalysis (linked by FK), and UserFavorite tables. Uses JSONB columns for raw analysis storage, custom enums for report timing and sentiment, and unique constraints for upsert-safe data ingestion.',
+        },
+        {
+          name: 'Redis Caching Layer',
+          description:
+            'Implemented domain-aware caching with different TTLs per data type. The cache layer gracefully degrades when Redis is unavailable, allowing the app to function without caching rather than failing.',
+        },
+        {
+          name: 'Clerk Authentication',
+          description:
+            'JWT-based auth with JWKS endpoint caching for RS256 token verification. Supports both required and optional auth middleware, enabling mixed authenticated/public endpoints. Frontend uses the Clerk JS SDK for sign-in/out flows and session token management.',
+        },
+        {
+          name: 'Docker Multi-Stage Build',
+          description:
+            'Production deployment uses a two-stage Dockerfile: Node.js for the Svelte/Vite build with build-time environment variables, and Python for the FastAPI server serving the SPA from static files with a catch-all route for client-side routing.',
+        },
+      ],
+    },
+  },
+  {
     id: '6',
     title: 'CytoNET',
     description:
@@ -933,7 +1074,9 @@ export const projects: Project[] = [
             'Created comprehensive RESTful debugging endpoints for real-time monitoring of database status, seeding progress, and data integrity validation across all biological contexts.',
         },
       ],
-      screenshots: ['https://res.cloudinary.com/dretgpdr4/image/upload/v1770505202/portfolio/images/kinexus-crew.jpg'],
+      screenshots: [
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505202/portfolio/images/kinexus-crew.jpg',
+      ],
     },
   },
   {
