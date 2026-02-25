@@ -282,7 +282,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-inter antialiased`}
       >
-        <ThemeProvider defaultTheme='dark' storageKey='portfolio-theme'>
+        <ThemeProvider defaultTheme='system' storageKey='portfolio-theme'>
           <Navbar />
           {children}
         </ThemeProvider>

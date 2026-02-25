@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import React, { useRef, useState, useEffect } from 'react';
-import { useTheme } from '@/components/theme-provider';
 
 export const BackgroundBeamsWithCollision = ({
   children,
@@ -11,7 +10,6 @@ export const BackgroundBeamsWithCollision = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
-  const { theme } = useTheme();
 
   const beams = [
     {
@@ -65,29 +63,11 @@ export const BackgroundBeamsWithCollision = ({
       className: 'h-6',
     },
   ];
-  // Determine the correct background gradient based on theme
-  const isDarkTheme =
-    theme === 'dark' ||
-    (theme === 'system' &&
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   return (
     <div
       ref={parentRef}
-      className={`
-      fixed 
-      inset-0 
-      w-full 
-      bg-gradient-to-b 
-      ${
-        isDarkTheme
-          ? 'from-neutral-950 to-neutral-800'
-          : 'from-neutral-50 to-neutral-200'
-      }
-      z-0
-      transition-colors duration-300
-    `}
+      className="fixed inset-0 w-full bg-gradient-to-b from-neutral-50 to-neutral-200 dark:from-neutral-950 dark:to-neutral-800 z-0 transition-colors duration-300"
     >
       {beams.map((beam) => (
         <CollisionMechanism
@@ -99,14 +79,7 @@ export const BackgroundBeamsWithCollision = ({
       ))}{' '}
       <div
         ref={containerRef}
-        className={`absolute bottom-0 w-full inset-x-0 pointer-events-none transition-colors duration-300 ${
-          isDarkTheme ? 'bg-neutral-800' : 'bg-neutral-200'
-        }`}
-        style={{
-          boxShadow: isDarkTheme
-            ? '0 0 24px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 4px rgba(0, 0, 0, 0.1), 0 16px 68px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.05) inset'
-            : '0 0 24px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 4px rgba(0, 0, 0, 0.05), 0 16px 68px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1) inset',
-        }}
+        className="absolute bottom-0 w-full inset-x-0 pointer-events-none transition-colors duration-300 bg-neutral-200 dark:bg-neutral-800 shadow-[0_0_24px_rgba(0,0,0,0.1),0_1px_1px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.05),0_0_4px_rgba(0,0,0,0.05),0_16px_68px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.1)] dark:shadow-[0_0_24px_rgba(0,0,0,0.2),0_1px_1px_rgba(0,0,0,0.2),0_0_0_1px_rgba(0,0,0,0.1),0_0_4px_rgba(0,0,0,0.1),0_16px_68px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.05)]"
       ></div>
       {children}
     </div>
@@ -189,14 +162,6 @@ const CollisionMechanism = ({
       }, 2000);
     }
   }, [collision]);
-  const { theme } = useTheme();
-
-  const isDarkTheme =
-    theme === 'dark' ||
-    (theme === 'system' &&
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches);
-
   return (
     <>
       <motion.div
@@ -223,12 +188,7 @@ const CollisionMechanism = ({
           delay: beamOptions.delay || 0,
           repeatDelay: beamOptions.repeatDelay || 0,
         }}
-        className={
-          'absolute left-0 top-20 m-auto h-14 w-px rounded-full z-10 transition-all duration-300 ' +
-          (isDarkTheme
-            ? 'bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent'
-            : 'bg-gradient-to-t from-indigo-400 via-purple-400 to-transparent')
-        }
+        className="absolute left-0 top-20 m-auto h-14 w-px rounded-full z-10 transition-all duration-300 bg-gradient-to-t from-indigo-400 via-purple-400 to-transparent dark:from-indigo-500 dark:via-purple-500 dark:to-transparent"
       />
       <AnimatePresence>
         {collision.detected && collision.coordinates && (

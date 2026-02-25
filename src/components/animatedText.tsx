@@ -2,18 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '@/components/theme-provider';
 
 const roles = ['Full-Stack Developer', 'AI Engineer', 'Problem Solver'];
 
 const AnimatedText: React.FC = () => {
-  const { theme } = useTheme();
-  const isDarkTheme =
-    theme === 'dark' ||
-    (theme === 'system' &&
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches);
-
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -58,9 +50,7 @@ const AnimatedText: React.FC = () => {
         variants={container}
         initial='hidden'
         animate='visible'
-        className={`text-5xl sm:text-6xl font-extrabold whitespace-pre ${
-          isDarkTheme ? 'text-white' : 'text-gray-900'
-        } pb-2 transition-colors duration-300 inline-block`}
+        className="text-5xl sm:text-6xl font-extrabold whitespace-pre text-gray-900 dark:text-white pb-2 transition-colors duration-300 inline-block"
       >
         {text.split('').map((char, index) => (
           <motion.span key={index} variants={child} className='inline-block'>

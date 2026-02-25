@@ -18,6 +18,8 @@ export interface Project {
   liveLink: string;
   githubLink: string;
   image: string;
+  imageDark?: string;
+  imageBorderless?: boolean;
   category?: ProjectCategory;
   featured?: boolean;
   details?: {
@@ -62,7 +64,10 @@ export const projects: Project[] = [
     liveLink: 'https://arkhet.app',
     githubLink: '',
     image:
+      'https://res.cloudinary.com/dretgpdr4/image/upload/v1772049834/portfolio/images/arkhet-logo-black.svg',
+    imageDark:
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505180/portfolio/images/arkhet-logo.svg',
+    imageBorderless: true,
     category: 'SaaS',
     featured: true,
     details: {
@@ -188,6 +193,7 @@ export const projects: Project[] = [
     githubLink: '',
     image:
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505182/portfolio/images/icon-256.svg',
+    imageBorderless: true,
     category: 'SaaS',
     featured: true,
     details: {
@@ -291,6 +297,7 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/byrondray/relay',
     image:
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505184/portfolio/images/relay_logo.png',
+    imageBorderless: true,
     category: 'Mobile',
     featured: true,
     details: {
@@ -504,6 +511,7 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/JustArmaan/FairShare',
     image:
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505185/portfolio/images/fs_logo.png',
+    imageBorderless: true,
     category: 'Full Stack',
     details: {
       longDescription:

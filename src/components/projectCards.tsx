@@ -24,8 +24,6 @@ import { projects, createSlug } from "@/data/projectData";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ScrollAnimation } from "./scrollAnimation";
-import { useTheme } from "@/components/theme-provider";
-
 const ForkliftIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -291,12 +289,6 @@ const EarningsAnalyzerIcon = () => (
 );
 
 const ProjectCards = () => {
-  const { theme } = useTheme();
-  const isDarkTheme =
-    theme === "dark" ||
-    (theme === "system" &&
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches);
 
   const iconColors = {
     "Flash Learn": "from-purple-500 to-indigo-500",
@@ -413,19 +405,50 @@ const ProjectCards = () => {
             <CardHeader className="relative z-10 flex-shrink-0">
               <div className="flex justify-center items-center mb-6">
                 {project.image ? (
-                  <motion.div
-                    className="relative w-32 h-32 rounded-2xl overflow-hidden shadow-2xl"
-                    whileHover={{ scale: 1.05, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-contain"
-                      sizes="128px"
-                    />
-                  </motion.div>
+                  project.imageDark ? (
+                    <>
+                      <motion.div
+                        className={`relative w-32 h-32 overflow-hidden dark:hidden ${project.imageBorderless ? '' : 'rounded-2xl shadow-2xl'}`}
+                        whileHover={{ scale: 1.05, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-contain"
+                          sizes="128px"
+                        />
+                      </motion.div>
+                      <motion.div
+                        className={`relative w-32 h-32 overflow-hidden hidden dark:block ${project.imageBorderless ? '' : 'rounded-2xl shadow-2xl'}`}
+                        whileHover={{ scale: 1.05, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <Image
+                          src={project.imageDark}
+                          alt={project.title}
+                          fill
+                          className="object-contain"
+                          sizes="128px"
+                        />
+                      </motion.div>
+                    </>
+                  ) : (
+                    <motion.div
+                      className={`relative w-32 h-32 overflow-hidden ${project.imageBorderless ? '' : 'rounded-2xl shadow-2xl'}`}
+                      whileHover={{ scale: 1.05, rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-contain"
+                        sizes="128px"
+                      />
+                    </motion.div>
+                  )
                 ) : (
                   <motion.div
                     className={`p-8 rounded-2xl bg-gradient-to-br ${
@@ -511,9 +534,7 @@ const ProjectCards = () => {
     >
       {/* Featured Projects */}
       <motion.h2
-        className={`text-3xl font-bold mb-8 text-center ${
-          isDarkTheme ? "text-white" : "text-gray-900"
-        } transition-colors duration-300 font-inter tracking-tight`}
+        className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white transition-colors duration-300 font-inter tracking-tight"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.9 }}
@@ -528,9 +549,7 @@ const ProjectCards = () => {
 
       {/* More Projects */}
       <motion.h2
-        className={`text-2xl font-bold mb-8 text-center ${
-          isDarkTheme ? "text-gray-300" : "text-gray-600"
-        } transition-colors duration-300 font-inter tracking-tight`}
+        className="text-2xl font-bold mb-8 text-center text-gray-600 dark:text-gray-300 transition-colors duration-300 font-inter tracking-tight"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.0 }}
