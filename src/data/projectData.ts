@@ -415,7 +415,7 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/byrondray/flash-learn',
     image: '',
     category: 'AI/ML',
-    featured: true,
+    featured: false,
     details: {
       longDescription:
         'Flash Learn bridges the gap between note-taking and effective studying by automatically converting user notes into powerful learning tools. The app uses natural language processing and AI to analyze notes, identify key concepts, and generate targeted flashcards and quiz questions that reinforce understanding. Instead of passively reviewing notes, users actively engage with the material through spaced repetition and active recall - two techniques proven by cognitive science to significantly enhance long-term retention.',
@@ -513,6 +513,7 @@ export const projects: Project[] = [
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505185/portfolio/images/fs_logo.png',
     imageBorderless: true,
     category: 'Full Stack',
+    featured: true,
     details: {
       longDescription:
         "Fairshare transforms group expense management by seamlessly connecting to users' banking data through Plaid API integration. This secure connection allows automatic transaction importing, intelligent expense categorization, and simplified bill splitting. Whether you're sharing an apartment with roommates, planning a group vacation, or managing household expenses with family, Fairshare eliminates tedious manual expense tracking and complex calculations. Users can create multiple expense groups, customize splitting rules based on percentages or fixed amounts, and visualize their spending patterns with interactive charts. The platform generates optimized settlement plans that minimize the number of transactions needed to settle debts, making financial reconciliation faster and more efficient.",

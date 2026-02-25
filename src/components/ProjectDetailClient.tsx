@@ -132,16 +132,41 @@ export default function ProjectDetailClient({
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               {project.image ? (
-                <div className='relative w-16 h-16 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl'>
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} logo`}
-                    fill
-                    className='object-contain'
-                    sizes='(max-width: 768px) 64px, 96px'
-                    priority
-                  />
-                </div>
+                project.imageDark ? (
+                  <>
+                    <div className={`relative w-16 h-16 md:w-24 md:h-24 overflow-hidden dark:hidden ${project.imageBorderless ? '' : 'rounded-xl md:rounded-2xl shadow-2xl'}`}>
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} logo`}
+                        fill
+                        className='object-contain'
+                        sizes='(max-width: 768px) 64px, 96px'
+                        priority
+                      />
+                    </div>
+                    <div className={`relative w-16 h-16 md:w-24 md:h-24 overflow-hidden hidden dark:block ${project.imageBorderless ? '' : 'rounded-xl md:rounded-2xl shadow-2xl'}`}>
+                      <Image
+                        src={project.imageDark}
+                        alt={`${project.title} logo`}
+                        fill
+                        className='object-contain'
+                        sizes='(max-width: 768px) 64px, 96px'
+                        priority
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <div className={`relative w-16 h-16 md:w-24 md:h-24 overflow-hidden ${project.imageBorderless ? '' : 'rounded-xl md:rounded-2xl shadow-2xl'}`}>
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} logo`}
+                      fill
+                      className='object-contain'
+                      sizes='(max-width: 768px) 64px, 96px'
+                      priority
+                    />
+                  </div>
+                )
               ) : (
                 <motion.div
                   className={`p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${project.title === 'Flash Learn'
