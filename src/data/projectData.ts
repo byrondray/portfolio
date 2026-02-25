@@ -8,6 +8,8 @@ export function createSlug(title: string): string {
     .trim(); // Remove leading/trailing whitespace
 }
 
+export type ProjectCategory = 'SaaS' | 'AI/ML' | 'E-commerce' | 'Mobile' | 'Data' | 'Developer Tools' | 'Full Stack';
+
 export interface Project {
   id: string;
   title: string;
@@ -16,6 +18,8 @@ export interface Project {
   liveLink: string;
   githubLink: string;
   image: string;
+  category?: ProjectCategory;
+  featured?: boolean;
   details?: {
     longDescription?: string;
     features?: string[];
@@ -59,6 +63,8 @@ export const projects: Project[] = [
     githubLink: '',
     image:
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505180/portfolio/images/arkhet-logo.svg',
+    category: 'SaaS',
+    featured: true,
     details: {
       longDescription:
         'Contributed to developing a sophisticated prototyping platform that enables product managers to rapidly transform ideas into interactive user interfaces. Participated in a major frontend rebuild migrating from React to Gleam with the Lustre framework, adopting the Elm architecture (Model-View-Update) which dramatically improved canvas performance and state management. Built a complete token-based billing system with Stripe integration, implementing subscription tiers and usage tracking for sustainable platform monetization. Implemented GitHub integration enabling users to export generated prototype code directly to repositories for seamless handoff to development teams. Focused on building core canvas functionality that accelerates the design process, implementing drag-and-drop tools that allow quick iteration. Created essential features including copy/paste functionality, alt-drag operations, and annotation tools that streamline the feedback loop from concept to prototype. Helped build the style guide system enabling users to maintain design consistency while rapidly experimenting with different visual approaches. Delivered numerous workflow optimizations and added new canvas components like tables that reduce time from idea to testable prototype. Collaborated with the team on code reviews and AI feature integration that further accelerates the prototyping process. The project strengthened expertise in functional programming with Gleam, the Elm architecture, payment systems integration, and building complex interactive applications focused on developer and designer productivity.',
@@ -182,6 +188,8 @@ export const projects: Project[] = [
     githubLink: '',
     image:
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505182/portfolio/images/icon-256.svg',
+    category: 'SaaS',
+    featured: true,
     details: {
       longDescription:
         'Rezen Gaming is a comprehensive competitive gaming platform that transforms casual gaming into organized, monetized competitions. The platform enables players to create wagers for popular games, challenge opponents individually or as teams, and compete for real money prizes. Built with enterprise-grade security and financial handling, the platform supports cross-platform gaming (PlayStation, Xbox, PC), automated dispute resolution, real-time notifications, and integrated payment processing through Stripe. Players can form teams, track their gaming performance, manage their gaming accounts across platforms, and participate in a trusted ecosystem where fair play is enforced through comprehensive verification systems.',
@@ -283,6 +291,8 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/byrondray/relay',
     image:
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505184/portfolio/images/relay_logo.png',
+    category: 'Mobile',
+    featured: true,
     details: {
       longDescription:
         'Relay Rideshare is an innovative transportation solution designed specifically for families with busy schedules. The app enables parents within the same neighborhood or community to coordinate rides for their children who are attending the same schools, sports practices, music lessons, or other extracurricular activities. By allowing parents to create trusted connections with other parents, the platform reduces the transportation burden on individual families while ensuring children always have a safe, vetted ride. Parents can track rides in real-time, receive AI powered ride notifications when their children are picked up and dropped off, and manage recurring transportation needs through an intuitive scheduling system. Relay not only saves time and reduces traffic congestion but also fosters stronger community connections and provides peace of mind through its comprehensive safety features.',
@@ -397,6 +407,8 @@ export const projects: Project[] = [
     liveLink: 'https://flash-learn-production.up.railway.app/',
     githubLink: 'https://github.com/byrondray/flash-learn',
     image: '',
+    category: 'AI/ML',
+    featured: true,
     details: {
       longDescription:
         'Flash Learn bridges the gap between note-taking and effective studying by automatically converting user notes into powerful learning tools. The app uses natural language processing and AI to analyze notes, identify key concepts, and generate targeted flashcards and quiz questions that reinforce understanding. Instead of passively reviewing notes, users actively engage with the material through spaced repetition and active recall - two techniques proven by cognitive science to significantly enhance long-term retention.',
@@ -492,6 +504,7 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/JustArmaan/FairShare',
     image:
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505185/portfolio/images/fs_logo.png',
+    category: 'Full Stack',
     details: {
       longDescription:
         "Fairshare transforms group expense management by seamlessly connecting to users' banking data through Plaid API integration. This secure connection allows automatic transaction importing, intelligent expense categorization, and simplified bill splitting. Whether you're sharing an apartment with roommates, planning a group vacation, or managing household expenses with family, Fairshare eliminates tedious manual expense tracking and complex calculations. Users can create multiple expense groups, customize splitting rules based on percentages or fixed amounts, and visualize their spending patterns with interactive charts. The platform generates optimized settlement plans that minimize the number of transactions needed to settle debts, making financial reconciliation faster and more efficient.",
@@ -596,6 +609,7 @@ export const projects: Project[] = [
     liveLink: '',
     githubLink: 'https://github.com/byrondray/ai-stock-tracker',
     image: '',
+    category: 'AI/ML',
     details: {
       longDescription:
         'AI Stock Tracker represents a cutting-edge fusion of financial analysis and artificial intelligence, delivering sophisticated stock prediction capabilities through advanced machine learning architectures. The platform combines multiple AI models including LSTM neural networks for time series forecasting, transformer-based sentiment analysis for news impact assessment, and comprehensive technical analysis engines. Built with a robust FastAPI backend and an intuitive React Native mobile interface, the system provides real-time predictions, sentiment-driven market insights, and advanced portfolio analytics. The ML pipeline features a custom feature store for consistent data processing, multi-horizon prediction capabilities, and production-ready model management with automated retraining workflows.',
@@ -741,6 +755,7 @@ export const projects: Project[] = [
     liveLink: 'loshermanos.app',
     githubLink: '',
     image: '',
+    category: 'E-commerce',
     details: {
       longDescription:
         'Los Hermanos is a comprehensive e-commerce solution built for a Colombian industrial clothing business operating since 1985. The platform provides a seamless shopping experience for customers seeking work uniforms and industrial apparel, while offering powerful administrative tools for inventory management. Built with modern web technologies including SvelteKit 5 and Tailwind CSS 4, the application features a complete shopping cart system, product categorization, image management, and secure admin authentication. Developed collaboratively by a two-person team, the project emphasizes performance, user experience, and maintainability with TypeScript and Drizzle ORM ensuring type safety throughout the stack.',
@@ -864,6 +879,7 @@ export const projects: Project[] = [
     liveLink: 'https://earnings-analyzer-production.up.railway.app/',
     githubLink: 'https://github.com/byrondray/earnings-analyzer',
     image: '',
+    category: 'AI/ML',
     details: {
       longDescription:
         'Stock Earnings Analyzer is a comprehensive financial intelligence platform that displays weekly earnings calendars for publicly traded companies and delivers AI-powered analysis of individual earnings reports. The backend fetches earnings data from Alpha Vantage, enriches it with market cap data, and stores it in PostgreSQL with upsert logic to maintain a clean, deduplicated dataset. When a user requests analysis for a specific stock, the system searches for the actual earnings press release and market reaction using the Brave Search API, scrapes and extracts the full article text prioritizing primary sources (BusinessWire, PR Newswire, SEC filings, investor relations pages), then sends the extracted content to the Anthropic Claude API with a structured tool-use schema to produce precise financial metrics including EPS, revenue, guidance summary, sentiment scoring, and price reaction data. Results stream to the frontend via Server-Sent Events for real-time status updates. The frontend is built with Svelte 5 runes and features interactive SVG price charts with hover tooltips, batched sparkline loading for performance, a favorites/watchlist system backed by Clerk JWT authentication, and a curated news feed aggregated from NewsAPI and Brave Search.',
@@ -993,6 +1009,7 @@ export const projects: Project[] = [
     liveLink: '',
     githubLink: '',
     image: '',
+    category: 'Data',
     details: {
       longDescription:
         'CytoNET is a sophisticated bioinformatics platform designed to manage and analyze complex protein data for research purposes. Built for a client with extensive biological datasets, the system handles over 21,000 database entries across multiple interconnected biological domains including protein interactions, modifications, small molecules, and tissue distributions. The platform features an intelligent data seeding system that allows researchers to dynamically import new datasets, automatically processing and integrating the data into the appropriate database contexts while maintaining data integrity and relationships.',
@@ -1097,6 +1114,7 @@ export const projects: Project[] = [
     liveLink: 'https://travel-planner-php-production.up.railway.app',
     githubLink: 'https://github.com/byrondray/travel-planner-php',
     image: '',
+    category: 'AI/ML',
     details: {
       longDescription:
         "Travel Planner is a comprehensive travel management platform that combines the power of artificial intelligence with intuitive design to revolutionize trip planning. The application enables users to create detailed travel itineraries, discover local attractions and activities, and manage all aspects of their trips in one centralized location. Built with Laravel 10 and powered by OpenAI's API, the platform provides intelligent recommendations based on user preferences, travel dates, and destination characteristics. The responsive design ensures a seamless experience across all devices, while secure authentication through Laravel Breeze protects user data and travel plans.",
@@ -1221,6 +1239,7 @@ export const projects: Project[] = [
     liveLink: 'https://warehouse-cms-production.up.railway.app/',
     githubLink: 'https://github.com/byrondray/Warehouse-CMS',
     image: '',
+    category: 'Full Stack',
     details: {
       longDescription:
         'Warehouse CMS is an enterprise-grade inventory management solution built to streamline warehouse operations and provide real-time visibility into stock levels. The application enables businesses to track products across multiple warehouse locations, manage incoming and outgoing shipments, and generate comprehensive inventory reports. The platform includes role-based access control to ensure data security while allowing different stakeholders from warehouse staff to management to access the information relevant to their responsibilities.',
@@ -1324,6 +1343,7 @@ export const projects: Project[] = [
     liveLink: 'https://recipe-tracker-pcw2.vercel.app/',
     githubLink: 'https://github.com/byrondray/recipe-tracker',
     image: '',
+    category: 'Full Stack',
     details: {
       longDescription:
         'Cookbook+ transforms the cooking experience by combining a beautiful recipe repository with practical meal planning tools. Users can discover dishes through a visually rich interface, upload their own creations with step-by-step instructions, and build personalized collections.',

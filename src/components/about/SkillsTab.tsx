@@ -95,13 +95,13 @@ const SkillCard = ({ category }: { category: SkillCategory }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
-    className="bg-gray-800/40 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all h-full"
+    className="bg-white/80 dark:bg-gray-800/40 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all h-full"
   >
     <div className="flex items-center gap-3 mb-5">
-      <div className="p-2 bg-gray-700/50 rounded-lg text-white">
+      <div className="p-2 bg-gray-200/50 dark:bg-gray-700/50 rounded-lg text-gray-900 dark:text-white">
         {category.icon}
       </div>
-      <h3 className="text-xl font-semibold text-white">{category.title}</h3>
+      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{category.title}</h3>
     </div>
     <div className="grid grid-cols-2 gap-x-6 gap-y-2.5">
       {category.skills.map((skill, index) => (
@@ -113,7 +113,7 @@ const SkillCard = ({ category }: { category: SkillCategory }) => (
           className="flex items-center gap-2"
         >
           <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex-shrink-0" />
-          <span className="text-gray-200 text-sm font-medium">
+          <span className="text-gray-700 dark:text-gray-200 text-sm font-medium">
             {skill.name}
           </span>
         </motion.div>

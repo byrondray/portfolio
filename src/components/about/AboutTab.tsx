@@ -36,7 +36,7 @@ export const AboutTab = () => {
                 onMouseLeave={() => setIsAboutHovered(false)}
                 className='relative'
             >
-                <Card className='relative bg-black/60 backdrop-blur-sm border-gray-600 p-8 overflow-hidden'>
+                <Card className='relative bg-white/80 dark:bg-black/60 backdrop-blur-sm border-gray-200 dark:border-gray-600 p-8 overflow-hidden'>
                     {/* Mouse tracking glow effect */}
                     <div
                         className='absolute pointer-events-none transition-opacity duration-300 rounded-xl z-0'
@@ -50,7 +50,7 @@ export const AboutTab = () => {
                         }}
                     />
                     <CardContent className='relative z-10 p-0'>
-                        <div className='space-y-6 text-gray-200 leading-relaxed'>
+                        <div className='space-y-6 text-gray-700 dark:text-gray-200 leading-relaxed'>
                             <motion.p
                                 className='text-lg font-medium'
                                 initial={{ opacity: 0, y: 20 }}

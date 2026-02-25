@@ -4,12 +4,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PageWrapper } from '@/components/pageWrapper';
 import { BackgroundBeamsWithCollision } from '@/components/backgroundBeams';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/components/theme-provider';
-import Link from 'next/link';
 import {
-  ArrowLeft,
   User,
   Code2,
   Brain,
@@ -33,26 +30,7 @@ const AboutPageClient = () => {
     <PageWrapper>
       <main className='relative min-h-screen bg-transparent mb-20'>
         <BackgroundBeamsWithCollision />
-        <div className='relative min-h-screen w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-12'>
-          {/* Navigation */}
-          <motion.div
-            className='pt-8 mb-8'
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Link
-              href='/'
-              className={`flex items-center ${isDarkTheme
-                ? 'text-white hover:text-gray-300'
-                : 'text-gray-900 hover:text-gray-600'
-                } transition-colors group w-fit font-inter font-medium`}
-            >
-              <ArrowLeft className='mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform' />
-              Back to Home
-            </Link>
-          </motion.div>
-
+        <div className='relative min-h-screen w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-20'>
           {/* Top section with title */}
           <motion.div
             className='mb-12 text-center'
@@ -86,40 +64,40 @@ const AboutPageClient = () => {
             className='max-w-6xl mx-auto'
           >
             <div className='flex justify-center mb-8'>
-              <div className='bg-black/60 backdrop-blur-sm rounded-lg p-2 border border-gray-600'>
+              <div className='bg-white/80 dark:bg-black/60 backdrop-blur-sm rounded-lg p-2 border border-gray-200 dark:border-gray-600 overflow-x-auto'>
                 <div className='flex space-x-2'>
                   <Button
                     onClick={() => setActiveTab('about')}
                     variant={activeTab === 'about' ? 'default' : 'ghost'}
                     className={`flex items-center space-x-2 px-6 py-3 rounded-md transition-all duration-300 font-inter font-medium ${activeTab === 'about'
                       ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                      : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-gray-700/50'
                       }`}
                   >
                     <User size={18} />
-                    <span>About</span>
+                    <span className='hidden sm:inline'>About</span>
                   </Button>
                   <Button
                     onClick={() => setActiveTab('education')}
                     variant={activeTab === 'education' ? 'default' : 'ghost'}
                     className={`flex items-center space-x-2 px-6 py-3 rounded-md transition-all duration-300 font-inter font-medium ${activeTab === 'education'
                       ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                      : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-gray-700/50'
                       }`}
                   >
                     <Brain size={18} />
-                    <span>Education</span>
+                    <span className='hidden sm:inline'>Education</span>
                   </Button>
                   <Button
                     onClick={() => setActiveTab('skills')}
                     variant={activeTab === 'skills' ? 'default' : 'ghost'}
                     className={`flex items-center space-x-2 px-6 py-3 rounded-md transition-all duration-300 font-inter font-medium ${activeTab === 'skills'
                       ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                      : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-gray-700/50'
                       }`}
                   >
                     <Code2 size={18} />
-                    <span>Skills</span>
+                    <span className='hidden sm:inline'>Skills</span>
                   </Button>
                 </div>
               </div>
@@ -143,25 +121,22 @@ const AboutPageClient = () => {
           transition={{ duration: 0.6, delay: 1.0, ease: [0.25, 0.1, 0.25, 1] }}
           className='max-w-5xl mx-auto mt-12 px-6'
         >
-          <div className='bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-gray-700'>
+          <div className='bg-white/80 dark:bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-gray-700'>
             <div className='flex flex-col sm:flex-row items-center justify-between gap-6'>
               <div className='text-center sm:text-left'>
-                <h3 className='text-xl font-semibold text-white mb-2'>
+                <h3 className='text-xl font-semibold text-gray-900 dark:text-white mb-2'>
                   Let's Connect
                 </h3>
-                <p className='text-gray-300 text-sm'>
+                <p className='text-gray-600 dark:text-gray-300 text-sm'>
                   Ready to collaborate or have questions? I'd love to hear from
                   you.
                 </p>
               </div>
 
-              <div className='flex flex-col sm:flex-row items-center gap-4'>
-                <ThemeToggle />
-                <div className='hidden sm:block w-px h-8 bg-gray-600'></div>
-                <div className='flex items-center gap-3 flex-wrap justify-center'>
+              <div className='flex items-center gap-3 flex-wrap justify-center'>
                   <a
                     href='mailto:byrondray8@gmail.com'
-                    className='group flex items-center gap-2 px-3 py-2 bg-gray-800/60 hover:bg-gray-700/60 rounded-lg transition-all duration-300 text-sm text-gray-200 hover:text-white'
+                    className='group flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800/60 hover:bg-gray-200 dark:hover:bg-gray-700/60 rounded-lg transition-all duration-300 text-sm text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
                   >
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
@@ -193,7 +168,7 @@ const AboutPageClient = () => {
                     href='https://github.com/byrondray'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='group flex items-center gap-2 px-3 py-2 bg-gray-800/60 hover:bg-gray-700/60 rounded-lg transition-all duration-300 text-sm text-gray-200 hover:text-white'
+                    className='group flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800/60 hover:bg-gray-200 dark:hover:bg-gray-700/60 rounded-lg transition-all duration-300 text-sm text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
                   >
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
@@ -214,7 +189,7 @@ const AboutPageClient = () => {
                     href='https://www.linkedin.com/in/byron-dray'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='group flex items-center gap-2 px-3 py-2 bg-blue-600/20 hover:bg-blue-600/30 rounded-lg transition-all duration-300 text-sm text-blue-200 hover:text-blue-100 border border-blue-600/30'
+                    className='group flex items-center gap-2 px-3 py-2 bg-blue-50 dark:bg-blue-600/20 hover:bg-blue-100 dark:hover:bg-blue-600/30 rounded-lg transition-all duration-300 text-sm text-blue-700 dark:text-blue-200 hover:text-blue-800 dark:hover:text-blue-100 border border-blue-200 dark:border-blue-600/30'
                   >
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
@@ -230,7 +205,6 @@ const AboutPageClient = () => {
                     </svg>
                     <span className='hidden xs:inline'>LinkedIn</span>
                   </a>
-                </div>
               </div>
             </div>
           </div>

@@ -374,7 +374,7 @@ const ProjectCards = () => {
           whileHover={{ y: -5, transition: { duration: 0.2 } }}
           className="h-full relative"
         >
-          <Card className="relative flex flex-col bg-black/30 backdrop-blur-lg border-gray-700 hover:border-gray-500 transition-all duration-300 h-full overflow-hidden group">
+          <Card className="relative flex flex-col bg-white/80 dark:bg-black/30 backdrop-blur-lg border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300 h-full overflow-hidden group">
             {/* Mouse tracking glow effect */}
             <div
               className="absolute pointer-events-none transition-opacity duration-300 rounded-xl z-0"
@@ -409,7 +409,7 @@ const ProjectCards = () => {
                 opacity: isCardHovered ? 1 : 0,
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/50 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 to-white/50 dark:from-gray-900/50 dark:to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <CardHeader className="relative z-10 flex-shrink-0">
               <div className="flex justify-center items-center mb-6">
                 {project.image ? (
@@ -440,10 +440,17 @@ const ProjectCards = () => {
                 )}
               </div>
               <div className="space-y-2">
-                <CardTitle className="text-2xl font-bold text-white text-center">
+                <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white text-center">
                   {project.title}
                 </CardTitle>
-                <CardDescription className="text-gray-300 text-center line-clamp-2 text-base">
+                {project.category && (
+                  <div className="flex justify-center">
+                    <span className="px-2.5 py-0.5 text-xs rounded-full bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30 font-medium">
+                      {project.category}
+                    </span>
+                  </div>
+                )}
+                <CardDescription className="text-gray-600 dark:text-gray-300 text-center line-clamp-2 text-base">
                   {project.description}
                 </CardDescription>
               </div>
@@ -456,13 +463,13 @@ const ProjectCards = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 + idx * 0.05 }}
-                    className="px-3 py-1 bg-gray-800/60 backdrop-blur-sm rounded-full text-xs text-gray-200 font-medium border border-gray-700"
+                    className="px-3 py-1 bg-gray-100 dark:bg-gray-800/60 backdrop-blur-sm rounded-full text-xs text-gray-700 dark:text-gray-200 font-medium border border-gray-200 dark:border-gray-700"
                   >
                     {tech}
                   </motion.span>
                 ))}
                 {project.technologies.length > 4 && (
-                  <span className="px-3 py-1 bg-gray-800/60 backdrop-blur-sm rounded-full text-xs text-gray-400 font-medium border border-gray-700">
+                  <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800/60 backdrop-blur-sm rounded-full text-xs text-gray-500 dark:text-gray-400 font-medium border border-gray-200 dark:border-gray-700">
                     +{project.technologies.length - 4} more
                   </span>
                 )}
@@ -475,7 +482,7 @@ const ProjectCards = () => {
               >
                 <Button
                   variant="outline"
-                  className="w-full border-gray-600 bg-transparent hover:bg-white hover:text-gray-900 text-white font-semibold transition-all duration-300 group/btn"
+                  className="w-full border-gray-300 dark:border-gray-600 bg-transparent hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 text-gray-900 dark:text-white font-semibold transition-all duration-300 group/btn"
                 >
                   <span className="flex items-center gap-2">
                     Learn More
@@ -491,6 +498,9 @@ const ProjectCards = () => {
     );
   };
 
+  const featuredProjects = projects.filter((p) => p.featured);
+  const otherProjects = projects.filter((p) => !p.featured);
+
   return (
     <ScrollAnimation
       direction="up"
@@ -499,19 +509,37 @@ const ProjectCards = () => {
       threshold={0.05}
       rootMargin="100px 0px 0px 0px"
     >
+      {/* Featured Projects */}
       <motion.h2
-        className={`text-3xl font-bold mb-12 text-center ${
+        className={`text-3xl font-bold mb-8 text-center ${
           isDarkTheme ? "text-white" : "text-gray-900"
         } transition-colors duration-300 font-inter tracking-tight`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.9 }}
       >
-        My Projects
+        Featured Projects
       </motion.h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} index={index} />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-16">
+        {featuredProjects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
+      </div>
+
+      {/* More Projects */}
+      <motion.h2
+        className={`text-2xl font-bold mb-8 text-center ${
+          isDarkTheme ? "text-gray-300" : "text-gray-600"
+        } transition-colors duration-300 font-inter tracking-tight`}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 1.0 }}
+      >
+        More Projects
+      </motion.h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+        {otherProjects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </ScrollAnimation>
