@@ -507,7 +507,7 @@ export const projects: Project[] = [
     description:
       "A modern expense tracking and bill-splitting platform that integrates with users' bank accounts to automatically categorize and divide shared expenses.",
     technologies: ['TypeScript', 'Bun', 'HTMX', 'Drizzle ORM', 'Plaid API'],
-    liveLink: 'https://idsp.onrender.com/',
+    liveLink: 'https://fairshare-app-production.up.railway.app/',
     githubLink: 'https://github.com/JustArmaan/FairShare',
     image:
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505185/portfolio/images/fs_logo.png',
