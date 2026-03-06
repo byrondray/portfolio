@@ -358,6 +358,7 @@ const ProjectCards = () => {
         rootMargin="50px 0px 0px 0px"
         distance={30}
       >
+        <Link href={`/details/${createSlug(project.title)}`} className="h-full block">
         <motion.div
           ref={cardRef}
           onMouseMove={handleCardMouseMove}
@@ -499,24 +500,21 @@ const ProjectCards = () => {
               </div>
             </CardContent>{" "}
             <CardFooter className="relative z-10 pt-4 pb-6">
-              <Link
-                href={`/details/${createSlug(project.title)}`}
-                className="w-full"
-              >
                 <Button
                   variant="outline"
                   className="w-full border-gray-300 dark:border-gray-600 bg-transparent hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 text-gray-900 dark:text-white font-semibold transition-all duration-300 group/btn"
+                  tabIndex={-1}
                 >
                   <span className="flex items-center gap-2">
                     Learn More
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </span>
                 </Button>
-              </Link>
             </CardFooter>
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Card>
         </motion.div>
+        </Link>
       </ScrollAnimation>
     );
   };
