@@ -411,7 +411,7 @@ export const projects: Project[] = [
       'Socket.io',
       'Kinde Auth',
     ],
-    liveLink: 'https://flash-learn-production.up.railway.app/',
+    liveLink: 'https://www.flashlearn.ca/',
     githubLink: 'https://github.com/byrondray/flash-learn',
     image: '',
     category: 'AI/ML',
