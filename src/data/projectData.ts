@@ -8,7 +8,14 @@ export function createSlug(title: string): string {
     .trim(); // Remove leading/trailing whitespace
 }
 
-export type ProjectCategory = 'SaaS' | 'AI/ML' | 'E-commerce' | 'Mobile' | 'Data' | 'Developer Tools' | 'Full Stack';
+export type ProjectCategory =
+  | 'SaaS'
+  | 'AI/ML'
+  | 'E-commerce'
+  | 'Mobile'
+  | 'Data'
+  | 'Developer Tools'
+  | 'Full Stack';
 
 export interface Project {
   id: string;
@@ -96,6 +103,7 @@ export const projects: Project[] = [
       ],
 
       screenshots: [
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1773115175/portfolio/images/arkhet-canvas.png',
         'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505186/portfolio/images/arkhet-web-summit.jpg',
         'https://res.cloudinary.com/dretgpdr4/image/upload/v1770505188/portfolio/images/arkhet-hangout.png',
       ],
