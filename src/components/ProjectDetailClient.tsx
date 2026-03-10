@@ -623,6 +623,7 @@ export default function ProjectDetailClient({
           </div>
 
           {/* Sidebar */}
+          {(project.liveLink || project.githubLink) && (
           <div className='lg:col-span-1 order-1 lg:order-2 mb-4 lg:mb-0'>
             <motion.div
               className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-6 lg:sticky lg:top-24 border border-gray-700 shadow-2xl'
@@ -668,6 +669,7 @@ export default function ProjectDetailClient({
               </div>
             </motion.div>
           </div>
+          )}
         </div>
 
         {/* Screenshots Gallery */}
