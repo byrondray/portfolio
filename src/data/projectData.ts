@@ -918,7 +918,11 @@ export const projects: Project[] = [
         'Designing PostgreSQL upsert logic with unique constraints to handle duplicate earnings events from repeated Alpha Vantage imports without data corruption',
       ],
 
-      screenshots: [],
+      screenshots: [
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1773116551/portfolio/images/earning-analyzer-landing-page.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1773116550/portfolio/images/earning-analyzer-dashboard.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1773116551/portfolio/images/earnings-analyzer-overview.png',
+      ],
 
       processSteps: [
         {
