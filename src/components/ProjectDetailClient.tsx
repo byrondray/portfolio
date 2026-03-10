@@ -625,7 +625,7 @@ export default function ProjectDetailClient({
           {/* Sidebar */}
           <div className='lg:col-span-1 order-1 lg:order-2 mb-4 lg:mb-0'>
             <motion.div
-              className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-6 lg:sticky lg:top-8 border border-gray-700 shadow-2xl'
+              className='bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-6 lg:sticky lg:top-24 border border-gray-700 shadow-2xl'
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
