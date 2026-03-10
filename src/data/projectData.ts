@@ -191,7 +191,6 @@ export const projects: Project[] = [
       'Drizzle ORM',
       'SQLite',
       'Kinde Auth',
-      'Stripe',
       'AWS Lambda',
       'WebSocket',
       'Framer Motion',
@@ -206,10 +205,9 @@ export const projects: Project[] = [
     featured: true,
     details: {
       longDescription:
-        'Rezen Gaming is a comprehensive competitive gaming platform that transforms casual gaming into organized, monetized competitions. The platform enables players to create wagers for popular games, challenge opponents individually or as teams, and compete for real money prizes. Built with enterprise-grade security and financial handling, the platform supports cross-platform gaming (PlayStation, Xbox, PC), automated dispute resolution, real-time notifications, and integrated payment processing through Stripe. Players can form teams, track their gaming performance, manage their gaming accounts across platforms, and participate in a trusted ecosystem where fair play is enforced through comprehensive verification systems.',
+        'Rezen Gaming is a comprehensive competitive gaming platform that transforms casual gaming into organized, monetized competitions. The platform enables players to create wagers for popular games, challenge opponents individually or as teams, and compete for real money prizes. Built with enterprise-grade security and financial handling, the platform supports cross-platform gaming (PlayStation, Xbox, PC), automated dispute resolution, and real-time notifications. Players can form teams, track their gaming performance, manage their gaming accounts across platforms, and participate in a trusted ecosystem where fair play is enforced through comprehensive verification systems.',
       features: [
         'Multi-platform wager creation supporting individual and team competitions',
-        'Secure payment processing with Stripe integration and automated escrow system',
         'Real-time WebSocket notifications for wager updates and team communications',
         'Comprehensive dispute resolution system with evidence submission and admin review',
         'Cross-platform gaming account integration (PlayStation Network, Xbox Live, Steam)',
@@ -238,11 +236,6 @@ export const projects: Project[] = [
           title: 'Architecture Design & Technology Selection',
           description:
             'Designed a scalable architecture using Next.js 15 with TypeScript for type safety, Drizzle ORM for database management, and AWS services for cloud infrastructure. Selected technologies prioritizing security, performance, and developer experience.',
-        },
-        {
-          title: 'Financial System Development',
-          description:
-            'Implemented secure payment processing with Stripe, including escrow functionality, automated payouts, dispute handling, and comprehensive financial audit trails to ensure transparent and secure monetary transactions.',
         },
         {
           title: 'Gaming Platform Integration',
@@ -277,11 +270,6 @@ export const projects: Project[] = [
             'Used for type-safe database operations with a complex schema handling users, wagers, teams, disputes, and financial transactions. Provides excellent TypeScript integration and migration management for evolving data requirements.',
         },
         {
-          name: 'Stripe Integration',
-          description:
-            'Implemented for secure payment processing, including account creation, payment methods, escrow handling, automated payouts, and comprehensive webhook handling for real-time payment status updates.',
-        },
-        {
           name: 'AWS Lambda & WebSocket',
           description:
             'Built a serverless notification system using AWS Lambda functions and WebSocket connections for real-time communication, ensuring scalable message delivery for wager updates, team communications, and platform notifications.',
@@ -292,7 +280,11 @@ export const projects: Project[] = [
             'Integrated for secure user authentication with multi-factor authentication support, social login options, and comprehensive user management features essential for a financial gaming platform.',
         },
       ],
-      screenshots: [],
+      screenshots: [
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1773115820/portfolio/images/rezen-gaming-dashboard.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1773115821/portfolio/images/rezen-gaming-profile.png',
+        'https://res.cloudinary.com/dretgpdr4/image/upload/v1773115822/portfolio/images/rezen-gaming-shop.png',
+      ],
     },
   },
   {
