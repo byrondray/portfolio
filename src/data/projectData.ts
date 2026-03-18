@@ -885,7 +885,7 @@ export const projects: Project[] = [
       'Vite',
       'Docker',
     ],
-    liveLink: 'https://earnings-analyzer-production.up.railway.app/',
+    liveLink: 'https://earnings-analyzer-production.up.railway.app/app',
     githubLink: 'https://github.com/byrondray/earnings-analyzer',
     image: '',
     category: 'AI/ML',
