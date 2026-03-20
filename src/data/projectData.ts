@@ -402,13 +402,17 @@ export const projects: Project[] = [
     id: '3',
     title: 'Flash Learn',
     description:
-      'An intelligent study companion that automatically transforms lecture notes and study materials into interactive flashcards and quizzes for effective learning.',
+      'An intelligent study companion that automatically transforms lecture notes and study materials into interactive flashcards and quizzes, with real-time CRDT-powered collaborative editing.',
     technologies: [
       'Next.js',
       'Tailwind CSS',
       'OpenAI API',
-      'SQLite',
-      'Socket.io',
+      'LangChain',
+      'LibSQL (Turso)',
+      'Yjs',
+      'Hocuspocus',
+      'Tiptap',
+      'AWS Lambda',
       'Kinde Auth',
     ],
     liveLink: 'https://www.flashlearn.ca/',
@@ -418,22 +422,24 @@ export const projects: Project[] = [
     featured: false,
     details: {
       longDescription:
-        'Flash Learn bridges the gap between note-taking and effective studying by automatically converting user notes into powerful learning tools. The app uses natural language processing and AI to analyze notes, identify key concepts, and generate targeted flashcards and quiz questions that reinforce understanding. Instead of passively reviewing notes, users actively engage with the material through spaced repetition and active recall - two techniques proven by cognitive science to significantly enhance long-term retention.',
+        'Flash Learn bridges the gap between note-taking and effective studying by automatically converting user notes into powerful learning tools. The app uses LangChain with OpenAI to analyze notes, identify key concepts, and generate targeted flashcards and quiz questions that reinforce understanding. Real-time collaborative editing is powered by Yjs CRDTs, enabling conflict-free concurrent editing with live cursor tracking. Shareable links let users distribute flashcard sets and quizzes publicly, making group study seamless. Instead of passively reviewing notes, users actively engage with the material through active recall — a technique proven by cognitive science to significantly enhance long-term retention.',
       features: [
         'One-click transformation of notes into comprehensive flashcard sets and quizzes',
-        'AI-powered question generation',
-        'Realtime collaborative note-taking and study sessions with live cursor tracking',
-        'Performance analytics showing mastery levels across different subject areas',
-        'Shared study spaces for group learning and collaborative flashcard creation',
+        'AI-powered question generation with explanations via LangChain and GPT-4o',
+        'CRDT-based real-time collaborative note editing with live cursor tracking and user presence indicators',
+        'Shareable public links for flashcard sets and quiz questions via unique tokens',
+        'Permission-based note sharing with edit and view-only access levels',
+        'Performance analytics showing test history and mastery levels across different subjects',
+        'Rich text editor with tables, task lists, text highlighting, and collaborative cursors',
       ],
       challenges: [
         'Creating natural-sounding quiz questions that effectively test understanding rather than rote memorization',
-        'Designing an intuitive note-taking interface that preserves user workflow while enabling powerful conversion features',
-        'Implementing realtime synchronization across multiple users while maintaining data consistency and handling conflicts',
-        'Optimizing AI processing to generate study materials quickly without excessive API costs',
-        'Building scalable WebSocket infrastructure to support live collaboration without performance degradation',
-        'Implementing effective content parsing for various note formats and structures from different academic disciplines',
-        'Creating meaningful analytics that help users identify knowledge gaps and learning trends',
+        'Designing an intuitive rich text editing interface with Tiptap that preserves user workflow while enabling powerful conversion features',
+        'Implementing CRDT-based synchronization with Yjs to enable conflict-free concurrent editing across multiple users',
+        'Optimizing AI processing with chunked content analysis and retry logic to generate study materials quickly without excessive API costs',
+        'Building scalable WebSocket infrastructure on AWS Lambda and Hocuspocus to support live collaboration without performance degradation',
+        'Implementing effective content parsing and HTML sanitization for various note formats and structures from different academic disciplines',
+        'Designing a secure token-based sharing system that allows public access to flashcards and quizzes while protecting private note content',
       ],
       processSteps: [
         {
@@ -444,22 +450,27 @@ export const projects: Project[] = [
         {
           title: 'AI Integration Development',
           description:
-            'Implemented OpenAI API integration with custom prompts and constraints designed to generate educationally valuable questions and ensure accurate content extraction from diverse study materials.',
+            'Implemented LangChain with OpenAI GPT-4o integration, including custom prompts, content chunking into ~400 character segments, exponential backoff retry logic, and constraints designed to generate educationally valuable questions from diverse study materials.',
         },
         {
           title: 'User Interface Design',
           description:
-            'Designed a distraction-free note-taking environment that seamlessly transitions to study mode, with careful attention to typography, reading comfort, and interaction design.',
+            'Built a distraction-free rich text editing environment with Tiptap, featuring collaborative cursors, formatting toolbars, tables, task lists, and seamless transitions to study mode.',
         },
         {
-          title: 'Realtime Collaboration Implementation',
+          title: 'CRDT Collaboration Implementation',
           description:
-            'Built Socket.io infrastructure for live document editing, user presence indicators, and synchronized flashcard sessions.',
+            'Built Yjs CRDT infrastructure with Hocuspocus for conflict-free real-time document editing, user presence awareness with color-coded cursors, and persistent CRDT state storage in LibSQL.',
+        },
+        {
+          title: 'Sharing & Access Control',
+          description:
+            'Designed and implemented a token-based sharing system for flashcards, quizzes, and collaborative notes with permission levels, invite links, and public share routes that bypass authentication.',
         },
         {
           title: 'Testing & Educational Validation',
           description:
-            'Conducted testing with students across different academic disciplines to validate the effectiveness of automatically generated study materials and collaborative features, refining both AI algorithms and realtime sync performance.',
+            'Conducted testing with students across different academic disciplines to validate the effectiveness of automatically generated study materials and collaborative features, refining both AI algorithms and CRDT sync performance.',
         },
       ],
       techDetails: [
@@ -474,24 +485,29 @@ export const projects: Project[] = [
             'Implemented for creating a clean, accessible interface with consistent design language across the application. The utility-first approach enabled rapid UI development and easy dark/light mode theming.',
         },
         {
-          name: 'OpenAI API',
+          name: 'OpenAI API & LangChain',
           description:
-            'Integrated with custom prompt engineering to power the note analysis and question generation features. Fine-tuned API parameters ensure generated content is educationally valuable and accurately reflects the original notes.',
+            'LangChain orchestrates GPT-4o for note analysis and question generation, with content chunking, exponential backoff retries, and timeout handling. Custom prompt engineering ensures generated flashcards and quiz questions are educationally valuable and accurately reflect the source material.',
         },
         {
-          name: 'SQLite',
+          name: 'LibSQL (Turso)',
           description:
-            'Used as the primary database for storing notes, flashcards, and study progress with a schema optimized for quick retrieval of scheduled review items and efficient spaced repetition algorithms.',
+            'LibSQL via Turso serves as the primary database with Drizzle ORM for type-safe queries. Stores notes, flashcards, quiz questions, test scores, CRDT state blobs, and share tokens with a schema optimized for collaborative access patterns and efficient retrieval.',
         },
         {
-          name: 'Socket.io',
+          name: 'Yjs & Hocuspocus',
           description:
-            'Powers the realtime collaboration features including live document editing, user presence indicators, and synchronized study sessions. Handles WebSocket connections with automatic fallback to long polling for reliability.',
+            'Yjs CRDTs power conflict-free real-time collaborative editing, with Hocuspocus managing WebSocket connections, document persistence, and state synchronization. The awareness protocol tracks user presence with color-coded cursors and live position updates.',
+        },
+        {
+          name: 'Tiptap',
+          description:
+            'Feature-rich text editor built on ProseMirror with extensions for tables, task lists, text highlighting, font sizing, and collaborative editing. Integrates Yjs collaboration and cursor extensions for seamless multi-user editing.',
         },
         {
           name: 'Kinde Auth',
           description:
-            'Implemented for secure user authentication, allowing students to access their study materials across multiple devices while protecting their academic content and managing collaborative permissions.',
+            'Implemented for secure user authentication with middleware-based route protection. Public share routes bypass authentication while all other routes require login, enabling secure collaborative permissions alongside public content sharing.',
         },
       ],
       screenshots: [
