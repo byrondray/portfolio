@@ -777,7 +777,7 @@ export const projects: Project[] = [
       'Tailwind CSS 4',
       'Vite',
     ],
-    liveLink: 'loshermanos.app',
+    liveLink: 'https://loshermanos.app',
     githubLink: '',
     image: '',
     category: 'E-commerce',
