@@ -44,7 +44,7 @@ export default function Home() {
                 ease: [0.25, 0.1, 0.25, 1],
               }}
             >
-              Building AI-powered products with React, Gleam &amp;&nbsp;Next.js — currently shipping features at Arkhet.
+              Building safety-focused software with React &amp;&nbsp;Python — currently shipping features at Safer Schools Together.
             </motion.h1>
 
             <motion.div
