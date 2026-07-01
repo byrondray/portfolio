@@ -58,13 +58,13 @@ export const AboutTab = () => {
                                 transition={{ duration: 0.5, delay: 0.1 }}
                             >
                                 Hi, I'm Byron! I'm currently working as a fullstack developer
-                                at <a href="https://arkhet.com" target="_blank" rel="noopener noreferrer"
+                                at <a href="https://saferschoolstogether.com" target="_blank" rel="noopener noreferrer"
                                     className="text-indigo-400 hover:text-indigo-300 underline transition-colors">
-                                    Arkhet</a>, where we're building an innovative prototyping tool
-                                that empowers product managers to rapidly ideate and iterate
-                                using AI-powered generations. Our mission is to bridge the gap
-                                between concept and creation, making product development more
-                                intuitive and efficient.
+                                    Safer Schools Together</a>, where I help build a Digital Threat
+                                Assessment and Management (DTAM) platform that helps schools
+                                identify, assess, and respond to student safety concerns. Our
+                                mission is to give educators and safety teams the tools they need
+                                to keep students safe.
                             </motion.p>
 
                             <motion.p
@@ -73,13 +73,13 @@ export const AboutTab = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.2 }}
                             >
-                                What excites me most about this work is the intersection of
-                                creativity and technology. We're not just building another design
-                                tool, we're reimagining how product managers can go from a
-                                rough idea to a tangible prototype in minutes rather than days.
-                                By integrating advanced AI capabilities with intuitive user
-                                interfaces, we're enabling teams to explore more possibilities,
-                                validate concepts faster, and ultimately build better products.
+                                What excites me most about this work is building software that has
+                                a direct, tangible impact on student wellbeing. We're not just
+                                building another case management tool, we're giving school teams a
+                                clearer, faster way to assess risk and coordinate a response when
+                                it matters most. By combining thoughtful workflows with reliable
+                                engineering, we're helping schools act with more confidence and
+                                less friction.
                             </motion.p>
 
                             <motion.p
@@ -90,9 +90,8 @@ export const AboutTab = () => {
                             >
                                 I'm constantly exploring new ways to optimize performance, enhance user experience,
                                 and maintain clean, scalable codebases that can evolve with our rapidly changing needs.
-                                This hands-on experience at the forefront of AI technology has reinforced my belief
-                                that the future of product development lies in tools that augment human creativity
-                                rather than replace it.
+                                This hands-on experience building safety-critical software has reinforced my belief
+                                that great engineering matters most when the stakes are real.
                             </motion.p>
 
                             <motion.p
@@ -101,14 +100,10 @@ export const AboutTab = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.4 }}
                             >
-                                Beyond my work at Arkhet, I'm deeply invested in expanding my technical horizons.
-                                I'm currently diving into machine learning fundamentals and building intelligent
-                                agents using Model Context Protocol (MCP) to explore autonomous system design.
-                                I'm also working on
-                                <a href="https://rezengaming.com" target="_blank" rel="noopener noreferrer"
-                                    className="text-indigo-400 hover:text-indigo-300 underline transition-colors mx-1">
-                                    Rezen Gaming</a>, a passion project that combines my love for gaming and competition
-                                with web development.
+                                Beyond my work at Safer Schools Together, I'm deeply invested in expanding my
+                                technical horizons. I'm currently diving into machine learning fundamentals and
+                                building intelligent agents using Model Context Protocol (MCP) to explore
+                                autonomous system design.
                             </motion.p>
                         </div>
                     </CardContent>
