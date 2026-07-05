@@ -1360,14 +1360,14 @@ export const projects: Project[] = [
     id: '4',
     title: 'Cookbook+',
     description:
-      'A culinary social platform where food enthusiasts can discover, share, and organize recipes with intelligent meal planning and shopping list features.',
+      'A culinary social platform where food enthusiasts can discover, share, and organize recipes with reviews, favourites, and offline-friendly PWA support.',
     technologies: [
       'Next.js',
       'Tailwind CSS',
       'Amazon S3',
       'Drizzle ORM',
-      'PostgreSQL',
-      'NextAuth.js',
+      'PostgreSQL (Neon)',
+      'Clerk',
     ],
     liveLink: 'https://recipe-tracker-pcw2.vercel.app/',
     githubLink: 'https://github.com/byrondray/recipe-tracker',
@@ -1375,33 +1375,35 @@ export const projects: Project[] = [
     category: 'Full Stack',
     details: {
       longDescription:
-        'Cookbook+ transforms the cooking experience by combining a beautiful recipe repository with practical meal planning tools. Users can discover dishes through a visually rich interface, upload their own creations with step-by-step instructions, and build personalized collections.',
+        'Cookbook+ transforms the cooking experience by combining a beautiful recipe repository with community-driven discovery. Users can browse dishes through a visually rich interface, upload their own creations with step-by-step instructions and photos, save favourites, leave reviews, and install the app as a PWA for quick access.',
       features: [
-        'Intuitive recipe creation with structured ingredients, instructions, and cooking times',
+        'Intuitive recipe creation with structured ingredients, instructions, and photo uploads',
         'Photo galleries for each recipe with step-by-step cooking visuals',
+        'Recipe favouriting and a personalized favourites collection',
+        'Community reviews and ratings on recipes',
+        'Installable PWA with share-target support for sharing recipes directly from other apps',
       ],
       challenges: [
         'Implementing efficient image processing and storage for multiple photos per recipe',
         'Optimizing database queries for complex recipe filtering and search operations',
-        'Creating a responsive design that works well for both cooking mode (kitchen use) and browsing mode',
+        'Building PWA share-target and install flows for a native-like mobile experience',
       ],
       processSteps: [
         {
           title: 'User Research & Cooking Workflow Analysis',
           description:
-            'Conducted interviews with home cooks to understand their pain points in recipe management, meal planning, and grocery shopping to identify key opportunity areas.',
+            'Conducted interviews with home cooks to understand their pain points in recipe management and discovery to identify key opportunity areas.',
         },
         {
           title: 'Information Architecture Development',
           description:
-            'Created a comprehensive data model for recipes that captures the complexity of ingredients, preparation methods, and variations while remaining flexible for different culinary traditions.',
+            'Created a comprehensive data model for recipes that captures the complexity of ingredients, preparation methods, categories, and reviews while remaining flexible for different culinary traditions.',
         },
         {
           title: 'User Experience Design',
           description:
             'Designed user flows and interfaces optimized for both recipe discovery and practical cooking use, with special attention to kitchen-friendly viewing modes and intuitive creation tools.',
         },
-
         {
           title: 'Image Management Pipeline',
           description:
@@ -1412,7 +1414,7 @@ export const projects: Project[] = [
         {
           name: 'Next.js',
           description:
-            'Employed for its hybrid rendering capabilities, delivering fast initial page loads for recipe browsing while enabling dynamic features like real-time recipe scaling and meal planning.',
+            'Employed for its hybrid rendering capabilities, delivering fast initial page loads for recipe browsing while enabling dynamic features like recipe editing and favourites.',
         },
         {
           name: 'Tailwind CSS',
@@ -1427,12 +1429,12 @@ export const projects: Project[] = [
         {
           name: 'Drizzle ORM',
           description:
-            'Leveraged for type-safe database access with a schema designed to efficiently represent complex relationships between recipes, ingredients, users, and meal plans.',
+            'Leveraged for type-safe database access with a schema designed to efficiently represent relationships between recipes, categories, favourites, reviews, and media.',
         },
         {
-          name: 'NextAuth.js',
+          name: 'Clerk',
           description:
-            'Integrated for secure user authentication with multiple provider options, enabling personalized features like saved recipes and custom collections.',
+            'Integrated for secure user authentication and session management, enabling personalized features like saved favourites and user profiles.',
         },
       ],
     },
