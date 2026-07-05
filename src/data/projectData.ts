@@ -68,7 +68,7 @@ export const projects: Project[] = [
       'Bun',
       'Lustre',
     ],
-    liveLink: 'https://arkhet.app',
+    liveLink: 'https://arkhet.up.railway.app/',
     githubLink: '',
     image:
       'https://res.cloudinary.com/dretgpdr4/image/upload/v1772049834/portfolio/images/arkhet-logo-black.svg',
