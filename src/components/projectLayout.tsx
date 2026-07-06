@@ -9,7 +9,7 @@ interface ProjectLayoutProps {
 
 const ProjectLayout = ({ children, title }: ProjectLayoutProps) => {
   return (
-    <div className='relative min-h-screen bg-transparent'>
+    <div className='relative min-h-screen bg-transparent' aria-label={title}>
       <BackgroundBeamsWithCollision />
       <div className='relative min-h-screen w-full p-6 pt-20'>
         <div className='max-w-6xl mx-auto'>

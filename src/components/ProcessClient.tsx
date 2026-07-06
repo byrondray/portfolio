@@ -281,7 +281,7 @@ export default function ProcessClient() {
               Ready to Start Your Project?
             </h2>
             <p className='text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto'>
-              Let's discuss how this proven process can bring your ideas to life
+              Let&apos;s discuss how this proven process can bring your ideas to life
               with quality, efficiency, and attention to detail.
             </p>
             <a

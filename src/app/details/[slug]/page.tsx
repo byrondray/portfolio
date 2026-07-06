@@ -8,7 +8,7 @@ interface PageParams {
 }
 
 interface ProjectPageProps {
-  params: PageParams | Promise<PageParams>;
+  params: Promise<PageParams>;
 }
 
 // Generate static params for all projects
@@ -22,8 +22,7 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
-  const unwrappedParams = params instanceof Promise ? await params : params;
-  const slug = unwrappedParams.slug;
+  const { slug } = await params;
   const project = getProjectBySlug(slug);
 
   if (!project) {
@@ -35,8 +34,10 @@ export async function generateMetadata({
 
   const baseUrl = 'https://byrondray.com';
   const projectUrl = `${baseUrl}/details/${slug}`;
+  const toAbsoluteUrl = (path: string) =>
+    path.startsWith('http') ? path : `${baseUrl}${path}`;
   const ogImage = project.image
-    ? `${baseUrl}${project.image}`
+    ? toAbsoluteUrl(project.image)
     : `${baseUrl}/og-image.png`;
 
   return {
@@ -86,8 +87,6 @@ export async function generateMetadata({
           type: 'image/png',
         },
       ],
-      publishedTime: new Date().toISOString(),
-      modifiedTime: new Date().toISOString(),
       authors: ['Byron Dray'],
       section: 'Portfolio',
       tags: project.technologies,
@@ -110,14 +109,17 @@ export async function generateMetadata({
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const unwrappedParams = params instanceof Promise ? await params : params;
-  const slug = unwrappedParams.slug;
+  const { slug } = await params;
 
   const project = getProjectBySlug(slug);
 
   if (!project) {
     notFound();
   }
+
+  const baseUrl = 'https://byrondray.com';
+  const toAbsoluteUrl = (path: string) =>
+    path.startsWith('http') ? path : `${baseUrl}${path}`;
 
   // Generate structured data for the project
   const structuredData = {
@@ -139,29 +141,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         'https://www.linkedin.com/in/byron-dray',
       ],
     },
-    datePublished: new Date().toISOString(),
-    dateModified: new Date().toISOString(),
     programmingLanguage: project.technologies,
-    image: project.image ? `https://byrondray.com${project.image}` : undefined,
-    screenshot: project.details?.screenshots?.map(
-      (screenshot) => `https://byrondray.com${screenshot}`
+    image: project.image ? toAbsoluteUrl(project.image) : undefined,
+    screenshot: project.details?.screenshots?.map((screenshot) =>
+      toAbsoluteUrl(screenshot)
     ),
     video: project.details?.videos?.map((video) => ({
       '@type': 'VideoObject',
       name: video.title || `${project.title} Demo`,
       description: video.description || `Demonstration of ${project.title}`,
-      contentUrl: `https://byrondray.com${video.url}`,
-      thumbnailUrl: project.image
-        ? `https://byrondray.com${project.image}`
+      contentUrl: toAbsoluteUrl(video.url),
+      thumbnailUrl: video.thumbnail
+        ? toAbsoluteUrl(video.thumbnail)
         : undefined,
     })),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '1',
-      bestRating: '5',
-      worstRating: '1',
-    },
     offers: project.liveLink
       ? {
           '@type': 'Offer',

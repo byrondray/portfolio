@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import type { UseInViewOptions } from 'framer-motion';
 
 interface ScrollAnimationProps {
   children: React.ReactNode;
@@ -49,7 +50,7 @@ export const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
   const inView = useInView(ref, {
     once,
     amount: threshold,
-    margin: rootMargin,
+    margin: rootMargin as UseInViewOptions['margin'],
   });
 
   useEffect(() => {

@@ -41,7 +41,7 @@ export const EducationTab = () => {
                         >
                             <h3 className='text-xl font-semibold text-gray-900 dark:text-white'>Program Overview</h3>
                             <p className='text-gray-700 dark:text-gray-200 leading-relaxed'>
-                                I completed BCIT's intensive 2-year Full-Stack Web Development Diploma program,
+                                I completed BCIT&apos;s intensive 2-year Full-Stack Web Development Diploma program,
                                 a comprehensive hands-on program that prepared me for the demands of modern web development.
                                 The program featured <span className='text-indigo-400 font-semibold'>7 courses per term</span>,
                                 requiring exceptional time management skills and the ability to balance multiple projects simultaneously.

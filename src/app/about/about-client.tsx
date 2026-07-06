@@ -125,10 +125,10 @@ const AboutPageClient = () => {
             <div className='flex flex-col sm:flex-row items-center justify-between gap-6'>
               <div className='text-center sm:text-left'>
                 <h3 className='text-xl font-semibold text-gray-900 dark:text-white mb-2'>
-                  Let's Connect
+                  Let&apos;s Connect
                 </h3>
                 <p className='text-gray-600 dark:text-gray-300 text-sm'>
-                  Ready to collaborate or have questions? I'd love to hear from
+                  Ready to collaborate or have questions? I&apos;d love to hear from
                   you.
                 </p>
               </div>

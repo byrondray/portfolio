@@ -1,14 +1,25 @@
 import { projects, createSlug } from '@/data/projectData';
 
+function escapeXml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 export async function GET() {
   const baseUrl = 'https://byrondray.com';
+  const toAbsoluteUrl = (path: string) =>
+    path.startsWith('http') ? path : `${baseUrl}${path}`;
 
   const imageEntries = projects.flatMap((project) => {
     const images = []; // Project main image
     if (project.image) {
       images.push({
         url: `${baseUrl}/details/${createSlug(project.title)}`,
-        image: `${baseUrl}${project.image}`,
+        image: toAbsoluteUrl(project.image),
         title: project.title,
         caption: project.description,
       });
@@ -19,7 +30,7 @@ export async function GET() {
       project.details.screenshots.forEach((screenshot, index) => {
         images.push({
           url: `${baseUrl}/details/${createSlug(project.title)}`,
-          image: `${baseUrl}${screenshot}`,
+          image: toAbsoluteUrl(screenshot),
           title: `${project.title} - Screenshot ${index + 1}`,
           caption: `Screenshot of ${project.title} application`,
         });
@@ -36,11 +47,11 @@ ${imageEntries
   .map(
     (entry) => `
   <url>
-    <loc>${entry.url}</loc>
+    <loc>${escapeXml(entry.url)}</loc>
     <image:image>
-      <image:loc>${entry.image}</image:loc>
-      <image:title>${entry.title}</image:title>
-      <image:caption>${entry.caption}</image:caption>
+      <image:loc>${escapeXml(entry.image)}</image:loc>
+      <image:title>${escapeXml(entry.title)}</image:title>
+      <image:caption>${escapeXml(entry.caption)}</image:caption>
     </image:image>
   </url>`
   )

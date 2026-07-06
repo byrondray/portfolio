@@ -1,7 +1,8 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from '@/components/Navbar';
 
@@ -74,7 +75,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,
@@ -85,11 +85,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-    ],
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
     shortcut: '/favicon.svg',
   },
   manifest: '/site.webmanifest',
@@ -126,6 +122,13 @@ export const metadata: Metadata = {
     ],
   },
   category: 'technology',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#6366f1',
+  colorScheme: 'dark light',
 };
 
 // Enhanced Structured Data for SEO
@@ -185,7 +188,7 @@ const structuredData = [
       '@id': 'https://byrondray.com',
     },
   },
-  // WebSite schema with SearchAction
+  // WebSite schema
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -197,14 +200,6 @@ const structuredData = [
       '@id': 'https://byrondray.com/#person',
     },
     inLanguage: 'en-US',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: 'https://byrondray.com/search?q={search_term_string}',
-      },
-      'query-input': 'required name=search_term_string',
-    },
   },
   // BreadcrumbList schema
   {
@@ -251,17 +246,9 @@ export default function RootLayout({
             }}
           />
         ))}
-        <meta name='theme-color' content='#6366f1' />
-        <meta name='color-scheme' content='dark light' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='author' content='Byron Dray' />
         <meta name='copyright' content='Byron Dray' />
-        <meta
-          name='robots'
-          content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
-        />
         <meta name='revisit-after' content='7 days' />
-        <meta property='og:site_name' content='Byron Dray Portfolio' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link
           rel='preconnect'
@@ -271,10 +258,6 @@ export default function RootLayout({
         <link rel='me' href='https://github.com/byrondray' />
         <link rel='me' href='https://linkedin.com/in/byron-dray' />
         <link rel='sitemap' type='application/xml' href='/sitemap.xml' />
-        <script
-          async
-          src='https://scripts.simpleanalyticscdn.com/latest.js'
-        ></script>
       </head>
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-inter antialiased`}
@@ -283,6 +266,11 @@ export default function RootLayout({
           <Navbar />
           {children}
         </ThemeProvider>
+        <Script
+          async
+          strategy='afterInteractive'
+          src='https://scripts.simpleanalyticscdn.com/latest.js'
+        />
       </body>
     </html>
   );

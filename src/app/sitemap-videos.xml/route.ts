@@ -1,7 +1,18 @@
 import { projects, createSlug } from '@/data/projectData';
 
+function escapeXml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 export async function GET() {
   const baseUrl = 'https://byrondray.com';
+  const toAbsoluteUrl = (path: string) =>
+    path.startsWith('http') ? path : `${baseUrl}${path}`;
 
   interface VideoEntry {
     url: string;
@@ -10,7 +21,6 @@ export async function GET() {
     description: string;
     thumbnailUrl?: string;
     duration: number;
-    publicationDate: string;
   }
 
   const videoEntries: VideoEntry[] = projects.flatMap((project) => {
@@ -18,19 +28,18 @@ export async function GET() {
 
     // Project videos
     if (project.details?.videos) {
-      project.details.videos.forEach((video, index) => {
+      project.details.videos.forEach((video) => {
         videos.push({
           url: `${baseUrl}/details/${createSlug(project.title)}`,
-          videoUrl: `${baseUrl}${video.url}`,
+          videoUrl: toAbsoluteUrl(video.url),
           title: video.title || `${project.title} Demo`,
           description:
             video.description ||
             `Demonstration of ${project.title} features and functionality`,
-          thumbnailUrl: project.image
-            ? `${baseUrl}${project.image}`
+          thumbnailUrl: video.thumbnail
+            ? toAbsoluteUrl(video.thumbnail)
             : undefined,
           duration: 120, // Default duration in seconds
-          publicationDate: new Date().toISOString(),
         });
       });
     }
@@ -45,18 +54,19 @@ ${videoEntries
   .map(
     (entry) => `
   <url>
-    <loc>${entry.url}</loc>
+    <loc>${escapeXml(entry.url)}</loc>
     <video:video>
-      <video:content_loc>${entry.videoUrl}</video:content_loc>
-      <video:title>${entry.title}</video:title>
-      <video:description>${entry.description}</video:description>
+      <video:content_loc>${escapeXml(entry.videoUrl)}</video:content_loc>
+      <video:title>${escapeXml(entry.title)}</video:title>
+      <video:description>${escapeXml(entry.description)}</video:description>
       ${
         entry.thumbnailUrl
-          ? `<video:thumbnail_loc>${entry.thumbnailUrl}</video:thumbnail_loc>`
+          ? `<video:thumbnail_loc>${escapeXml(
+              entry.thumbnailUrl
+            )}</video:thumbnail_loc>`
           : ''
       }
       <video:duration>${entry.duration}</video:duration>
-      <video:publication_date>${entry.publicationDate}</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
   </url>`

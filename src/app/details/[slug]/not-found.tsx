@@ -31,7 +31,7 @@ export default function ProjectNotFound() {
           Project Not Found
         </h2>
         <p className='text-gray-300 text-lg mb-8 leading-relaxed'>
-          The project you're looking for doesn't exist or may have been moved.
+          The project you&apos;re looking for doesn&apos;t exist or may have been moved.
           Check out my other projects or return home to explore my portfolio.
         </p>
 

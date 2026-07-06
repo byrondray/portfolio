@@ -57,7 +57,7 @@ export const AboutTab = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.1 }}
                             >
-                                Hi, I'm Byron! I'm currently working as a fullstack developer
+                                Hi, I&apos;m Byron! I&apos;m currently working as a fullstack developer
                                 at <a href="https://saferschoolstogether.com" target="_blank" rel="noopener noreferrer"
                                     className="text-indigo-400 hover:text-indigo-300 underline transition-colors">
                                     Safer Schools Together</a>, where I help build a Digital Threat
@@ -74,11 +74,11 @@ export const AboutTab = () => {
                                 transition={{ duration: 0.5, delay: 0.2 }}
                             >
                                 What excites me most about this work is building software that has
-                                a direct, tangible impact on student wellbeing. We're not just
-                                building another case management tool, we're giving school teams a
+                                a direct, tangible impact on student wellbeing. We&apos;re not just
+                                building another case management tool, we&apos;re giving school teams a
                                 clearer, faster way to assess risk and coordinate a response when
                                 it matters most. By combining thoughtful workflows with reliable
-                                engineering, we're helping schools act with more confidence and
+                                engineering, we&apos;re helping schools act with more confidence and
                                 less friction.
                             </motion.p>
 
@@ -88,7 +88,7 @@ export const AboutTab = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.3 }}
                             >
-                                I'm constantly exploring new ways to optimize performance, enhance user experience,
+                                I&apos;m constantly exploring new ways to optimize performance, enhance user experience,
                                 and maintain clean, scalable codebases that can evolve with our rapidly changing needs.
                                 This hands-on experience building safety-critical software has reinforced my belief
                                 that great engineering matters most when the stakes are real.
@@ -100,8 +100,8 @@ export const AboutTab = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.4 }}
                             >
-                                Beyond my work at Safer Schools Together, I'm deeply invested in expanding my
-                                technical horizons. I'm currently diving into machine learning fundamentals and
+                                Beyond my work at Safer Schools Together, I&apos;m deeply invested in expanding my
+                                technical horizons. I&apos;m currently diving into machine learning fundamentals and
                                 building intelligent agents using Model Context Protocol (MCP) to explore
                                 autonomous system design.
                             </motion.p>

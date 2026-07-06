@@ -1360,7 +1360,7 @@ export const projects: Project[] = [
     id: '4',
     title: 'Cookbook+',
     description:
-      'A culinary social platform where food enthusiasts can discover, share, and organize recipes with reviews, favourites, and offline-friendly PWA support.',
+      'A culinary social platform where food enthusiasts can discover, share, and organize recipes with reviews, favourites, and an installable PWA experience.',
     technologies: [
       'Next.js',
       'Tailwind CSS',
@@ -1419,7 +1419,7 @@ export const projects: Project[] = [
         {
           name: 'Tailwind CSS',
           description:
-            'Used to create a visually appealing, responsive design system that adapts to various devices, including kitchen tablets and mobile phones used while shopping.',
+            'Used to create a visually appealing, responsive design system that adapts to various devices, including kitchen tablets and mobile phones used while browsing and cooking.',
         },
         {
           name: 'Amazon S3',
