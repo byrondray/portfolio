@@ -22,79 +22,7 @@ import { motion } from 'framer-motion';
 import { ScrollAnimation } from '@/components/scrollAnimation';
 import { PageWrapper } from '@/components/pageWrapper';
 import React from 'react';
-
-const StockChartIcon = ({
-  size = 40,
-  className = 'text-white md:w-12 md:h-12',
-}) => (
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    width={size}
-    height={size}
-    viewBox='0 0 80 80'
-    fill='none'
-    className={className}
-  >
-    {/* Background circle */}
-    <circle
-      cx='40'
-      cy='40'
-      r='35'
-      fill='currentColor'
-      opacity='0.1'
-      stroke='currentColor'
-      strokeWidth='1'
-    />
-
-    {/* Grid lines */}
-    <g stroke='currentColor' strokeWidth='0.5' opacity='0.3'>
-      <line x1='15' y1='20' x2='65' y2='20' />
-      <line x1='15' y1='30' x2='65' y2='30' />
-      <line x1='15' y1='40' x2='65' y2='40' />
-      <line x1='15' y1='50' x2='65' y2='50' />
-      <line x1='15' y1='60' x2='65' y2='60' />
-      <line x1='20' y1='15' x2='20' y2='65' />
-      <line x1='30' y1='15' x2='30' y2='65' />
-      <line x1='40' y1='15' x2='40' y2='65' />
-      <line x1='50' y1='15' x2='50' y2='65' />
-      <line x1='60' y1='15' x2='60' y2='65' />
-    </g>
-
-    {/* Chart line (trending upward) */}
-    <path
-      d='M 18 55 Q 25 50 32 45 Q 40 35 48 30 Q 55 25 62 22'
-      stroke='currentColor'
-      strokeWidth='2.5'
-      fill='none'
-      strokeLinecap='round'
-    />
-
-    {/* Chart area fill */}
-    <path
-      d='M 18 55 Q 25 50 32 45 Q 40 35 48 30 Q 55 25 62 22 L 62 60 L 18 60 Z'
-      fill='currentColor'
-      opacity='0.2'
-    />
-
-    {/* Data points */}
-    <circle cx='18' cy='55' r='1.5' fill='currentColor' />
-    <circle cx='32' cy='45' r='1.5' fill='currentColor' />
-    <circle cx='48' cy='30' r='1.5' fill='currentColor' />
-    <circle cx='62' cy='22' r='1.5' fill='currentColor' />
-
-    {/* Dollar sign */}
-    <text
-      x='12'
-      y='12'
-      fontFamily='Arial, sans-serif'
-      fontSize='8'
-      fontWeight='bold'
-      fill='currentColor'
-    >
-      $
-    </text>
-  </svg>
-);
+import { ForkliftIcon, StockChartIcon } from '@/components/icons/project-icons';
 
 interface ProjectDetailClientProps {
   project: Project;
@@ -191,23 +119,7 @@ export default function ProjectDetailClient({
                   ) : project.title === 'Recipe App' ? (
                     <ChefHat size={40} className='text-white md:w-12 md:h-12' />
                   ) : project.title === 'Warehouse CMS' ? (
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      width='40'
-                      height='40'
-                      viewBox='0 0 24 24'
-                      fill='none'
-                      stroke='currentColor'
-                      strokeWidth='1.5'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      className='text-white md:w-12 md:h-12'
-                    >
-                      <path d='M12 12H5a2 2 0 0 0-2 2v5' />
-                      <circle cx='13' cy='19' r='2' />
-                      <circle cx='5' cy='19' r='2' />
-                      <path d='M8 19h3m5-17v17h6M6 12V7c0-1.1.9-2 2-2h3l5 5' />
-                    </svg>
+                    <ForkliftIcon size={40} className='text-white md:w-12 md:h-12' />
                   ) : project.title === 'CytoNET' ? (
                     <Dna size={40} className='text-white md:w-12 md:h-12' />
                   ) : project.title === 'Travel Planner' ? (

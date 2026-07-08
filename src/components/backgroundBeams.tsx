@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import React, { useRef, useState, useEffect } from 'react';
 
 export const BackgroundBeamsWithCollision = ({
@@ -10,6 +10,7 @@ export const BackgroundBeamsWithCollision = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const beams = [
     {
@@ -69,14 +70,15 @@ export const BackgroundBeamsWithCollision = ({
       ref={parentRef}
       className="fixed inset-0 w-full bg-gradient-to-b from-neutral-50 to-neutral-200 dark:from-neutral-950 dark:to-neutral-800 z-0 transition-colors duration-300"
     >
-      {beams.map((beam) => (
-        <CollisionMechanism
-          key={beam.initialX + 'beam-idx'}
-          beamOptions={beam}
-          containerRef={containerRef as React.RefObject<HTMLDivElement>}
-          parentRef={parentRef as React.RefObject<HTMLDivElement>}
-        />
-      ))}{' '}
+      {!shouldReduceMotion &&
+        beams.map((beam) => (
+          <CollisionMechanism
+            key={beam.initialX + 'beam-idx'}
+            beamOptions={beam}
+            containerRef={containerRef as React.RefObject<HTMLDivElement>}
+            parentRef={parentRef as React.RefObject<HTMLDivElement>}
+          />
+        ))}{' '}
       <div
         ref={containerRef}
         className="absolute bottom-0 w-full inset-x-0 pointer-events-none transition-colors duration-300 bg-neutral-200 dark:bg-neutral-800 shadow-[0_0_24px_rgba(0,0,0,0.1),0_1px_1px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.05),0_0_4px_rgba(0,0,0,0.05),0_16px_68px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.1)] dark:shadow-[0_0_24px_rgba(0,0,0,0.2),0_1px_1px_rgba(0,0,0,0.2),0_0_0_1px_rgba(0,0,0,0.1),0_0_4px_rgba(0,0,0,0.1),0_16px_68px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.05)]"
@@ -117,6 +119,8 @@ const CollisionMechanism = ({
   const [cycleCollisionDetected, setCycleCollisionDetected] = useState(false);
 
   useEffect(() => {
+    let frameId: number;
+
     const checkCollision = () => {
       if (
         beamRef.current &&
@@ -141,13 +145,16 @@ const CollisionMechanism = ({
             },
           });
           setCycleCollisionDetected(true);
+          return;
         }
       }
+
+      frameId = requestAnimationFrame(checkCollision);
     };
 
-    const animationInterval = setInterval(checkCollision, 50);
+    frameId = requestAnimationFrame(checkCollision);
 
-    return () => clearInterval(animationInterval);
+    return () => cancelAnimationFrame(frameId);
   }, [cycleCollisionDetected, containerRef, parentRef]);
 
   useEffect(() => {

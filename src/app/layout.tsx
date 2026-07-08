@@ -258,6 +258,11 @@ export default function RootLayout({
         <link rel='me' href='https://github.com/byrondray' />
         <link rel='me' href='https://linkedin.com/in/byron-dray' />
         <link rel='sitemap' type='application/xml' href='/sitemap.xml' />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('portfolio-theme');var d=t==='dark'||((!t||t==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.add(d?'dark':'light');}catch(e){}})();`,
+          }}
+        />
       </head>
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-inter antialiased`}
