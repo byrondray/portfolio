@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PageWrapper } from '@/components/pageWrapper';
 import { BackgroundBeamsWithCollision } from '@/components/backgroundBeams';
@@ -20,11 +20,27 @@ import { EducationTab } from '@/components/about/EducationTab';
 const AboutPageClient = () => {
   const [activeTab, setActiveTab] = useState<'about' | 'skills' | 'education'>('about');
   const { theme } = useTheme();
-  const isDarkTheme =
-    theme === 'dark' ||
-    (theme === 'system' &&
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches);
+  // Seed from the class the blocking inline script (layout.tsx) already
+  // applied before hydration, so first paint doesn't flash via
+  // ThemeProvider's transient 'system' state; stay in sync afterward.
+  const [isDarkTheme, setIsDarkTheme] = useState(
+    () =>
+      typeof document !== 'undefined' &&
+      document.documentElement.classList.contains('dark')
+  );
+
+  useEffect(() => {
+    if (theme === 'dark' || theme === 'light') {
+      setIsDarkTheme(theme === 'dark');
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkTheme(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDarkTheme(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, [theme]);
 
   return (
     <PageWrapper>

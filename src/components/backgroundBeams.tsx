@@ -159,14 +159,19 @@ const CollisionMechanism = ({
 
   useEffect(() => {
     if (collision.detected && collision.coordinates) {
-      setTimeout(() => {
+      const resetTimeout = setTimeout(() => {
         setCollision({ detected: false, coordinates: null });
         setCycleCollisionDetected(false);
       }, 2000);
 
-      setTimeout(() => {
+      const beamKeyTimeout = setTimeout(() => {
         setBeamKey((prevKey) => prevKey + 1);
       }, 2000);
+
+      return () => {
+        clearTimeout(resetTimeout);
+        clearTimeout(beamKeyTimeout);
+      };
     }
   }, [collision]);
   return (

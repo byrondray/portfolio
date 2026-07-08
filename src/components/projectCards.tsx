@@ -10,65 +10,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Brain,
-  ChefHat,
-  Database,
-  Dna,
-  Plane,
-  ArrowRight,
-  Shirt,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { projects, createSlug } from "@/data/projectData";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ScrollAnimation } from "./scrollAnimation";
-import {
-  ForkliftIcon,
-  StockChartIcon,
-  EarningsAnalyzerIcon,
-} from "./icons/project-icons";
+import { getProjectGradient, getProjectIcon } from "./icons/project-accents";
 
 const ProjectCards = () => {
-
-  const iconColors = {
-    "Flash Learn": "from-purple-500 to-indigo-500",
-    "Recipe App": "from-red-500 to-pink-500",
-    "Cookbook+": "from-red-500 to-pink-500",
-    "Warehouse CMS": "from-indigo-500 to-blue-500",
-    CytoNET: "from-cyan-500 to-teal-500",
-    "Travel Planner": "from-blue-500 to-sky-500",
-    "AI Stock Tracker": "from-green-500 to-emerald-500",
-    "Los Hermanos": "from-orange-500 to-amber-500",
-    "Stock Earnings Analyzer": "from-slate-800 to-emerald-950",
-    default: "from-emerald-500 to-green-500",
-  };
-  const getIconForProject = (title: string) => {
-    switch (title) {
-      case "Flash Learn":
-        return <Brain size={80} className="text-white" />;
-      case "Recipe App":
-        return <ChefHat size={80} className="text-white" />;
-      case "Cookbook+":
-        return <ChefHat size={80} className="text-white" />;
-      case "Warehouse CMS":
-        return <ForkliftIcon />;
-      case "CytoNET":
-        return <Dna size={80} className="text-white" />;
-      case "Travel Planner":
-        return <Plane size={80} className="text-white" />;
-      case "AI Stock Tracker":
-        return <StockChartIcon />;
-      case "Los Hermanos":
-        return <Shirt size={80} className="text-white" />;
-      case "Stock Earnings Analyzer":
-        return <EarningsAnalyzerIcon />;
-      default:
-        return <Database size={80} className="text-white" />;
-    }
-  };
-
   const ProjectCard = ({
     project,
     index,
@@ -121,8 +71,7 @@ const ProjectCards = () => {
                 background: `radial-gradient(circle, ${
                   project.title === "Flash Learn" || project.title === "Arkhet"
                     ? "rgba(139, 92, 246, 0.3)"
-                    : project.title === "Recipe App" ||
-                      project.title === "Cookbook+"
+                    : project.title === "Cookbook+"
                     ? "rgba(236, 72, 33, 0.3)"
                     : project.title === "Warehouse CMS"
                     ? "rgba(99, 102, 241, 0.3)"
@@ -194,14 +143,13 @@ const ProjectCards = () => {
                   )
                 ) : (
                   <motion.div
-                    className={`p-8 rounded-2xl bg-gradient-to-br ${
-                      iconColors[project.title as keyof typeof iconColors] ||
-                      iconColors.default
-                    } shadow-2xl`}
+                    className={`p-8 rounded-2xl bg-gradient-to-br ${getProjectGradient(
+                      project.title
+                    )} shadow-2xl`}
                     whileHover={{ scale: 1.05, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    {getIconForProject(project.title)}
+                    {getProjectIcon(project.title)}
                   </motion.div>
                 )}
               </div>

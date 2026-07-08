@@ -129,8 +129,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     description: project.details?.longDescription || project.description,
     applicationCategory: 'DeveloperApplication',
     operatingSystem: ['Web', 'Cross-platform'],
-    url: project.liveLink,
-    codeRepository: project.githubLink,
+    url: project.liveLink || undefined,
+    codeRepository: project.githubLink || undefined,
     author: {
       '@type': 'Person',
       name: 'Byron Dray',

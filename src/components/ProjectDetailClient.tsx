@@ -12,17 +12,15 @@ import {
   Code2,
   Layers,
   Rocket,
-  Brain,
-  ChefHat,
-  Dna,
-  Database,
-  Plane,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ScrollAnimation } from '@/components/scrollAnimation';
 import { PageWrapper } from '@/components/pageWrapper';
 import React from 'react';
-import { ForkliftIcon, StockChartIcon } from '@/components/icons/project-icons';
+import {
+  getProjectGradient,
+  getProjectIcon,
+} from '@/components/icons/project-accents';
 
 interface ProjectDetailClientProps {
   project: Project;
@@ -97,44 +95,13 @@ export default function ProjectDetailClient({
                 )
               ) : (
                 <motion.div
-                  className={`p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${project.title === 'Flash Learn'
-                      ? 'from-purple-500 to-indigo-500'
-                      : project.title === 'Recipe App'
-                        ? 'from-red-500 to-pink-500'
-                        : project.title === 'Warehouse CMS'
-                          ? 'from-indigo-500 to-blue-500'
-                          : project.title === 'CytoNET'
-                            ? 'from-cyan-500 to-teal-500'
-                            : project.title === 'Travel Planner'
-                              ? 'from-blue-500 to-sky-500'
-                              : project.title === 'AI Stock Tracker'
-                                ? 'from-green-500 to-emerald-500'
-                                : 'from-emerald-500 to-green-500'
-                    } shadow-2xl`}
+                  className={`p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${getProjectGradient(
+                    project.title
+                  )} shadow-2xl`}
                   whileHover={{ scale: 1.05, rotate: 5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  {project.title === 'Flash Learn' ? (
-                    <Brain size={40} className='text-white md:w-12 md:h-12' />
-                  ) : project.title === 'Recipe App' ? (
-                    <ChefHat size={40} className='text-white md:w-12 md:h-12' />
-                  ) : project.title === 'Warehouse CMS' ? (
-                    <ForkliftIcon size={40} className='text-white md:w-12 md:h-12' />
-                  ) : project.title === 'CytoNET' ? (
-                    <Dna size={40} className='text-white md:w-12 md:h-12' />
-                  ) : project.title === 'Travel Planner' ? (
-                    <Plane size={40} className='text-white md:w-12 md:h-12' />
-                  ) : project.title === 'AI Stock Tracker' ? (
-                    <StockChartIcon
-                      size={40}
-                      className='text-white md:w-12 md:h-12'
-                    />
-                  ) : (
-                    <Database
-                      size={40}
-                      className='text-white md:w-12 md:h-12'
-                    />
-                  )}
+                  {getProjectIcon(project.title, 40, 'text-white md:w-12 md:h-12')}
                 </motion.div>
               )}
             </motion.div>

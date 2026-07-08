@@ -1,3 +1,5 @@
+import { useId } from 'react';
+
 export const ForkliftIcon = ({
   size = 80,
   className = 'text-indigo-400',
@@ -30,7 +32,14 @@ export const StockChartIcon = ({
 }: {
   size?: number;
   className?: string;
-}) => (
+}) => {
+  const uid = useId();
+  const chartGradientId = `chartGradient-${uid}`;
+  const lineGradientId = `lineGradient-${uid}`;
+  const glowId = `glow-${uid}`;
+  const shadowId = `shadow-${uid}`;
+
+  return (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     width={size}
@@ -40,18 +49,18 @@ export const StockChartIcon = ({
     className={className}
   >
     <defs>
-      <linearGradient id='chartGradient' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <linearGradient id={chartGradientId} x1='0%' y1='0%' x2='0%' y2='100%'>
         <stop offset='0%' stopColor='currentColor' stopOpacity='0.3' />
         <stop offset='100%' stopColor='currentColor' stopOpacity='0.05' />
       </linearGradient>
 
-      <linearGradient id='lineGradient' x1='0%' y1='0%' x2='100%' y2='0%'>
+      <linearGradient id={lineGradientId} x1='0%' y1='0%' x2='100%' y2='0%'>
         <stop offset='0%' stopColor='currentColor' stopOpacity='0.6' />
         <stop offset='50%' stopColor='currentColor' stopOpacity='0.9' />
         <stop offset='100%' stopColor='currentColor' stopOpacity='1' />
       </linearGradient>
 
-      <filter id='glow'>
+      <filter id={glowId}>
         <feGaussianBlur stdDeviation='2' result='coloredBlur' />
         <feMerge>
           <feMergeNode in='coloredBlur' />
@@ -59,7 +68,7 @@ export const StockChartIcon = ({
         </feMerge>
       </filter>
 
-      <filter id='shadow' x='-20%' y='-20%' width='140%' height='140%'>
+      <filter id={shadowId} x='-20%' y='-20%' width='140%' height='140%'>
         <feDropShadow dx='0' dy='2' stdDeviation='3' floodOpacity='0.1' />
       </filter>
     </defs>
@@ -73,7 +82,7 @@ export const StockChartIcon = ({
       stroke='currentColor'
       strokeWidth='0.5'
       strokeOpacity='0.2'
-      filter='url(#shadow)'
+      filter={`url(#${shadowId})`}
     />
 
     <g stroke='currentColor' strokeWidth='0.3' opacity='0.15'>
@@ -103,7 +112,7 @@ export const StockChartIcon = ({
          C 58 18, 60 17, 62 16
          L 62 60
          L 18 60 Z'
-      fill='url(#chartGradient)'
+      fill={`url(#${chartGradientId})`}
     />
 
     <path
@@ -112,12 +121,12 @@ export const StockChartIcon = ({
          C 34 38, 38 32, 42 28
          C 46 24, 50 22, 54 20
          C 58 18, 60 17, 62 16'
-      stroke='url(#lineGradient)'
+      stroke={`url(#${lineGradientId})`}
       strokeWidth='2.5'
       fill='none'
       strokeLinecap='round'
       strokeLinejoin='round'
-      filter='url(#glow)'
+      filter={`url(#${glowId})`}
     />
 
     <g fill='currentColor'>
@@ -154,7 +163,8 @@ export const StockChartIcon = ({
       <path d='M 0 4 L 4 0 L 4 2 L 8 2 L 8 4 L 4 4 L 4 6 Z' fill='currentColor' />
     </g>
   </svg>
-);
+  );
+};
 
 export const EarningsAnalyzerIcon = ({
   size = 80,
@@ -162,7 +172,13 @@ export const EarningsAnalyzerIcon = ({
 }: {
   size?: number;
   className?: string;
-}) => (
+}) => {
+  const uid = useId();
+  const greenId = `earnGreen-${uid}`;
+  const redId = `earnRed-${uid}`;
+  const glowId = `earnGlow-${uid}`;
+
+  return (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     width={size}
@@ -172,15 +188,15 @@ export const EarningsAnalyzerIcon = ({
     className={className}
   >
     <defs>
-      <linearGradient id='earnGreen' x1='0%' y1='100%' x2='0%' y2='0%'>
+      <linearGradient id={greenId} x1='0%' y1='100%' x2='0%' y2='0%'>
         <stop offset='0%' stopColor='#10b981' stopOpacity='0.6' />
         <stop offset='100%' stopColor='#34d399' stopOpacity='1' />
       </linearGradient>
-      <linearGradient id='earnRed' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <linearGradient id={redId} x1='0%' y1='0%' x2='0%' y2='100%'>
         <stop offset='0%' stopColor='#ef4444' stopOpacity='0.6' />
         <stop offset='100%' stopColor='#f87171' stopOpacity='1' />
       </linearGradient>
-      <filter id='earnGlow'>
+      <filter id={glowId}>
         <feGaussianBlur stdDeviation='1.5' result='coloredBlur' />
         <feMerge>
           <feMergeNode in='coloredBlur' />
@@ -200,15 +216,15 @@ export const EarningsAnalyzerIcon = ({
       strokeOpacity='0.15'
     />
 
-    <g filter='url(#earnGlow)'>
-      <line x1='20' y1='22' x2='20' y2='58' stroke='url(#earnGreen)' strokeWidth='1' />
-      <rect x='16' y='30' width='8' height='18' rx='1' fill='url(#earnGreen)' />
+    <g filter={`url(#${glowId})`}>
+      <line x1='20' y1='22' x2='20' y2='58' stroke={`url(#${greenId})`} strokeWidth='1' />
+      <rect x='16' y='30' width='8' height='18' rx='1' fill={`url(#${greenId})`} />
 
-      <line x1='33' y1='18' x2='33' y2='54' stroke='url(#earnRed)' strokeWidth='1' />
-      <rect x='29' y='24' width='8' height='20' rx='1' fill='url(#earnRed)' />
+      <line x1='33' y1='18' x2='33' y2='54' stroke={`url(#${redId})`} strokeWidth='1' />
+      <rect x='29' y='24' width='8' height='20' rx='1' fill={`url(#${redId})`} />
 
-      <line x1='46' y1='14' x2='46' y2='52' stroke='url(#earnGreen)' strokeWidth='1' />
-      <rect x='42' y='20' width='8' height='22' rx='1' fill='url(#earnGreen)' />
+      <line x1='46' y1='14' x2='46' y2='52' stroke={`url(#${greenId})`} strokeWidth='1' />
+      <rect x='42' y='20' width='8' height='22' rx='1' fill={`url(#${greenId})`} />
     </g>
 
     <g transform='translate(56, 14)' opacity='0.95'>
@@ -249,4 +265,5 @@ export const EarningsAnalyzerIcon = ({
       EPS
     </text>
   </svg>
-);
+  );
+};
