@@ -96,7 +96,7 @@ export default function ProjectDetailClient({
               ) : (
                 <motion.div
                   className={`p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${getProjectGradient(
-                    project.title
+                    project.accentGradient
                   )} shadow-2xl`}
                   whileHover={{ scale: 1.05, rotate: 5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
@@ -525,9 +525,7 @@ export default function ProjectDetailClient({
                   >
                     <span className='relative z-10 flex items-center gap-2'>
                       <ExternalLink className='h-4 w-4 md:h-5 md:w-5' />
-                      {project.title === 'Relay Rideshare' || project.title === 'Arkhet'
-                        ? 'Learn More'
-                        : 'Live Demo'}
+                      {project.liveLinkLabel || 'Live Demo'}
                     </span>
                     <div className='absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                   </motion.a>

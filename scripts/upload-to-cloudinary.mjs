@@ -15,7 +15,7 @@ if (!process.env.CLOUDINARY_CLOUD_NAME) {
   process.exit(1);
 }
 
-const PUBLIC_DIR = path.resolve('public');
+const ASSETS_DIR = path.resolve('assets');
 const MAP_PATH = path.resolve('scripts/cloudinary-url-map.json');
 
 const IMAGE_EXTS = new Set([
@@ -60,7 +60,7 @@ async function uploadFile(relativePath, resourceType) {
     return;
   }
 
-  const filePath = path.join(PUBLIC_DIR, relativePath);
+  const filePath = path.join(ASSETS_DIR, relativePath);
   const publicId = 'portfolio/' + relativePath.replace(/\.[^.]+$/, '');
   const sizeMB = (fs.statSync(filePath).size / (1024 * 1024)).toFixed(2);
 
@@ -86,8 +86,8 @@ async function uploadFile(relativePath, resourceType) {
 }
 
 async function main() {
-  const imagesDir = path.join(PUBLIC_DIR, 'images');
-  const videosDir = path.join(PUBLIC_DIR, 'videos');
+  const imagesDir = path.join(ASSETS_DIR, 'images');
+  const videosDir = path.join(ASSETS_DIR, 'videos');
 
   const files = [
     ...(fs.existsSync(imagesDir) ? discoverFiles(imagesDir, 'images') : []),

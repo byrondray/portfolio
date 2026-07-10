@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
+import { MotionConfig } from 'framer-motion';
 import { Theme, themes } from '@/lib/theme-config';
 
 type ThemeProviderProps = {
@@ -71,7 +72,7 @@ export function ThemeProvider({
 
   return (
     <ThemeProviderContext.Provider value={value} {...props}>
-      {children}
+      <MotionConfig reducedMotion='user'>{children}</MotionConfig>
     </ThemeProviderContext.Provider>
   );
 }

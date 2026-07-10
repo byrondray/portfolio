@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   Card,
   CardContent,
@@ -26,17 +26,15 @@ const ProjectCards = () => {
     project: (typeof projects)[0];
     index: number;
   }) => {
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-    const [isCardHovered, setIsCardHovered] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
+    const glowRef = useRef<HTMLDivElement>(null);
 
     const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-      if (cardRef.current) {
+      if (cardRef.current && glowRef.current) {
         const rect = cardRef.current.getBoundingClientRect();
-        setMousePos({
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top,
-        });
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        glowRef.current.style.transform = `translate(${x - 150}px, ${y - 150}px)`;
       }
     };
 
@@ -54,43 +52,18 @@ const ProjectCards = () => {
         <motion.div
           ref={cardRef}
           onMouseMove={handleCardMouseMove}
-          onMouseEnter={() => setIsCardHovered(true)}
-          onMouseLeave={() => setIsCardHovered(false)}
           whileHover={{ y: -5, transition: { duration: 0.2 } }}
           className="h-full relative"
         >
           <Card className="relative flex flex-col bg-white/80 dark:bg-black/30 backdrop-blur-lg border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300 h-full overflow-hidden group">
             {/* Mouse tracking glow effect */}
             <div
-              className="absolute pointer-events-none transition-opacity duration-300 rounded-xl z-0"
+              ref={glowRef}
+              className="absolute top-0 left-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl z-0 w-[300px] h-[300px]"
               style={{
-                left: mousePos.x - 150,
-                top: mousePos.y - 150,
-                width: "300px",
-                height: "300px",
                 background: `radial-gradient(circle, ${
-                  project.title === "Flash Learn" || project.title === "Arkhet"
-                    ? "rgba(139, 92, 246, 0.3)"
-                    : project.title === "Cookbook+"
-                    ? "rgba(236, 72, 33, 0.3)"
-                    : project.title === "Warehouse CMS"
-                    ? "rgba(99, 102, 241, 0.3)"
-                    : project.title === "CytoNET"
-                    ? "rgba(6, 182, 212, 0.3)"
-                    : project.title === "Travel Planner"
-                    ? "rgba(59, 130, 246, 0.3)"
-                    : project.title === "AI Stock Tracker"
-                    ? "rgba(16, 185, 129, 0.3)"
-                    : project.title === "Los Hermanos"
-                    ? "rgba(249, 115, 22, 0.3)"
-                    : project.title === "Stock Earnings Analyzer"
-                    ? "rgba(20, 184, 166, 0.3)"
-                    : project.title === "Relay Rideshare" ||
-                      project.title === "Rezen Gaming"
-                    ? "rgba(239, 68, 68, 0.3)"
-                    : "rgba(16, 185, 129, 0.3)"
+                  project.accentGlow || "rgba(16, 185, 129, 0.3)"
                 } 0%, transparent 70%)`,
-                opacity: isCardHovered ? 1 : 0,
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 to-white/50 dark:from-gray-900/50 dark:to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -144,7 +117,7 @@ const ProjectCards = () => {
                 ) : (
                   <motion.div
                     className={`p-8 rounded-2xl bg-gradient-to-br ${getProjectGradient(
-                      project.title
+                      project.accentGradient
                     )} shadow-2xl`}
                     whileHover={{ scale: 1.05, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}

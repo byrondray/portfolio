@@ -1,20 +1,10 @@
 import { Brain, ChefHat, Database, Dna, Plane, Shirt } from 'lucide-react';
 import { ForkliftIcon, StockChartIcon, EarningsAnalyzerIcon } from './project-icons';
 
-const GRADIENTS: Record<string, string> = {
-  'Flash Learn': 'from-purple-500 to-indigo-500',
-  'Cookbook+': 'from-red-500 to-pink-500',
-  'Warehouse CMS': 'from-indigo-500 to-blue-500',
-  CytoNET: 'from-cyan-500 to-teal-500',
-  'Travel Planner': 'from-blue-500 to-sky-500',
-  'AI Stock Tracker': 'from-green-500 to-emerald-500',
-  'Los Hermanos': 'from-orange-500 to-amber-500',
-  'Stock Earnings Analyzer': 'from-slate-800 to-emerald-950',
-};
 const DEFAULT_GRADIENT = 'from-emerald-500 to-green-500';
 
-export function getProjectGradient(title: string): string {
-  return GRADIENTS[title] || DEFAULT_GRADIENT;
+export function getProjectGradient(accentGradient?: string): string {
+  return accentGradient || DEFAULT_GRADIENT;
 }
 
 export function getProjectIcon(
